@@ -1,6 +1,6 @@
 ---
 name: openstack
-description:
+description: OpenStack integration pack
 version: 0.1.0
-author: John Doe
-email: john.doe@example.com
+author: st2dev
+email: info@stackstorm.com

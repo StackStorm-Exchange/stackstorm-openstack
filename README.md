@@ -1,6 +1,6 @@
 # Openstack Integration Pack
 
-[Short description of what the pack does]
+StackStorm pack for OpenStack integration.
 
 ## Configuration
 
