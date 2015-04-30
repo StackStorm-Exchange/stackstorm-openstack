@@ -1,3 +1,15 @@
-# StackStorm Openstack 
+# Openstack Integration Pack
 
-Pack containing OpenStack management content to manage an OpenStack infrastructure via StackStorm.
+[Short description of what the pack does]
+
+## Configuration
+
+[Description of the configuration options]
+
+## Sensors
+
+[Description of all the available sensors]
+
+## Actions
+
+[Description of all the available actions]
