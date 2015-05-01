@@ -40,7 +40,10 @@ class OpenStackBaseAction(Action):
 
     def _format_output(self, out, err, exit):
         if exit == 0:
-            return json.loads(out)
+            try:
+                return json.loads(out)
+            except ValueError:
+                return out
         else:
             # put out and err to output streams
             sys.stdout.write(out)
