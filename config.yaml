@@ -1,1 +1,13 @@
 ---
+# Specify one of sectio token or password. If both are provided token will
+# take precedence. Since tokens are epehemral It might be suitable to use
+# password style authetication.
+token:
+    OS_TOKEN: ""
+    OS_URL: ""
+password:
+    OS_AUTH_URL: ""
+    OS_TENANT_ID: ""
+    OS_TENANT_NAME: ""
+    OS_USERNAME: ""
+    OS_PASSWORD: ""
