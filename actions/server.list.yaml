@@ -1,0 +1,15 @@
+---
+    name: server.list
+    runner_type: run-python
+    description: server list
+    enabled: true
+    entry_point: src/wrapper.py
+    parameters:
+        base:
+            type: string
+            default: server
+            immutable: true
+        verb:
+            type: string
+            default: list
+            immutable: true
