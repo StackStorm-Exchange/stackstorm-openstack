@@ -1,0 +1,7 @@
+---
+    name: help
+    runner_type: run-python
+    description: help from the openstack client.
+    enabled: true
+    entry_point: src/help.py
+    parameters: {}
