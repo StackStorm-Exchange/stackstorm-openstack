@@ -2,13 +2,15 @@ import abc
 import subprocess
 import shlex
 
+from st2actions.runners.pythonrunner import Action
 
-class OpenStackBaseAction(object):
+
+class OpenStackBaseAction(Action):
 
     base = 'openstack %s'
 
     def __init__(self, config):
-        super(OpenStackBaseAction. self).__init__(config=config)
+        super(OpenStackBaseAction, self).__init__(config=config)
 
     def run(self, **kwargs):
         cmd = self.base % self.get_cmd(**kwargs)
