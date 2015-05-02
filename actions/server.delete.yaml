@@ -1,18 +1,21 @@
 ---
-    name: help
+    name: server.delete
     runner_type: run-python
-    description: help from the openstack client.
+    description: server delete
     enabled: true
     entry_point: src/wrapper.py
     parameters:
         base:
             type: string
-            default: '--help'
+            default: server
             immutable: true
         verb:
             type: string
-            default: ''
+            default: "delete {{id}}"
             immutable: true
+        id:
+            type: string
+            required: true
         format:
             type: string
             default: default
