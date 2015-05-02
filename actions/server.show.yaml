@@ -1,19 +1,22 @@
 ---
-    name: help
+    name: server.show
     runner_type: run-python
-    description: help from the openstack client.
+    description: server show
     enabled: true
     entry_point: src/wrapper.py
     parameters:
         base:
             type: string
-            default: '--help'
+            default: server
             immutable: true
         verb:
             type: string
-            default: ''
+            default: "show {{id}}"
             immutable: true
+        id:
+            type: string
+            required: true
         format:
             type: string
-            default: default
+            default: json
             immutable: true
