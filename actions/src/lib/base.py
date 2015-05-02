@@ -8,11 +8,21 @@ import sys
 
 from st2actions.runners.pythonrunner import Action
 
+SKIP = ['id', 'name']
+
+FORMAT = ['json', 'default']
+COMMAND_BASE = {
+    'json': 'openstack %s -f json',
+    'default': 'openstack %s'
+}
 
 class OpenStackBaseAction(Action):
 
     # structure of openstack command. Always ask for data as json for upstream consumption.
-    base = 'openstack %s -f json'
+    base = {
+        'json': 'openstack %s -f json',
+        'default': 'openstack %s'
+    }
 
     def __init__(self, config):
         super(OpenStackBaseAction, self).__init__(config=config)
@@ -20,7 +30,11 @@ class OpenStackBaseAction(Action):
         self.password = self._get_config_section(config, 'password')
 
     def run(self, **kwargs):
-        cmd = self.base % self.get_cmd(**kwargs)
+        # use-up format in this command.
+        format_ = kwargs.pop('format', 'default')
+        # drop all the skipped properties
+        [kwargs.pop(x) for x in SKIP if x in kwargs]
+        cmd = self.base[format_] % self.get_cmd(**kwargs)
         # Copy over curretn environment so that the pythonpath for openstack command is
         # still available.
         env = os.environ.copy()
