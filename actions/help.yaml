@@ -5,13 +5,9 @@
     enabled: true
     entry_point: src/wrapper.py
     parameters:
-        base:
+        positional:
             type: string
-            default: '--help'
-            immutable: true
-        verb:
-            type: string
-            default: ''
+            default: --help
             immutable: true
         format:
             type: string
