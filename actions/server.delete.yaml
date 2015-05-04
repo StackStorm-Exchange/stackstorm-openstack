@@ -5,13 +5,9 @@
     enabled: true
     entry_point: src/wrapper.py
     parameters:
-        base:
+        positional:
             type: string
-            default: server
-            immutable: true
-        verb:
-            type: string
-            default: "delete {{id}}"
+            default: "server delete {{id}}"
             immutable: true
         id:
             type: string
