@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Delete volume type
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: volume.type.delete
 parameters:
     base:
-        default: server delete
+        default: volume type delete
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('volume_type_delete = openstackclient.volume.v1.type:DeleteVolumeType')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    volume_type:
+        description: Volume type to delete (name or ID)
         immutable: false
         required: true
         type: string

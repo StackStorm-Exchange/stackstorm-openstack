@@ -1,0 +1,104 @@
+---
+description: Set image properties
+enabled: true
+entry_point: src/wrapper.py
+name: image.set
+parameters:
+    base:
+        default: image set
+        description: null
+        immutable: true
+        required: false
+        type: string
+    column:
+        default: []
+        description: specify the column(s) to include, can be repeated
+        immutable: false
+        required: false
+        type: array
+    ep:
+        default: EntryPoint.parse('image_set = openstackclient.image.v1.image:SetImage')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        immutable: false
+        required: false
+        type: string
+    image:
+        description: Image to modify (name or ID)
+        immutable: false
+        required: true
+        type: string
+    max-width:
+        default: 0
+        description: Maximum display width, 0 to disable
+        immutable: false
+        required: false
+        type: integer
+    min-disk:
+        description: Minimum disk size needed to boot image, in gigabytes
+        immutable: false
+        required: false
+        type: integer
+    min-ram:
+        description: Minimum RAM size needed to boot image, in megabytes
+        immutable: false
+        required: false
+        type: integer
+    name:
+        description: New image name
+        immutable: false
+        required: false
+        type: string
+    owner:
+        description: New image owner project (name or ID)
+        immutable: false
+        required: false
+        type: string
+    prefix:
+        default: ''
+        description: add a prefix to all variable names
+        immutable: false
+        required: false
+        type: string
+    private:
+        default: false
+        description: Image is inaccessible to the public (default)
+        immutable: false
+        required: false
+        type: boolean
+    property:
+        description: Set a property on this image (repeat option to set multiple properties)
+        immutable: false
+        required: false
+        type: string
+    protected:
+        default: false
+        description: Prevent image from being deleted
+        immutable: false
+        required: false
+        type: boolean
+    public:
+        default: false
+        description: Image is accessible to the public
+        immutable: false
+        required: false
+        type: boolean
+    unprotected:
+        default: false
+        description: Allow image to be deleted (default)
+        immutable: false
+        required: false
+        type: boolean
+    variable:
+        default: []
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: array
+runner_type: run-python

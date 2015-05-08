@@ -1,0 +1,51 @@
+---
+description: List endpoints
+enabled: true
+entry_point: src/wrapper.py
+name: endpoint.list
+parameters:
+    base:
+        default: endpoint list
+        description: null
+        immutable: true
+        required: false
+        type: string
+    column:
+        default: []
+        description: specify the column(s) to include, can be repeated
+        immutable: false
+        required: false
+        type: array
+    ep:
+        default: EntryPoint.parse('endpoint_list = openstackclient.identity.v2_0.endpoint:ListEndpoint')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        immutable: false
+        required: false
+        type: string
+    long:
+        default: false
+        description: !!python/unicode 'List additional fields in output'
+        immutable: false
+        required: false
+        type: boolean
+    max-width:
+        default: 0
+        description: Maximum display width, 0 to disable
+        immutable: false
+        required: false
+        type: integer
+    quote:
+        default: nonnumeric
+        description: 'when to include quotes, defaults to nonnumeric (choices: all,
+            minimal, none, nonnumeric)'
+        immutable: false
+        required: false
+        type: string
+runner_type: run-python

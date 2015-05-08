@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Display project details
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: project.show
 parameters:
     base:
-        default: server show
+        default: project show
         description: null
         immutable: true
         required: false
@@ -16,14 +16,8 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('project_show = openstackclient.identity.v2_0.project:ShowProject')
         description: null
         immutable: true
         required: false
@@ -47,8 +41,8 @@ parameters:
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    project:
+        description: !!python/unicode 'Project to display (name or ID)'
         immutable: false
         required: true
         type: string

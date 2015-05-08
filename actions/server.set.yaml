@@ -1,0 +1,41 @@
+---
+description: Set server properties
+enabled: true
+entry_point: src/wrapper.py
+name: server.set
+parameters:
+    base:
+        default: server set
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('server_set = openstackclient.compute.v2.server:SetServer')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    name:
+        description: !!python/unicode 'New server name'
+        immutable: false
+        required: false
+        type: string
+    property:
+        description: !!python/unicode 'Property to add/change for this server (repeat
+            option to set multiple properties)'
+        immutable: false
+        required: false
+        type: string
+    root-password:
+        default: false
+        description: !!python/unicode 'Set new root password (interactive only)'
+        immutable: false
+        required: false
+        type: boolean
+    server:
+        description: !!python/unicode 'Server (name or ID)'
+        immutable: false
+        required: true
+        type: string
+runner_type: run-python

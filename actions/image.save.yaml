@@ -1,0 +1,29 @@
+---
+description: Save an image locally
+enabled: true
+entry_point: src/wrapper.py
+name: image.save
+parameters:
+    base:
+        default: image save
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('image_save = openstackclient.image.v1.image:SaveImage')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    file:
+        description: 'Downloaded image save filename (default: stdout)'
+        immutable: false
+        required: false
+        type: string
+    image:
+        description: Image to save (name or ID)
+        immutable: false
+        required: true
+        type: string
+runner_type: run-python

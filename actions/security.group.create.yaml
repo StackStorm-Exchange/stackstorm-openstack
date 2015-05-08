@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Create a new security group
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: security.group.create
 parameters:
     base:
-        default: server show
+        default: security group create
         description: null
         immutable: true
         required: false
@@ -16,14 +16,13 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
+    description:
+        description: Security group description
         immutable: false
         required: false
-        type: boolean
+        type: string
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('security_group_create = openstackclient.compute.v2.security_group:CreateSecurityGroup')
         description: null
         immutable: true
         required: false
@@ -41,16 +40,16 @@ parameters:
         immutable: false
         required: false
         type: integer
+    name:
+        description: New security group name
+        immutable: false
+        required: true
+        type: string
     prefix:
         default: ''
         description: add a prefix to all variable names
         immutable: false
         required: false
-        type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
-        immutable: false
-        required: true
         type: string
     variable:
         default: []

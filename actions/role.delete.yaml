@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Delete role(s)
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: role.delete
 parameters:
     base:
-        default: server delete
+        default: role delete
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('role_delete = openstackclient.identity.v2_0.role:DeleteRole')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    roles:
+        description: !!python/unicode 'Role(s) to delete (name or ID)'
         immutable: false
         required: true
         type: string

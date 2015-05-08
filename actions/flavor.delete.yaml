@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Delete flavor
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: flavor.delete
 parameters:
     base:
-        default: server delete
+        default: flavor delete
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('flavor_delete = openstackclient.compute.v2.flavor:DeleteFlavor')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    flavor:
+        description: Flavor to delete (name or ID)
         immutable: false
         required: true
         type: string

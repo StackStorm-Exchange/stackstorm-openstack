@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: List resource usage per project
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: project.usage.list
 parameters:
     base:
-        default: server show
+        default: project usage list
         description: null
         immutable: true
         required: false
@@ -16,22 +16,21 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
+    end:
+        description: 'Usage range end date, ex 2012-01-20 (default: tomorrow)'
         immutable: false
         required: false
-        type: boolean
+        type: string
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('project_usage_list = openstackclient.compute.v2.usage:ListProjectUsage')
         description: null
         immutable: true
         required: false
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: html, json, shell,
-            table, value, yaml)'
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
         immutable: false
         required: false
         type: string
@@ -41,21 +40,16 @@ parameters:
         immutable: false
         required: false
         type: integer
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
+    quote:
+        default: nonnumeric
+        description: 'when to include quotes, defaults to nonnumeric (choices: all,
+            minimal, none, nonnumeric)'
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
-        immutable: false
-        required: true
-        type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
+    start:
+        description: 'Usage range start date, ex 2012-01-20 (default: 4 weeks ago)'
         immutable: false
         required: false
-        type: array
+        type: string
 runner_type: run-python

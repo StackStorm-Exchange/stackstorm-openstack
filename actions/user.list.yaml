@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: List users
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: user.list
 parameters:
     base:
-        default: server show
+        default: user list
         description: null
         immutable: true
         required: false
@@ -16,46 +16,41 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('user_list = openstackclient.identity.v2_0.user:ListUser')
         description: null
         immutable: true
         required: false
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: html, json, shell,
-            table, value, yaml)'
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
         immutable: false
         required: false
         type: string
+    long:
+        default: false
+        description: !!python/unicode 'List additional fields in output'
+        immutable: false
+        required: false
+        type: boolean
     max-width:
         default: 0
         description: Maximum display width, 0 to disable
         immutable: false
         required: false
         type: integer
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
+    project:
+        description: !!python/unicode 'Filter users by project (name or ID)'
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
-        immutable: false
-        required: true
-        type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
+    quote:
+        default: nonnumeric
+        description: 'when to include quotes, defaults to nonnumeric (choices: all,
+            minimal, none, nonnumeric)'
         immutable: false
         required: false
-        type: array
+        type: string
 runner_type: run-python

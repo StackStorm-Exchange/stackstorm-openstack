@@ -1,0 +1,109 @@
+---
+description: Create new flavor
+enabled: true
+entry_point: src/wrapper.py
+name: flavor.create
+parameters:
+    base:
+        default: flavor create
+        description: null
+        immutable: true
+        required: false
+        type: string
+    column:
+        default: []
+        description: specify the column(s) to include, can be repeated
+        immutable: false
+        required: false
+        type: array
+    disk:
+        default: 0
+        description: Disk size in GB (default 0G)
+        immutable: false
+        required: false
+        type: integer
+    ep:
+        default: EntryPoint.parse('flavor_create = openstackclient.compute.v2.flavor:CreateFlavor')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ephemeral:
+        default: 0
+        description: Ephemeral disk size in GB (default 0G)
+        immutable: false
+        required: false
+        type: integer
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        immutable: false
+        required: false
+        type: string
+    id:
+        default: auto
+        description: 'Unique flavor ID; ''auto'' creates a UUID (default: auto)'
+        immutable: false
+        required: false
+        type: string
+    max-width:
+        default: 0
+        description: Maximum display width, 0 to disable
+        immutable: false
+        required: false
+        type: integer
+    name:
+        description: New flavor name
+        immutable: false
+        required: true
+        type: string
+    prefix:
+        default: ''
+        description: add a prefix to all variable names
+        immutable: false
+        required: false
+        type: string
+    private:
+        default: true
+        description: Flavor is not available to other projects
+        immutable: false
+        required: false
+        type: boolean
+    public:
+        default: true
+        description: Flavor is available to other projects (default)
+        immutable: false
+        required: false
+        type: boolean
+    ram:
+        default: 256
+        description: Memory size in MB (default 256M)
+        immutable: false
+        required: false
+        type: integer
+    rxtx-factor:
+        default: 1
+        description: RX/TX factor (default 1)
+        immutable: false
+        required: false
+        type: integer
+    swap:
+        default: 0
+        description: Swap space size in GB (default 0G)
+        immutable: false
+        required: false
+        type: integer
+    variable:
+        default: []
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: array
+    vcpus:
+        default: 1
+        description: Number of vcpus (default 1)
+        immutable: false
+        required: false
+        type: integer
+runner_type: run-python

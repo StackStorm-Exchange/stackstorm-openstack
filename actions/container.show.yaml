@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Display container details
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: container.show
 parameters:
     base:
-        default: server show
+        default: container show
         description: null
         immutable: true
         required: false
@@ -16,14 +16,13 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
+    container:
+        description: Container to display
         immutable: false
-        required: false
-        type: boolean
+        required: true
+        type: string
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('container_show = openstackclient.object.v1.container:ShowContainer')
         description: null
         immutable: true
         required: false
@@ -46,11 +45,6 @@ parameters:
         description: add a prefix to all variable names
         immutable: false
         required: false
-        type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
-        immutable: false
-        required: true
         type: string
     variable:
         default: []

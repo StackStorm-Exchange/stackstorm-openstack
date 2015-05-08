@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Unlock server
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: server.unlock
 parameters:
     base:
-        default: server delete
+        default: server unlock
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('server_unlock = openstackclient.compute.v2.server:UnlockServer')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    server:
+        description: !!python/unicode 'Server (name or ID)'
         immutable: false
         required: true
         type: string

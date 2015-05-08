@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Show server's remote console URL
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: console.url.show
 parameters:
     base:
-        default: server show
+        default: console url show
         description: null
         immutable: true
         required: false
@@ -16,14 +16,8 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('console_url_show = openstackclient.compute.v2.console:ShowConsoleURL')
         description: null
         immutable: true
         required: false
@@ -41,6 +35,12 @@ parameters:
         immutable: false
         required: false
         type: integer
+    novnc:
+        default: novnc
+        description: Show noVNC console URL (default)
+        immutable: false
+        required: false
+        type: string
     prefix:
         default: ''
         description: add a prefix to all variable names
@@ -48,9 +48,14 @@ parameters:
         required: false
         type: string
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server to show URL (name or ID)
         immutable: false
         required: true
+        type: string
+    spice:
+        description: Show SPICE console URL
+        immutable: false
+        required: false
         type: string
     variable:
         default: []
@@ -58,4 +63,9 @@ parameters:
         immutable: false
         required: false
         type: array
+    xvpvnc:
+        description: Show xpvnc console URL
+        immutable: false
+        required: false
+        type: string
 runner_type: run-python

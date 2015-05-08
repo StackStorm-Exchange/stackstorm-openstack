@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Delete project(s)
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: project.delete
 parameters:
     base:
-        default: server delete
+        default: project delete
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('project_delete = openstackclient.identity.v2_0.project:DeleteProject')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    projects:
+        description: !!python/unicode 'Project(s) to delete (name or ID)'
         immutable: false
         required: true
         type: string

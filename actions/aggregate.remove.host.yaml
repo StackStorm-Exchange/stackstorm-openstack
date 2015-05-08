@@ -1,11 +1,16 @@
 ---
-description: Show server details
+description: Remove host from aggregate
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: aggregate.remove.host
 parameters:
+    aggregate:
+        description: Aggregate (name or ID)
+        immutable: false
+        required: true
+        type: string
     base:
-        default: server show
+        default: aggregate remove host
         description: null
         immutable: true
         required: false
@@ -16,14 +21,8 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('aggregate_remove_host = openstackclient.compute.v2.aggregate:RemoveAggregateHost')
         description: null
         immutable: true
         required: false
@@ -34,6 +33,11 @@ parameters:
             table, value, yaml)'
         immutable: false
         required: false
+        type: string
+    host:
+        description: Host to remove from <aggregate>
+        immutable: false
+        required: true
         type: string
     max-width:
         default: 0
@@ -46,11 +50,6 @@ parameters:
         description: add a prefix to all variable names
         immutable: false
         required: false
-        type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
-        immutable: false
-        required: true
         type: string
     variable:
         default: []

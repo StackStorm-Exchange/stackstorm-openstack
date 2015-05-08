@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Revoke existing token
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: token.revoke
 parameters:
     base:
-        default: server delete
+        default: token revoke
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('token_revoke = openstackclient.identity.v2_0.token:RevokeToken')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    token:
+        description: !!python/unicode 'Token to be deleted'
         immutable: false
         required: true
         type: string

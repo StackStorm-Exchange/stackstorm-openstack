@@ -1,0 +1,52 @@
+---
+description: Set project properties
+enabled: true
+entry_point: src/wrapper.py
+name: project.set
+parameters:
+    base:
+        default: project set
+        description: null
+        immutable: true
+        required: false
+        type: string
+    description:
+        description: !!python/unicode 'Set project description'
+        immutable: false
+        required: false
+        type: string
+    disable:
+        default: false
+        description: !!python/unicode 'Disable project'
+        immutable: false
+        required: false
+        type: boolean
+    enable:
+        default: false
+        description: !!python/unicode 'Enable project'
+        immutable: false
+        required: false
+        type: boolean
+    ep:
+        default: EntryPoint.parse('project_set = openstackclient.identity.v2_0.project:SetProject')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    name:
+        description: !!python/unicode 'Set project name'
+        immutable: false
+        required: false
+        type: string
+    project:
+        description: !!python/unicode 'Project to modify (name or ID)'
+        immutable: false
+        required: true
+        type: string
+    property:
+        description: !!python/unicode 'Set a project property (repeat option to set
+            multiple properties)'
+        immutable: false
+        required: false
+        type: string
+runner_type: run-python

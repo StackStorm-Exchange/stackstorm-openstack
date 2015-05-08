@@ -1,11 +1,16 @@
 ---
-description: Show server details
+description: Create compute agent command
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: compute.agent.create
 parameters:
+    architecture:
+        description: Type of architecture
+        immutable: false
+        required: true
+        type: string
     base:
-        default: server show
+        default: compute agent create
         description: null
         immutable: true
         required: false
@@ -16,14 +21,8 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('compute_agent_create = openstackclient.compute.v2.agent:CreateAgent')
         description: null
         immutable: true
         required: false
@@ -35,20 +34,36 @@ parameters:
         immutable: false
         required: false
         type: string
+    hypervisor:
+        default: xen
+        description: Type of hypervisor
+        immutable: false
+        required: true
+        type: string
     max-width:
         default: 0
         description: Maximum display width, 0 to disable
         immutable: false
         required: false
         type: integer
+    md5hash:
+        description: MD5 hash
+        immutable: false
+        required: true
+        type: string
+    os:
+        description: Type of OS
+        immutable: false
+        required: true
+        type: string
     prefix:
         default: ''
         description: add a prefix to all variable names
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    url:
+        description: URL
         immutable: false
         required: true
         type: string
@@ -58,4 +73,9 @@ parameters:
         immutable: false
         required: false
         type: array
+    version:
+        description: Version
+        immutable: false
+        required: true
+        type: string
 runner_type: run-python

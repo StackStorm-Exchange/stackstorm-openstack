@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Create new project
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: project.create
 parameters:
     base:
-        default: server show
+        default: project create
         description: null
         immutable: true
         required: false
@@ -16,14 +16,25 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
+    description:
+        description: !!python/unicode 'Project description'
+        immutable: false
+        required: false
+        type: string
+    disable:
         default: false
-        description: !!python/unicode 'Display server diagnostics information'
+        description: !!python/unicode 'Disable project'
+        immutable: false
+        required: false
+        type: boolean
+    enable:
+        default: false
+        description: !!python/unicode 'Enable project (default)'
         immutable: false
         required: false
         type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('project_create = openstackclient.identity.v2_0.project:CreateProject')
         description: null
         immutable: true
         required: false
@@ -41,16 +52,28 @@ parameters:
         immutable: false
         required: false
         type: integer
+    name:
+        description: !!python/unicode 'New project name'
+        immutable: false
+        required: true
+        type: string
+    or-show:
+        default: false
+        description: !!python/unicode 'Return existing project'
+        immutable: false
+        required: false
+        type: boolean
     prefix:
         default: ''
         description: add a prefix to all variable names
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    property:
+        description: !!python/unicode 'Add a property to <name> (repeat option to
+            set multiple properties)'
         immutable: false
-        required: true
+        required: false
         type: string
     variable:
         default: []

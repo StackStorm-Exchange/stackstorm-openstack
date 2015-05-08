@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Create a new security group rule
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: security.group.rule.create
 parameters:
     base:
-        default: server show
+        default: security group rule create
         description: null
         immutable: true
         required: false
@@ -16,14 +16,17 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
+    dst-port:
+        default: !!python/tuple
+        - 0
+        - 0
+        description: 'Destination port, may be a range: 137:139 (default: 0; only
+            required for proto tcp and udp)'
         immutable: false
         required: false
-        type: boolean
+        type: string
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('security_group_rule_create = openstackclient.compute.v2.security_group:CreateSecurityGroupRule')
         description: null
         immutable: true
         required: false
@@ -34,6 +37,11 @@ parameters:
             table, value, yaml)'
         immutable: false
         required: false
+        type: string
+    group:
+        description: Create rule in this security group
+        immutable: false
+        required: true
         type: string
     max-width:
         default: 0
@@ -47,10 +55,17 @@ parameters:
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    proto:
+        default: tcp
+        description: 'IP protocol (icmp, tcp, udp; default: tcp)'
         immutable: false
-        required: true
+        required: false
+        type: string
+    src-ip:
+        default: 0.0.0.0/0
+        description: 'Source IP (may use CIDR notation; default: 0.0.0.0/0)'
+        immutable: false
+        required: false
         type: string
     variable:
         default: []

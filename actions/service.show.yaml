@@ -1,29 +1,29 @@
 ---
-description: Show server details
+description: Display service details
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: service.show
 parameters:
     base:
-        default: server show
+        default: service show
         description: null
         immutable: true
         required: false
         type: string
+    catalog:
+        default: false
+        description: !!python/unicode 'Show service catalog information'
+        immutable: false
+        required: false
+        type: boolean
     column:
         default: []
         description: specify the column(s) to include, can be repeated
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('service_show = openstackclient.identity.v2_0.service:ShowService')
         description: null
         immutable: true
         required: false
@@ -47,8 +47,8 @@ parameters:
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    service:
+        description: !!python/unicode 'Service to display (type, name or ID)'
         immutable: false
         required: true
         type: string

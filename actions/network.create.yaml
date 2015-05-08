@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Create new network
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: network.create
 parameters:
     base:
-        default: server show
+        default: network create
         description: null
         immutable: true
         required: false
@@ -16,14 +16,25 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
+    disable:
+        default: true
+        description: Disable network
+        immutable: false
+        required: false
+        type: boolean
+    domain:
+        description: Owner's domain (name or ID)
+        immutable: false
+        required: false
+        type: string
+    enable:
+        default: true
+        description: Enable network (default)
         immutable: false
         required: false
         type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('network_create = openstackclient.network.v2.network:CreateNetwork')
         description: null
         immutable: true
         required: false
@@ -41,17 +52,34 @@ parameters:
         immutable: false
         required: false
         type: integer
+    name:
+        description: New network name
+        immutable: false
+        required: true
+        type: string
+    no-share:
+        default: true
+        description: Do not share the network between projects
+        immutable: false
+        required: false
+        type: boolean
     prefix:
         default: ''
         description: add a prefix to all variable names
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    project:
+        description: Owner's project (name or ID)
         immutable: false
-        required: true
+        required: false
         type: string
+    share:
+        default: false
+        description: Share the network between projects
+        immutable: false
+        required: false
+        type: boolean
     variable:
         default: []
         description: ==SUPPRESS==
