@@ -42,7 +42,7 @@ parameters:
         required: false
         type: string
     user:
-        description: !!python/unicode 'User to display (name or ID)'
+        description: User to display (name or ID)
         immutable: false
         required: true
         type: string

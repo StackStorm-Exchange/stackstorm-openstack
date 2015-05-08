@@ -12,18 +12,18 @@ parameters:
         type: string
     disable:
         default: false
-        description: !!python/unicode 'Disable user'
+        description: Disable user
         immutable: false
         required: false
         type: boolean
     email:
-        description: !!python/unicode 'Set user email address'
+        description: Set user email address
         immutable: false
         required: false
         type: string
     enable:
         default: false
-        description: !!python/unicode 'Enable user (default)'
+        description: Enable user (default)
         immutable: false
         required: false
         type: boolean
@@ -34,28 +34,28 @@ parameters:
         required: false
         type: string
     name:
-        description: !!python/unicode 'Set user name'
+        description: Set user name
         immutable: false
         required: false
         type: string
     password:
-        description: !!python/unicode 'Set user password'
+        description: Set user password
         immutable: false
         required: false
         type: string
     password-prompt:
         default: false
-        description: !!python/unicode 'Prompt interactively for password'
+        description: Prompt interactively for password
         immutable: false
         required: false
         type: boolean
     project:
-        description: !!python/unicode 'Set default project (name or ID)'
+        description: Set default project (name or ID)
         immutable: false
         required: false
         type: string
     user:
-        description: !!python/unicode 'User to change (name or ID)'
+        description: User to change (name or ID)
         immutable: false
         required: true
         type: string

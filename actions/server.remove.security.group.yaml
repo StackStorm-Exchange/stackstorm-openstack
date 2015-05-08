@@ -17,13 +17,12 @@ parameters:
         required: false
         type: string
     group:
-        description: !!python/unicode 'Name or ID of security group to remove from
-            server'
+        description: Name or ID of security group to remove from server
         immutable: false
         required: true
         type: string
     server:
-        description: !!python/unicode 'Name or ID of server to use'
+        description: Name or ID of server to use
         immutable: false
         required: true
         type: string

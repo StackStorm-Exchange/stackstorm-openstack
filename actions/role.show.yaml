@@ -42,7 +42,7 @@ parameters:
         required: false
         type: string
     role:
-        description: !!python/unicode 'Role to display (name or ID)'
+        description: Role to display (name or ID)
         immutable: false
         required: true
         type: string

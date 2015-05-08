@@ -12,13 +12,13 @@ parameters:
         type: string
     block-migration:
         default: true
-        description: !!python/unicode 'Perform a block live migration'
+        description: Perform a block live migration
         immutable: false
         required: false
         type: boolean
     disk-overcommit:
         default: false
-        description: !!python/unicode 'Allow disk over-commit on the destination host'
+        description: Allow disk over-commit on the destination host
         immutable: false
         required: false
         type: boolean
@@ -29,31 +29,30 @@ parameters:
         required: false
         type: string
     live:
-        description: !!python/unicode 'Target hostname'
+        description: Target hostname
         immutable: false
         required: false
         type: string
     no-disk-overcommit:
         default: false
-        description: !!python/unicode 'Do not over-commit disk on the destination
-            host (default)'
+        description: Do not over-commit disk on the destination host (default)
         immutable: false
         required: false
         type: boolean
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string
     shared-migration:
         default: true
-        description: !!python/unicode 'Perform a shared live migration (default)'
+        description: Perform a shared live migration (default)
         immutable: false
         required: false
         type: boolean
     wait:
         default: false
-        description: !!python/unicode 'Wait for resize to complete'
+        description: Wait for resize to complete
         immutable: false
         required: false
         type: boolean

@@ -17,17 +17,17 @@ parameters:
         required: false
         type: string
     project:
-        description: !!python/unicode 'Include <project> (name or ID)'
+        description: Include <project> (name or ID)
         immutable: false
         required: true
         type: string
     role:
-        description: !!python/unicode 'Role to remove (name or ID)'
+        description: Role to remove (name or ID)
         immutable: false
         required: true
         type: string
     user:
-        description: !!python/unicode 'Include <user> (name or ID)'
+        description: Include <user> (name or ID)
         immutable: false
         required: true
         type: string

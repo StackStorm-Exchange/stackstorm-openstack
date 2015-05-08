@@ -17,12 +17,12 @@ parameters:
         required: false
         type: string
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string
     volume:
-        description: !!python/unicode 'Volume to remove (name or ID)'
+        description: Volume to remove (name or ID)
         immutable: false
         required: true
         type: string

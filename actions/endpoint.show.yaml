@@ -17,7 +17,7 @@ parameters:
         required: false
         type: array
     endpoint_or_service:
-        description: !!python/unicode 'Endpoint ID to display'
+        description: Endpoint ID to display
         immutable: false
         required: true
         type: string

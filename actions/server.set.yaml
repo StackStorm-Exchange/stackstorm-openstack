@@ -17,24 +17,24 @@ parameters:
         required: false
         type: string
     name:
-        description: !!python/unicode 'New server name'
+        description: New server name
         immutable: false
         required: false
         type: string
     property:
-        description: !!python/unicode 'Property to add/change for this server (repeat
-            option to set multiple properties)'
+        description: Property to add/change for this server (repeat option to set
+            multiple properties)
         immutable: false
         required: false
         type: string
     root-password:
         default: false
-        description: !!python/unicode 'Set new root password (interactive only)'
+        description: Set new root password (interactive only)
         immutable: false
         required: false
         type: boolean
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string

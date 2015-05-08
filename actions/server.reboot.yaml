@@ -18,24 +18,24 @@ parameters:
         type: string
     hard:
         default: SOFT
-        description: !!python/unicode 'Perform a hard reboot'
+        description: Perform a hard reboot
         immutable: false
         required: false
         type: string
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string
     soft:
         default: SOFT
-        description: !!python/unicode 'Perform a soft reboot'
+        description: Perform a soft reboot
         immutable: false
         required: false
         type: string
     wait:
         default: false
-        description: !!python/unicode 'Wait for reboot to complete'
+        description: Wait for reboot to complete
         immutable: false
         required: false
         type: boolean

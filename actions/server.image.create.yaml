@@ -36,7 +36,7 @@ parameters:
         required: false
         type: integer
     name:
-        description: !!python/unicode 'Name of new image (default is server name)'
+        description: Name of new image (default is server name)
         immutable: false
         required: false
         type: string
@@ -47,7 +47,7 @@ parameters:
         required: false
         type: string
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string
@@ -59,7 +59,7 @@ parameters:
         type: array
     wait:
         default: false
-        description: !!python/unicode 'Wait for image create to complete'
+        description: Wait for image create to complete
         immutable: false
         required: false
         type: boolean

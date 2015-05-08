@@ -17,12 +17,12 @@ parameters:
         required: false
         type: string
     group:
-        description: !!python/unicode 'Security group to add (name or ID)'
+        description: Security group to add (name or ID)
         immutable: false
         required: true
         type: string
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string

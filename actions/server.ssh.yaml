@@ -6,7 +6,7 @@ name: server.ssh
 parameters:
     address-type:
         default: public
-        description: !!python/unicode 'Use other IP address (public, private, etc)'
+        description: Use other IP address (public, private, etc)
         immutable: false
         required: false
         type: string
@@ -29,13 +29,13 @@ parameters:
         type: string
     ipv4:
         default: false
-        description: !!python/unicode 'Use only IPv4 addresses'
+        description: Use only IPv4 addresses
         immutable: false
         required: false
         type: boolean
     ipv6:
         default: false
-        description: !!python/unicode 'Use only IPv6 addresses'
+        description: Use only IPv6 addresses
         immutable: false
         required: false
         type: boolean
@@ -45,7 +45,7 @@ parameters:
         required: false
         type: string
     login:
-        description: !!python/unicode 'Login name (ssh -l option)'
+        description: Login name (ssh -l option)
         immutable: false
         required: false
         type: string
@@ -61,18 +61,18 @@ parameters:
         type: integer
     private:
         default: public
-        description: !!python/unicode 'Use private IP address'
+        description: Use private IP address
         immutable: false
         required: false
         type: string
     public:
         default: public
-        description: !!python/unicode 'Use public IP address'
+        description: Use public IP address
         immutable: false
         required: false
         type: string
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string

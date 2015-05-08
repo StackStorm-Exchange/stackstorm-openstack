@@ -30,7 +30,7 @@ parameters:
         required: false
         type: string
     image:
-        description: !!python/unicode 'Recreate server from this image'
+        description: Recreate server from this image
         immutable: false
         required: true
         type: string
@@ -52,7 +52,7 @@ parameters:
         required: false
         type: string
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string
@@ -64,7 +64,7 @@ parameters:
         type: array
     wait:
         default: false
-        description: !!python/unicode 'Wait for rebuild to complete'
+        description: Wait for rebuild to complete
         immutable: false
         required: false
         type: boolean

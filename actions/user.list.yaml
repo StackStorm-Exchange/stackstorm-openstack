@@ -31,7 +31,7 @@ parameters:
         type: string
     long:
         default: false
-        description: !!python/unicode 'List additional fields in output'
+        description: List additional fields in output
         immutable: false
         required: false
         type: boolean
@@ -42,7 +42,7 @@ parameters:
         required: false
         type: integer
     project:
-        description: !!python/unicode 'Filter users by project (name or ID)'
+        description: Filter users by project (name or ID)
         immutable: false
         required: false
         type: string

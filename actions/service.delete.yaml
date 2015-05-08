@@ -17,7 +17,7 @@ parameters:
         required: false
         type: string
     service:
-        description: !!python/unicode 'Service to delete (name or ID)'
+        description: Service to delete (name or ID)
         immutable: false
         required: true
         type: string

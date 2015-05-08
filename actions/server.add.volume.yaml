@@ -11,7 +11,7 @@ parameters:
         required: false
         type: string
     device:
-        description: !!python/unicode 'Server internal device name for volume'
+        description: Server internal device name for volume
         immutable: false
         required: false
         type: string
@@ -22,12 +22,12 @@ parameters:
         required: false
         type: string
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string
     volume:
-        description: !!python/unicode 'Volume to add (name or ID)'
+        description: Volume to add (name or ID)
         immutable: false
         required: true
         type: string
