@@ -75,6 +75,10 @@ class CommandProcessor(object):
         return 'string'
 
     def _get_default(self, action):
+        # special handling for the formatter action. default value of table
+        # is no good in this case.
+        if action.dest == 'formatter' and 'json' in action.choices:
+            return 'json'
         if action.default is not None:
             return action.default
         if isinstance(action, argparse._StoreTrueAction):
@@ -98,7 +102,12 @@ class CommandProcessor(object):
         # for a few actions default is defined by type(action)
         default = self._get_default(action)
 
-        return name, self._get_parameter(default=default, description=action.help,
+        # Make sure choices are included in the description. Often action.help
+        # may not list choices. It is perhaps better if this type were an enum?
+        descripton = action.help if not action.choices else \
+            '%s (choices: %s)' % (action.help, ', '.join(action.choices))
+
+        return name, self._get_parameter(default=default, description=descripton,
                                          type_=type_, required=required)
 
     def _parse_parameters(self, parser):
