@@ -11,7 +11,7 @@ parameters:
         required: false
         type: string
     endpoint:
-        description: !!python/unicode 'Endpoint ID to delete'
+        description: Endpoint ID to delete
         immutable: false
         required: true
         type: string

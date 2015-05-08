@@ -5,7 +5,7 @@ entry_point: src/wrapper.py
 name: server.create
 parameters:
     availability-zone:
-        description: !!python/unicode 'Select an availability zone for the server'
+        description: Select an availability zone for the server
         immutable: false
         required: false
         type: string
@@ -17,8 +17,8 @@ parameters:
         type: string
     block-device-mapping:
         default: []
-        description: !!python/unicode 'Map block devices; map is <id>:<type>:<size(GB)>:<delete_on_terminate>
-            (optional extension)'
+        description: Map block devices; map is <id>:<type>:<size(GB)>:<delete_on_terminate>
+            (optional extension)
         immutable: false
         required: false
         type: array
@@ -30,8 +30,8 @@ parameters:
         type: array
     config-drive:
         default: false
-        description: !!python/unicode 'Use specified volume as the config drive, or
-            ''True'' to use an ephemeral drive'
+        description: Use specified volume as the config drive, or 'True' to use an
+            ephemeral drive
         immutable: false
         required: false
         type: string
@@ -43,13 +43,12 @@ parameters:
         type: string
     file:
         default: []
-        description: !!python/unicode 'File to inject into image before boot (repeat
-            for multiple files)'
+        description: File to inject into image before boot (repeat for multiple files)
         immutable: false
         required: false
         type: array
     flavor:
-        description: !!python/unicode 'Create server with this flavor'
+        description: Create server with this flavor
         immutable: false
         required: true
         type: string
@@ -62,24 +61,23 @@ parameters:
         type: string
     hint:
         default: []
-        description: !!python/unicode 'Hints for the scheduler (optional extension)'
+        description: Hints for the scheduler (optional extension)
         immutable: false
         required: false
         type: array
     image:
-        description: !!python/unicode 'Create server from this image'
+        description: Create server from this image
         immutable: false
         required: false
         type: string
     key-name:
-        description: !!python/unicode 'Keypair to inject into this server (optional
-            extension)'
+        description: Keypair to inject into this server (optional extension)
         immutable: false
         required: false
         type: string
     max:
         default: 1
-        description: !!python/unicode 'Maximum number of servers to launch (default=1)'
+        description: Maximum number of servers to launch (default=1)
         immutable: false
         required: false
         type: integer
@@ -91,17 +89,17 @@ parameters:
         type: integer
     min:
         default: 1
-        description: !!python/unicode 'Minimum number of servers to launch (default=1)'
+        description: Minimum number of servers to launch (default=1)
         immutable: false
         required: false
         type: integer
     nic:
         default: []
-        description: !!python/unicode 'Create a NIC on the server. Specify option
-            multiple times to create multiple NICs. Either net-id or port-id must
-            be provided, but not both. net-id: attach NIC to network with this UUID,
-            port-id: attach NIC to port with this UUID, v4-fixed-ip: IPv4 fixed address
-            for NIC (optional), v6-fixed-ip: IPv6 fixed address for NIC (optional).'
+        description: 'Create a NIC on the server. Specify option multiple times to
+            create multiple NICs. Either net-id or port-id must be provided, but not
+            both. net-id: attach NIC to network with this UUID, port-id: attach NIC
+            to port with this UUID, v4-fixed-ip: IPv4 fixed address for NIC (optional),
+            v6-fixed-ip: IPv6 fixed address for NIC (optional).'
         immutable: false
         required: false
         type: array
@@ -112,25 +110,24 @@ parameters:
         required: false
         type: string
     property:
-        description: !!python/unicode 'Set a property on this server (repeat for multiple
-            values)'
+        description: Set a property on this server (repeat for multiple values)
         immutable: false
         required: false
         type: string
     security-group:
         default: []
-        description: !!python/unicode 'Security group to assign to this server (repeat
-            for multiple groups)'
+        description: Security group to assign to this server (repeat for multiple
+            groups)
         immutable: false
         required: false
         type: array
     server_name:
-        description: !!python/unicode 'New server name'
+        description: New server name
         immutable: false
         required: true
         type: string
     user-data:
-        description: !!python/unicode 'User data file to serve from the metadata server'
+        description: User data file to serve from the metadata server
         immutable: false
         required: false
         type: string
@@ -141,13 +138,13 @@ parameters:
         required: false
         type: array
     volume:
-        description: !!python/unicode 'Create server from this volume'
+        description: Create server from this volume
         immutable: false
         required: false
         type: string
     wait:
         default: false
-        description: !!python/unicode 'Wait for build to complete'
+        description: Wait for build to complete
         immutable: false
         required: false
         type: boolean

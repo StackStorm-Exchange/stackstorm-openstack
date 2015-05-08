@@ -37,7 +37,7 @@ parameters:
         type: integer
     or-show:
         default: false
-        description: !!python/unicode 'Return existing role'
+        description: Return existing role
         immutable: false
         required: false
         type: boolean
@@ -48,7 +48,7 @@ parameters:
         required: false
         type: string
     role_name:
-        description: !!python/unicode 'New role name'
+        description: New role name
         immutable: false
         required: true
         type: string

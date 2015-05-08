@@ -42,7 +42,7 @@ parameters:
         required: false
         type: string
     project:
-        description: !!python/unicode 'Project to display (name or ID)'
+        description: Project to display (name or ID)
         immutable: false
         required: true
         type: string

@@ -12,7 +12,7 @@ parameters:
         type: string
     confirm:
         default: false
-        description: !!python/unicode 'Confirm server resize is complete'
+        description: Confirm server resize is complete
         immutable: false
         required: false
         type: boolean
@@ -23,24 +23,24 @@ parameters:
         required: false
         type: string
     flavor:
-        description: !!python/unicode 'Resize server to specified flavor'
+        description: Resize server to specified flavor
         immutable: false
         required: false
         type: string
     revert:
         default: false
-        description: !!python/unicode 'Restore server state before resize'
+        description: Restore server state before resize
         immutable: false
         required: false
         type: boolean
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string
     wait:
         default: false
-        description: !!python/unicode 'Wait for resize to complete'
+        description: Wait for resize to complete
         immutable: false
         required: false
         type: boolean

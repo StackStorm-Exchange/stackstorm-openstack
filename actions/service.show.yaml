@@ -12,7 +12,7 @@ parameters:
         type: string
     catalog:
         default: false
-        description: !!python/unicode 'Show service catalog information'
+        description: Show service catalog information
         immutable: false
         required: false
         type: boolean
@@ -48,7 +48,7 @@ parameters:
         required: false
         type: string
     service:
-        description: !!python/unicode 'Service to display (type, name or ID)'
+        description: Service to display (type, name or ID)
         immutable: false
         required: true
         type: string

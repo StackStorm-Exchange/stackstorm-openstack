@@ -5,7 +5,7 @@ entry_point: src/wrapper.py
 name: endpoint.create
 parameters:
     adminurl:
-        description: !!python/unicode 'New endpoint admin URL'
+        description: New endpoint admin URL
         immutable: false
         required: false
         type: string
@@ -35,7 +35,7 @@ parameters:
         required: false
         type: string
     internalurl:
-        description: !!python/unicode 'New endpoint internal URL'
+        description: New endpoint internal URL
         immutable: false
         required: false
         type: string
@@ -52,17 +52,17 @@ parameters:
         required: false
         type: string
     publicurl:
-        description: !!python/unicode 'New endpoint public URL (required)'
+        description: New endpoint public URL (required)
         immutable: false
         required: true
         type: string
     region:
-        description: !!python/unicode 'New endpoint region ID'
+        description: New endpoint region ID
         immutable: false
         required: false
         type: string
     service:
-        description: !!python/unicode 'New endpoint service (name or ID)'
+        description: New endpoint service (name or ID)
         immutable: false
         required: true
         type: string

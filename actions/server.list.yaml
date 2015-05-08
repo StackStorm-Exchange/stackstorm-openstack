@@ -6,7 +6,7 @@ name: server.list
 parameters:
     all-projects:
         default: false
-        description: !!python/unicode 'Include all projects (admin only)'
+        description: Include all projects (admin only)
         immutable: false
         required: false
         type: boolean
@@ -29,7 +29,7 @@ parameters:
         required: false
         type: string
     flavor:
-        description: !!python/unicode 'Search by flavor'
+        description: Search by flavor
         immutable: false
         required: false
         type: string
@@ -41,34 +41,33 @@ parameters:
         required: false
         type: string
     host:
-        description: !!python/unicode 'Search by hostname'
+        description: Search by hostname
         immutable: false
         required: false
         type: string
     image:
-        description: !!python/unicode 'Search by image'
+        description: Search by image
         immutable: false
         required: false
         type: string
     instance-name:
-        description: !!python/unicode 'Regular expression to match instance name (admin
-            only)'
+        description: Regular expression to match instance name (admin only)
         immutable: false
         required: false
         type: string
     ip:
-        description: !!python/unicode 'Regular expression to match IP addresses'
+        description: Regular expression to match IP addresses
         immutable: false
         required: false
         type: string
     ip6:
-        description: !!python/unicode 'Regular expression to match IPv6 addresses'
+        description: Regular expression to match IPv6 addresses
         immutable: false
         required: false
         type: string
     long:
         default: false
-        description: !!python/unicode 'List additional fields in output'
+        description: List additional fields in output
         immutable: false
         required: false
         type: boolean
@@ -79,7 +78,7 @@ parameters:
         required: false
         type: integer
     name:
-        description: !!python/unicode 'Regular expression to match names'
+        description: Regular expression to match names
         immutable: false
         required: false
         type: string
@@ -91,12 +90,12 @@ parameters:
         required: false
         type: string
     reservation-id:
-        description: !!python/unicode 'Only return instances that match the reservation'
+        description: Only return instances that match the reservation
         immutable: false
         required: false
         type: string
     status:
-        description: !!python/unicode 'Search by server status'
+        description: Search by server status
         immutable: false
         required: false
         type: string

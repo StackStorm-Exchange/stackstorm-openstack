@@ -18,13 +18,13 @@ parameters:
         type: string
     property:
         default: []
-        description: !!python/unicode 'Property key to remove from server (repeat
-            to unset multiple values)'
+        description: Property key to remove from server (repeat to unset multiple
+            values)
         immutable: false
         required: false
         type: array
     server:
-        description: !!python/unicode 'Server (name or ID)'
+        description: Server (name or ID)
         immutable: false
         required: true
         type: string

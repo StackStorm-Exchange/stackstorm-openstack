@@ -42,7 +42,7 @@ parameters:
         required: false
         type: string
     service:
-        description: !!python/unicode 'Service to display (type or name)'
+        description: Service to display (type or name)
         immutable: false
         required: true
         type: string

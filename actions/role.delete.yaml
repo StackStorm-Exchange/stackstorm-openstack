@@ -17,7 +17,7 @@ parameters:
         required: false
         type: string
     roles:
-        description: !!python/unicode 'Role(s) to delete (name or ID)'
+        description: Role(s) to delete (name or ID)
         immutable: false
         required: true
         type: string

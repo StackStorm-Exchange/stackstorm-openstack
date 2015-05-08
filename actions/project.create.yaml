@@ -17,19 +17,19 @@ parameters:
         required: false
         type: array
     description:
-        description: !!python/unicode 'Project description'
+        description: Project description
         immutable: false
         required: false
         type: string
     disable:
         default: false
-        description: !!python/unicode 'Disable project'
+        description: Disable project
         immutable: false
         required: false
         type: boolean
     enable:
         default: false
-        description: !!python/unicode 'Enable project (default)'
+        description: Enable project (default)
         immutable: false
         required: false
         type: boolean
@@ -53,13 +53,13 @@ parameters:
         required: false
         type: integer
     name:
-        description: !!python/unicode 'New project name'
+        description: New project name
         immutable: false
         required: true
         type: string
     or-show:
         default: false
-        description: !!python/unicode 'Return existing project'
+        description: Return existing project
         immutable: false
         required: false
         type: boolean
@@ -70,8 +70,7 @@ parameters:
         required: false
         type: string
     property:
-        description: !!python/unicode 'Add a property to <name> (repeat option to
-            set multiple properties)'
+        description: Add a property to <name> (repeat option to set multiple properties)
         immutable: false
         required: false
         type: string

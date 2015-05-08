@@ -31,7 +31,7 @@ parameters:
         type: string
     long:
         default: false
-        description: !!python/unicode 'List additional fields in output'
+        description: List additional fields in output
         immutable: false
         required: false
         type: boolean

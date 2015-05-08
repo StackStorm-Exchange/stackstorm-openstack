@@ -18,18 +18,18 @@ parameters:
         type: array
     disable:
         default: false
-        description: !!python/unicode 'Disable user'
+        description: Disable user
         immutable: false
         required: false
         type: boolean
     email:
-        description: !!python/unicode 'Set user email address'
+        description: Set user email address
         immutable: false
         required: false
         type: string
     enable:
         default: false
-        description: !!python/unicode 'Enable user (default)'
+        description: Enable user (default)
         immutable: false
         required: false
         type: boolean
@@ -53,24 +53,24 @@ parameters:
         required: false
         type: integer
     name:
-        description: !!python/unicode 'New user name'
+        description: New user name
         immutable: false
         required: true
         type: string
     or-show:
         default: false
-        description: !!python/unicode 'Return existing user'
+        description: Return existing user
         immutable: false
         required: false
         type: boolean
     password:
-        description: !!python/unicode 'Set user password'
+        description: Set user password
         immutable: false
         required: false
         type: string
     password-prompt:
         default: false
-        description: !!python/unicode 'Prompt interactively for password'
+        description: Prompt interactively for password
         immutable: false
         required: false
         type: boolean
@@ -81,7 +81,7 @@ parameters:
         required: false
         type: string
     project:
-        description: !!python/unicode 'Default project (name or ID)'
+        description: Default project (name or ID)
         immutable: false
         required: false
         type: string

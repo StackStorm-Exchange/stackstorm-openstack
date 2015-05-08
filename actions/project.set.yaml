@@ -11,19 +11,19 @@ parameters:
         required: false
         type: string
     description:
-        description: !!python/unicode 'Set project description'
+        description: Set project description
         immutable: false
         required: false
         type: string
     disable:
         default: false
-        description: !!python/unicode 'Disable project'
+        description: Disable project
         immutable: false
         required: false
         type: boolean
     enable:
         default: false
-        description: !!python/unicode 'Enable project'
+        description: Enable project
         immutable: false
         required: false
         type: boolean
@@ -34,18 +34,17 @@ parameters:
         required: false
         type: string
     name:
-        description: !!python/unicode 'Set project name'
+        description: Set project name
         immutable: false
         required: false
         type: string
     project:
-        description: !!python/unicode 'Project to modify (name or ID)'
+        description: Project to modify (name or ID)
         immutable: false
         required: true
         type: string
     property:
-        description: !!python/unicode 'Set a project property (repeat option to set
-            multiple properties)'
+        description: Set a project property (repeat option to set multiple properties)
         immutable: false
         required: false
         type: string
