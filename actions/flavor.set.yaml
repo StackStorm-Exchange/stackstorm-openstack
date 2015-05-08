@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Set flavor properties
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: flavor.set
 parameters:
     base:
-        default: server show
+        default: flavor set
         description: null
         immutable: true
         required: false
@@ -16,17 +16,16 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('flavor_set = openstackclient.compute.v2.flavor:SetFlavor')
         description: null
         immutable: true
         required: false
+        type: string
+    flavor:
+        description: Flavor to modify (name or ID)
+        immutable: false
+        required: true
         type: string
     format:
         default: json
@@ -47,10 +46,11 @@ parameters:
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    property:
+        description: Property to add or modify for this flavor (repeat option to set
+            multiple properties)
         immutable: false
-        required: true
+        required: false
         type: string
     variable:
         default: []

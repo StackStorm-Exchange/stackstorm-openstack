@@ -1,0 +1,74 @@
+---
+description: Show compute and volume limits
+enabled: true
+entry_point: src/wrapper.py
+name: limits.show
+parameters:
+    absolute:
+        default: false
+        description: Show absolute limits
+        immutable: false
+        required: false
+        type: boolean
+    base:
+        default: limits show
+        description: null
+        immutable: true
+        required: false
+        type: string
+    column:
+        default: []
+        description: specify the column(s) to include, can be repeated
+        immutable: false
+        required: false
+        type: array
+    domain:
+        description: Domain that owns --project (name or ID)  [only valid with --absolute]
+        immutable: false
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('limits_show = openstackclient.common.limits:ShowLimits')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        immutable: false
+        required: false
+        type: string
+    max-width:
+        default: 0
+        description: Maximum display width, 0 to disable
+        immutable: false
+        required: false
+        type: integer
+    project:
+        description: Show limits for a specific project (name or ID) [only valid with
+            --absolute]
+        immutable: false
+        required: false
+        type: string
+    quote:
+        default: nonnumeric
+        description: 'when to include quotes, defaults to nonnumeric (choices: all,
+            minimal, none, nonnumeric)'
+        immutable: false
+        required: false
+        type: string
+    rate:
+        default: false
+        description: Show rate limits
+        immutable: false
+        required: false
+        type: boolean
+    reserved:
+        default: false
+        description: Include reservations count [only valid with --absolute]
+        immutable: false
+        required: false
+        type: boolean
+runner_type: run-python

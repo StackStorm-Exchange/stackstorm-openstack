@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Show volume details
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: volume.show
 parameters:
     base:
-        default: server show
+        default: volume show
         description: null
         immutable: true
         required: false
@@ -16,14 +16,8 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('volume_show = openstackclient.volume.v1.volume:ShowVolume')
         description: null
         immutable: true
         required: false
@@ -47,15 +41,15 @@ parameters:
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
-        immutable: false
-        required: true
-        type: string
     variable:
         default: []
         description: ==SUPPRESS==
         immutable: false
         required: false
         type: array
+    volume:
+        description: Volume to display (name or ID)
+        immutable: false
+        required: true
+        type: string
 runner_type: run-python

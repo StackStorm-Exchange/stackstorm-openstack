@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Set service command
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: compute.service.set
 parameters:
     base:
-        default: server show
+        default: compute service set
         description: null
         immutable: true
         required: false
@@ -16,24 +16,35 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
+    disable:
+        default: true
+        description: Disable a service
+        immutable: false
+        required: false
+        type: boolean
+    enable:
+        default: true
+        description: Enable a service
         immutable: false
         required: false
         type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('compute_service_set = openstackclient.compute.v2.service:SetService')
         description: null
         immutable: true
         required: false
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: html, json, shell,
-            table, value, yaml)'
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
         immutable: false
         required: false
+        type: string
+    host:
+        description: Name of host
+        immutable: false
+        required: true
         type: string
     max-width:
         default: 0
@@ -41,21 +52,16 @@ parameters:
         immutable: false
         required: false
         type: integer
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
+    quote:
+        default: nonnumeric
+        description: 'when to include quotes, defaults to nonnumeric (choices: all,
+            minimal, none, nonnumeric)'
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    service:
+        description: Name of service
         immutable: false
         required: true
         type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
-        immutable: false
-        required: false
-        type: array
 runner_type: run-python

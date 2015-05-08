@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Lock a server. A non-admin user will not be able to execute actions
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: server.lock
 parameters:
     base:
-        default: server delete
+        default: server lock
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('server_lock = openstackclient.compute.v2.server:LockServer')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    server:
+        description: !!python/unicode 'Server (name or ID)'
         immutable: false
         required: true
         type: string

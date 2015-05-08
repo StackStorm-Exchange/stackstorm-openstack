@@ -1,0 +1,111 @@
+---
+description: Create new volume
+enabled: true
+entry_point: src/wrapper.py
+name: volume.create
+parameters:
+    availability-zone:
+        description: Create new volume in <availability-zone>
+        immutable: false
+        required: false
+        type: string
+    base:
+        default: volume create
+        description: null
+        immutable: true
+        required: false
+        type: string
+    column:
+        default: []
+        description: specify the column(s) to include, can be repeated
+        immutable: false
+        required: false
+        type: array
+    description:
+        description: New volume description
+        immutable: false
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('volume_create = openstackclient.volume.v1.volume:CreateVolume')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        immutable: false
+        required: false
+        type: string
+    image:
+        description: Use <image> as source of new volume (name or ID)
+        immutable: false
+        required: false
+        type: string
+    max-width:
+        default: 0
+        description: Maximum display width, 0 to disable
+        immutable: false
+        required: false
+        type: integer
+    name:
+        description: New volume name
+        immutable: false
+        required: true
+        type: string
+    prefix:
+        default: ''
+        description: add a prefix to all variable names
+        immutable: false
+        required: false
+        type: string
+    project:
+        description: Specify an alternate project (name or ID)
+        immutable: false
+        required: false
+        type: string
+    property:
+        description: Set a property on this volume (repeat option to set multiple
+            properties)
+        immutable: false
+        required: false
+        type: string
+    size:
+        description: New volume size in GB
+        immutable: false
+        required: true
+        type: integer
+    snapshot:
+        description: Use <snapshot> as source of new volume
+        immutable: false
+        required: false
+        type: string
+    snapshot-id:
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: string
+    source:
+        description: Volume to clone (name or ID)
+        immutable: false
+        required: false
+        type: string
+    type:
+        description: Use <volume-type> as the new volume type
+        immutable: false
+        required: false
+        type: string
+    user:
+        description: Specify an alternate user (name or ID)
+        immutable: false
+        required: false
+        type: string
+    variable:
+        default: []
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: array
+runner_type: run-python

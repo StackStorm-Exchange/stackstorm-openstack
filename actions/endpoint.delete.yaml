@@ -1,22 +1,22 @@
 ---
-description: "print detailed help for another command\n    "
+description: Delete endpoint
 enabled: true
 entry_point: src/wrapper.py
-name: help
+name: endpoint.delete
 parameters:
     base:
-        default: help
+        default: endpoint delete
         description: null
         immutable: true
         required: false
         type: string
-    cmd:
-        description: name of the command
+    endpoint:
+        description: !!python/unicode 'Endpoint ID to delete'
         immutable: false
         required: true
         type: string
     ep:
-        default: <cliff.commandmanager.EntryPointWrapper object at 0x7f2a1f970e50>
+        default: EntryPoint.parse('endpoint_delete = openstackclient.identity.v2_0.endpoint:DeleteEndpoint')
         description: null
         immutable: true
         required: false

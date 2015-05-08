@@ -1,0 +1,34 @@
+---
+description: Add volume to server
+enabled: true
+entry_point: src/wrapper.py
+name: server.add.volume
+parameters:
+    base:
+        default: server add volume
+        description: null
+        immutable: true
+        required: false
+        type: string
+    device:
+        description: !!python/unicode 'Server internal device name for volume'
+        immutable: false
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('server_add_volume = openstackclient.compute.v2.server:AddServerVolume')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    server:
+        description: !!python/unicode 'Server (name or ID)'
+        immutable: false
+        required: true
+        type: string
+    volume:
+        description: !!python/unicode 'Volume to add (name or ID)'
+        immutable: false
+        required: true
+        type: string
+runner_type: run-python

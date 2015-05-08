@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Create new role
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: role.create
 parameters:
     base:
-        default: server show
+        default: role create
         description: null
         immutable: true
         required: false
@@ -16,14 +16,8 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('role_create = openstackclient.identity.v2_0.role:CreateRole')
         description: null
         immutable: true
         required: false
@@ -41,14 +35,20 @@ parameters:
         immutable: false
         required: false
         type: integer
+    or-show:
+        default: false
+        description: !!python/unicode 'Return existing role'
+        immutable: false
+        required: false
+        type: boolean
     prefix:
         default: ''
         description: add a prefix to all variable names
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    role_name:
+        description: !!python/unicode 'New role name'
         immutable: false
         required: true
         type: string

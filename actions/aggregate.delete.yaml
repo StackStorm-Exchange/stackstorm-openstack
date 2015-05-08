@@ -1,0 +1,24 @@
+---
+description: Delete an existing aggregate
+enabled: true
+entry_point: src/wrapper.py
+name: aggregate.delete
+parameters:
+    aggregate:
+        description: Aggregate to delete (name or ID)
+        immutable: false
+        required: true
+        type: string
+    base:
+        default: aggregate delete
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('aggregate_delete = openstackclient.compute.v2.aggregate:DeleteAggregate')
+        description: null
+        immutable: true
+        required: false
+        type: string
+runner_type: run-python

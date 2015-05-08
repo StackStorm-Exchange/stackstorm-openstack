@@ -1,0 +1,29 @@
+---
+description: Add fixed-ip command
+enabled: true
+entry_point: src/wrapper.py
+name: ip.fixed.add
+parameters:
+    base:
+        default: ip fixed add
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('ip_fixed_add = openstackclient.compute.v2.fixedip:AddFixedIP')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    network:
+        description: Name of the network to fetch an IP address from
+        immutable: false
+        required: true
+        type: string
+    server:
+        description: Name of the server to receive the IP address
+        immutable: false
+        required: true
+        type: string
+runner_type: run-python

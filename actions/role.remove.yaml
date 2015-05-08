@@ -1,0 +1,34 @@
+---
+description: 'Remove role from project : user'
+enabled: true
+entry_point: src/wrapper.py
+name: role.remove
+parameters:
+    base:
+        default: role remove
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('role_remove = openstackclient.identity.v2_0.role:RemoveRole')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    project:
+        description: !!python/unicode 'Include <project> (name or ID)'
+        immutable: false
+        required: true
+        type: string
+    role:
+        description: !!python/unicode 'Role to remove (name or ID)'
+        immutable: false
+        required: true
+        type: string
+    user:
+        description: !!python/unicode 'Include <user> (name or ID)'
+        immutable: false
+        required: true
+        type: string
+runner_type: run-python

@@ -1,0 +1,30 @@
+---
+description: Unset snapshot properties
+enabled: true
+entry_point: src/wrapper.py
+name: snapshot.unset
+parameters:
+    base:
+        default: snapshot unset
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('snapshot_unset = openstackclient.volume.v1.snapshot:UnsetSnapshot')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    property:
+        default: []
+        description: Property to remove from snapshot (repeat to remove multiple values)
+        immutable: false
+        required: false
+        type: array
+    snapshot:
+        description: Snapshot to modify (name or ID)
+        immutable: false
+        required: true
+        type: string
+runner_type: run-python

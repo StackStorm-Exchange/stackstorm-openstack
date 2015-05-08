@@ -1,29 +1,35 @@
 ---
-description: Show server details
+description: Show quotas for project or class
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: quota.show
 parameters:
     base:
-        default: server show
+        default: quota show
         description: null
         immutable: true
         required: false
         type: string
+    class:
+        default: false
+        description: Show quotas for <class>
+        immutable: false
+        required: false
+        type: boolean
     column:
         default: []
         description: specify the column(s) to include, can be repeated
         immutable: false
         required: false
         type: array
-    diagnostics:
+    default:
         default: false
-        description: !!python/unicode 'Display server diagnostics information'
+        description: Show default quotas for <project>
         immutable: false
         required: false
         type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('quota_show = openstackclient.common.quota:ShowQuota')
         description: null
         immutable: true
         required: false
@@ -47,8 +53,8 @@ parameters:
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    project:
+        description: Show this project or class (name/ID)
         immutable: false
         required: true
         type: string

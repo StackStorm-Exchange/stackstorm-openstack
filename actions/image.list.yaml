@@ -1,0 +1,85 @@
+---
+description: List available images
+enabled: true
+entry_point: src/wrapper.py
+name: image.list
+parameters:
+    base:
+        default: image list
+        description: null
+        immutable: true
+        required: false
+        type: string
+    column:
+        default: []
+        description: specify the column(s) to include, can be repeated
+        immutable: false
+        required: false
+        type: array
+    ep:
+        default: EntryPoint.parse('image_list = openstackclient.image.v1.image:ListImage')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        immutable: false
+        required: false
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        immutable: false
+        required: false
+        type: boolean
+    max-width:
+        default: 0
+        description: Maximum display width, 0 to disable
+        immutable: false
+        required: false
+        type: integer
+    page-size:
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: string
+    private:
+        default: false
+        description: List only private images
+        immutable: false
+        required: false
+        type: boolean
+    property:
+        description: Filter output based on property
+        immutable: false
+        required: false
+        type: string
+    public:
+        default: false
+        description: List only public images
+        immutable: false
+        required: false
+        type: boolean
+    quote:
+        default: nonnumeric
+        description: 'when to include quotes, defaults to nonnumeric (choices: all,
+            minimal, none, nonnumeric)'
+        immutable: false
+        required: false
+        type: string
+    shared:
+        default: false
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: boolean
+    sort:
+        description: 'Sort output by selected keys and directions(asc or desc) (default:
+            asc), multiple keys and directions can be specified separated by comma'
+        immutable: false
+        required: false
+        type: string
+runner_type: run-python

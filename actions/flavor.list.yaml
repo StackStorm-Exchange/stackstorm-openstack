@@ -1,0 +1,69 @@
+---
+description: List flavors
+enabled: true
+entry_point: src/wrapper.py
+name: flavor.list
+parameters:
+    all:
+        default: false
+        description: List all flavors, whether public or private
+        immutable: false
+        required: false
+        type: boolean
+    base:
+        default: flavor list
+        description: null
+        immutable: true
+        required: false
+        type: string
+    column:
+        default: []
+        description: specify the column(s) to include, can be repeated
+        immutable: false
+        required: false
+        type: array
+    ep:
+        default: EntryPoint.parse('flavor_list = openstackclient.compute.v2.flavor:ListFlavor')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        immutable: false
+        required: false
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        immutable: false
+        required: false
+        type: boolean
+    max-width:
+        default: 0
+        description: Maximum display width, 0 to disable
+        immutable: false
+        required: false
+        type: integer
+    private:
+        default: true
+        description: List only private flavors
+        immutable: false
+        required: false
+        type: boolean
+    public:
+        default: true
+        description: List only public flavors (default)
+        immutable: false
+        required: false
+        type: boolean
+    quote:
+        default: nonnumeric
+        description: 'when to include quotes, defaults to nonnumeric (choices: all,
+            minimal, none, nonnumeric)'
+        immutable: false
+        required: false
+        type: string
+runner_type: run-python

@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Delete image(s)
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: image.delete
 parameters:
     base:
-        default: server delete
+        default: image delete
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('image_delete = openstackclient.image.v1.image:DeleteImage')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    images:
+        description: Image(s) to delete (name or ID)
         immutable: false
         required: true
         type: string

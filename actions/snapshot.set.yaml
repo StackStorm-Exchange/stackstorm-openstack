@@ -1,0 +1,40 @@
+---
+description: Set snapshot properties
+enabled: true
+entry_point: src/wrapper.py
+name: snapshot.set
+parameters:
+    base:
+        default: snapshot set
+        description: null
+        immutable: true
+        required: false
+        type: string
+    description:
+        description: New snapshot description
+        immutable: false
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('snapshot_set = openstackclient.volume.v1.snapshot:SetSnapshot')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    name:
+        description: New snapshot name
+        immutable: false
+        required: false
+        type: string
+    property:
+        description: Property to add/change for this snapshot (repeat option to set
+            multiple properties)
+        immutable: false
+        required: false
+        type: string
+    snapshot:
+        description: Snapshot to modify (name or ID)
+        immutable: false
+        required: true
+        type: string
+runner_type: run-python

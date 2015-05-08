@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Delete compute agent command
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: compute.agent.delete
 parameters:
     base:
-        default: server delete
+        default: compute agent delete
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('compute_agent_delete = openstackclient.compute.v2.agent:DeleteAgent')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    id:
+        description: ID of agent to delete
         immutable: false
         required: true
         type: string

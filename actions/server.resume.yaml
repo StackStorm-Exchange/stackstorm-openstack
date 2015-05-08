@@ -1,23 +1,23 @@
 ---
-description: Delete server(s)
+description: Resume server
 enabled: true
 entry_point: src/wrapper.py
-name: server.delete
+name: server.resume
 parameters:
     base:
-        default: server delete
+        default: server resume
         description: null
         immutable: true
         required: false
         type: string
     ep:
-        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        default: EntryPoint.parse('server_resume = openstackclient.compute.v2.server:ResumeServer')
         description: null
         immutable: true
         required: false
         type: string
-    servers:
-        description: !!python/unicode 'Server(s) to delete (name or ID)'
+    server:
+        description: !!python/unicode 'Server (name or ID)'
         immutable: false
         required: true
         type: string

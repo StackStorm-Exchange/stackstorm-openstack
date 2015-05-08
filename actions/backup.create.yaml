@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Create new backup
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: backup.create
 parameters:
     base:
-        default: server show
+        default: backup create
         description: null
         immutable: true
         required: false
@@ -16,14 +16,18 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
+    container:
+        description: Optional backup container name
         immutable: false
         required: false
-        type: boolean
+        type: string
+    description:
+        description: Description of the backup
+        immutable: false
+        required: false
+        type: string
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('backup_create = openstackclient.volume.v1.backup:CreateBackup')
         description: null
         immutable: true
         required: false
@@ -41,16 +45,16 @@ parameters:
         immutable: false
         required: false
         type: integer
+    name:
+        description: Name of the backup
+        immutable: false
+        required: false
+        type: string
     prefix:
         default: ''
         description: add a prefix to all variable names
         immutable: false
         required: false
-        type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
-        immutable: false
-        required: true
         type: string
     variable:
         default: []
@@ -58,4 +62,9 @@ parameters:
         immutable: false
         required: false
         type: array
+    volume:
+        description: Volume to backup (name or ID)
+        immutable: false
+        required: true
+        type: string
 runner_type: run-python

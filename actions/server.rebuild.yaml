@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Rebuild server
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: server.rebuild
 parameters:
     base:
-        default: server show
+        default: server rebuild
         description: null
         immutable: true
         required: false
@@ -16,14 +16,8 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('server_rebuild = openstackclient.compute.v2.server:RebuildServer')
         description: null
         immutable: true
         required: false
@@ -35,12 +29,22 @@ parameters:
         immutable: false
         required: false
         type: string
+    image:
+        description: !!python/unicode 'Recreate server from this image'
+        immutable: false
+        required: true
+        type: string
     max-width:
         default: 0
         description: Maximum display width, 0 to disable
         immutable: false
         required: false
         type: integer
+    password:
+        description: Set the password on the rebuilt instance
+        immutable: false
+        required: false
+        type: string
     prefix:
         default: ''
         description: add a prefix to all variable names
@@ -58,4 +62,10 @@ parameters:
         immutable: false
         required: false
         type: array
+    wait:
+        default: false
+        description: !!python/unicode 'Wait for rebuild to complete'
+        immutable: false
+        required: false
+        type: boolean
 runner_type: run-python

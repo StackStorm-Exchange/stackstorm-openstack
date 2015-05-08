@@ -1,11 +1,11 @@
 ---
-description: Show server details
+description: Create new volume type
 enabled: true
 entry_point: src/wrapper.py
-name: server.show
+name: volume.type.create
 parameters:
     base:
-        default: server show
+        default: volume type create
         description: null
         immutable: true
         required: false
@@ -16,14 +16,8 @@ parameters:
         immutable: false
         required: false
         type: array
-    diagnostics:
-        default: false
-        description: !!python/unicode 'Display server diagnostics information'
-        immutable: false
-        required: false
-        type: boolean
     ep:
-        default: EntryPoint.parse('server_show = openstackclient.compute.v2.server:ShowServer')
+        default: EntryPoint.parse('volume_type_create = openstackclient.volume.v1.type:CreateVolumeType')
         description: null
         immutable: true
         required: false
@@ -41,16 +35,22 @@ parameters:
         immutable: false
         required: false
         type: integer
+    name:
+        description: New volume type name
+        immutable: false
+        required: true
+        type: string
     prefix:
         default: ''
         description: add a prefix to all variable names
         immutable: false
         required: false
         type: string
-    server:
-        description: !!python/unicode 'Server (name or ID)'
+    property:
+        description: Property to add for this volume type (repeat option to set multiple
+            properties)
         immutable: false
-        required: true
+        required: false
         type: string
     variable:
         default: []

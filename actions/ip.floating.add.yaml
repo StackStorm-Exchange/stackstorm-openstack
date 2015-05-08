@@ -1,0 +1,29 @@
+---
+description: Add floating-ip to server
+enabled: true
+entry_point: src/wrapper.py
+name: ip.floating.add
+parameters:
+    base:
+        default: ip floating add
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('ip_floating_add = openstackclient.compute.v2.floatingip:AddFloatingIP')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ip_address:
+        description: IP address to add to server
+        immutable: false
+        required: true
+        type: string
+    server:
+        description: Server to receive the IP address (name or ID)
+        immutable: false
+        required: true
+        type: string
+runner_type: run-python

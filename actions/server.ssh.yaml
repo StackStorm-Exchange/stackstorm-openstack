@@ -1,0 +1,85 @@
+---
+description: Ssh to server
+enabled: true
+entry_point: src/wrapper.py
+name: server.ssh
+parameters:
+    address-type:
+        default: public
+        description: !!python/unicode 'Use other IP address (public, private, etc)'
+        immutable: false
+        required: false
+        type: string
+    base:
+        default: server ssh
+        description: null
+        immutable: true
+        required: false
+        type: string
+    ep:
+        default: EntryPoint.parse('server_ssh = openstackclient.compute.v2.server:SshServer')
+        description: null
+        immutable: true
+        required: false
+        type: string
+    identity:
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: string
+    ipv4:
+        default: false
+        description: !!python/unicode 'Use only IPv4 addresses'
+        immutable: false
+        required: false
+        type: boolean
+    ipv6:
+        default: false
+        description: !!python/unicode 'Use only IPv6 addresses'
+        immutable: false
+        required: false
+        type: boolean
+    l:
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: string
+    login:
+        description: !!python/unicode 'Login name (ssh -l option)'
+        immutable: false
+        required: false
+        type: string
+    option:
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: string
+    port:
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: integer
+    private:
+        default: public
+        description: !!python/unicode 'Use private IP address'
+        immutable: false
+        required: false
+        type: string
+    public:
+        default: public
+        description: !!python/unicode 'Use public IP address'
+        immutable: false
+        required: false
+        type: string
+    server:
+        description: !!python/unicode 'Server (name or ID)'
+        immutable: false
+        required: true
+        type: string
+    verbose:
+        default: false
+        description: ==SUPPRESS==
+        immutable: false
+        required: false
+        type: boolean
+runner_type: run-python
