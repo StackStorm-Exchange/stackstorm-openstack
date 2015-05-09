@@ -10,12 +10,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     endpoint_or_service:
         description: Endpoint ID to display
         immutable: false
@@ -34,22 +28,4 @@ parameters:
         immutable: false
         required: false
         type: string
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
-        immutable: false
-        required: false
-        type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
-        immutable: false
-        required: false
-        type: array
 runner_type: run-python

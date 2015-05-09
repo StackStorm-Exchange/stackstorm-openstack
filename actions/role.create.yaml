@@ -10,12 +10,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     ep:
         default: EntryPoint.parse('role_create = openstackclient.identity.v2_0.role:CreateRole')
         description: null
@@ -29,33 +23,15 @@ parameters:
         immutable: false
         required: false
         type: string
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
     or-show:
         default: false
         description: Return existing role
         immutable: false
         required: false
         type: boolean
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
-        immutable: false
-        required: false
-        type: string
     role_name:
         description: New role name
         immutable: false
         required: true
         type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
-        immutable: false
-        required: false
-        type: array
 runner_type: run-python

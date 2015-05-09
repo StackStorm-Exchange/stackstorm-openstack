@@ -11,7 +11,7 @@ parameters:
         required: false
         type: string
     ep:
-        default: <cliff.commandmanager.EntryPointWrapper object at 0x7fdc1095be90>
+        default: <cliff.commandmanager.EntryPointWrapper object at 0x7fc333d75050>
         description: null
         immutable: true
         required: false

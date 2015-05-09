@@ -15,12 +15,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     ep:
         default: EntryPoint.parse('endpoint_create = openstackclient.identity.v2_0.endpoint:CreateEndpoint')
         description: null
@@ -39,18 +33,6 @@ parameters:
         immutable: false
         required: false
         type: string
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
-        immutable: false
-        required: false
-        type: string
     publicurl:
         description: New endpoint public URL (required)
         immutable: false
@@ -66,10 +48,4 @@ parameters:
         immutable: false
         required: true
         type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
-        immutable: false
-        required: false
-        type: array
 runner_type: run-python

@@ -16,12 +16,6 @@ parameters:
         immutable: false
         required: false
         type: boolean
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     default:
         default: false
         description: Show default quotas for <project>
@@ -41,27 +35,9 @@ parameters:
         immutable: false
         required: false
         type: string
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
-        immutable: false
-        required: false
-        type: string
     project:
         description: Show this project or class (name/ID)
         immutable: false
         required: true
         type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
-        immutable: false
-        required: false
-        type: array
 runner_type: run-python

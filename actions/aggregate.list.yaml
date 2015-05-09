@@ -10,12 +10,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     ep:
         default: EntryPoint.parse('aggregate_list = openstackclient.compute.v2.aggregate:ListAggregate')
         description: null
@@ -35,17 +29,4 @@ parameters:
         immutable: false
         required: false
         type: boolean
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
-    quote:
-        default: nonnumeric
-        description: 'when to include quotes, defaults to nonnumeric (choices: all,
-            minimal, none, nonnumeric)'
-        immutable: false
-        required: false
-        type: string
 runner_type: run-python
