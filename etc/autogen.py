@@ -1,15 +1,16 @@
 #! /usr/bin/env python2.7
 
 import argparse
+import logging
 import openstackclient.shell as shell
 import os
 import six
 import sys
-import traceback
 import yaml
 
 
-DEBUG = False
+LOG = logging.getLogger(__name__)
+
 # CHANGEME
 BASE_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -28,11 +29,19 @@ class CommandProcessor(object):
         bool: 'boolean'
     }
 
+    SKIP_GROUP_NAMES = [
+        'output formatters',  # https://github.com/openstack/cliff/blob/master/cliff/display.py#L53
+        'table formatter',  # https://github.com/openstack/cliff/blob/master/cliff/formatters/table.py#L22
+        'shell formatter',  # https://github.com/openstack/cliff/blob/master/cliff/formatters/shell.py#L14
+        'CSV Formatter'  # https://github.com/openstack/cliff/blob/master/cliff/formatters/commaseparated.py#L20
+    ]
+
     def __init__(self, command, entry_point):
         self._command_text = command
         self._command_name = command.replace(' ', '.')
         self._entry_point = entry_point
         self._command_cls = entry_point.load()
+        self._skip_groups = []
 
     def _get_parameter(self, default=None, description=None, type_='string', required=False,
                        immutable=False):
@@ -88,7 +97,30 @@ class CommandProcessor(object):
            isinstance(action, argparse._AppendConstAction):
             return True
 
+    def _setup_skip_groups(self, parser):
+        # Add groups to skip group.
+        self._skip_groups.extend(
+            [g for g in parser._action_groups if g.title in self.SKIP_GROUP_NAMES])
+        self._skip_groups.extend(
+            [g for g in parser._mutually_exclusive_groups if g.title in self.SKIP_GROUP_NAMES])
+
+    def _test_skip_action(self, action, parser):
+        # hack for formatter
+        if action.dest == 'formatter' and 'json' in action.choices:
+            return False
+        # This check is leading to some really mruky issues. Lots of formatting
+        # options which might be usef are lost for example. For now helps with
+        # simplicity of creating a usable pack.
+        for skip_group in self._skip_groups:
+            # It is important to use _group_actions to limit to action within a group.
+            if action in skip_group._group_actions:
+                LOG.debug('\n%s in %s', action, skip_group.title)
+                return True
+        return False
+
     def _parse_parameter(self, action, parser):
+        if self._test_skip_action(action, parser):
+            return None, None
         # param name is from the options string of fully expanded
         usable_options = [x for x in action.option_strings if x.startswith('--')]
         name = usable_options[0][len('--'):] if usable_options else action.dest
@@ -113,15 +145,22 @@ class CommandProcessor(object):
     def _parse_parameters(self, parser):
         parameters = {}
 
+        # skip groups should be put in place before
+        self._setup_skip_groups(parser)
+
         for action in parser._actions:
             # value implies that argparse will ignore.
             if action.dest is argparse.SUPPRESS or action.default is argparse.SUPPRESS:
                 continue
             name, meta = self._parse_parameter(action, parser)
-            # include soe extra debug info. Useful if with a single action.
-            if DEBUG:
-                print '\033[92m\033[4m\033[1m%s\033[0m' % name
-                print action, '\n', meta, '\n'
+            if not name and not meta:
+                LOG.debug('\033[91mskipping:\033[0m %s', action)
+                continue
+
+            # include some extra debug info. Useful if with a single action.
+            LOG.debug('\033[92m\033[4m\033[1m%s\033[0m', name)
+            LOG.debug('%s\n%s', action, meta)
+
             parameters[name] = meta
 
         parameters['ep'] = self._get_parameter(default=repr(self._entry_point), immutable=True)
@@ -132,6 +171,7 @@ class CommandProcessor(object):
         command = self._command_cls(None, None)
         parser = command.get_parser('autogen')
         parameters = self._parse_parameters(parser)
+        LOG.debug('No of parameters %s', len(parameters))
         return {
             'name': self._command_name,
             'runner_type': 'run-python',
@@ -209,7 +249,21 @@ def _process_commands(commands, namespace=ALL, base_write_path=BASE_PATH):
             continue
         writeable_command = CommandProcessor(command, ep)()
         path = writer.write(writeable_command)
-        print('%s : %s ' % (writeable_command['name'], path))
+        LOG.info('%s : %s ', writeable_command['name'], path)
+
+
+def _setup_logging(debug=False):
+    level = logging.DEBUG if debug else logging.INFO
+    LOG.setLevel(level)
+
+    # log to console
+    ch = logging.StreamHandler()
+    ch.setLevel(level)
+
+    formatter = logging.Formatter('%(message)s')
+    ch.setFormatter(formatter)
+
+    LOG.addHandler(ch)
 
 
 def _get_parsed_args():
@@ -222,9 +276,7 @@ def _get_parsed_args():
 
 def main():
     args = _get_parsed_args()
-    # Well evil but whatever.
-    global DEBUG
-    DEBUG = args.debug
+    _setup_logging(args.debug)
     app = _setup_shell_app()
     commands = _get_commands(app)
     _process_commands(commands, namespace=args.namespace, base_write_path=args.base_path)
@@ -236,5 +288,4 @@ if __name__ == "__main__":
     except SystemExit:
         pass
     except:
-        print('autogen stalled.')
-        traceback.print_exc()
+        LOG.exception('autogen stalled.')
