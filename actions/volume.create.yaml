@@ -15,12 +15,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     description:
         description: New volume description
         immutable: false
@@ -44,22 +38,10 @@ parameters:
         immutable: false
         required: false
         type: string
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
     name:
         description: New volume name
         immutable: false
         required: true
-        type: string
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
-        immutable: false
-        required: false
         type: string
     project:
         description: Specify an alternate project (name or ID)
@@ -102,10 +84,4 @@ parameters:
         immutable: false
         required: false
         type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
-        immutable: false
-        required: false
-        type: array
 runner_type: run-python

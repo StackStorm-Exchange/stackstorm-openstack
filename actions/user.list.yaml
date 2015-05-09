@@ -10,12 +10,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     ep:
         default: EntryPoint.parse('user_list = openstackclient.identity.v2_0.user:ListUser')
         description: null
@@ -35,21 +29,8 @@ parameters:
         immutable: false
         required: false
         type: boolean
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
     project:
         description: Filter users by project (name or ID)
-        immutable: false
-        required: false
-        type: string
-    quote:
-        default: nonnumeric
-        description: 'when to include quotes, defaults to nonnumeric (choices: all,
-            minimal, none, nonnumeric)'
         immutable: false
         required: false
         type: string

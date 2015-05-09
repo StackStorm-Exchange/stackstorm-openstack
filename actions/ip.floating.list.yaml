@@ -10,12 +10,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     ep:
         default: EntryPoint.parse('ip_floating_list = openstackclient.compute.v2.floatingip:ListFloatingIP')
         description: null
@@ -26,19 +20,6 @@ parameters:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
-        type: string
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
-    quote:
-        default: nonnumeric
-        description: 'when to include quotes, defaults to nonnumeric (choices: all,
-            minimal, none, nonnumeric)'
         immutable: false
         required: false
         type: string

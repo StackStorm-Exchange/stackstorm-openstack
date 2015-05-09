@@ -10,12 +10,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     compute:
         default: false
         description: List extensions for the Compute API
@@ -47,25 +41,12 @@ parameters:
         immutable: false
         required: false
         type: boolean
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
     network:
         default: false
         description: List extensions for the Network API
         immutable: false
         required: false
         type: boolean
-    quote:
-        default: nonnumeric
-        description: 'when to include quotes, defaults to nonnumeric (choices: all,
-            minimal, none, nonnumeric)'
-        immutable: false
-        required: false
-        type: string
     volume:
         default: false
         description: List extensions for the Volume API

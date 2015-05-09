@@ -22,12 +22,6 @@ parameters:
         immutable: false
         required: false
         type: array
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     config-drive:
         default: false
         description: Use specified volume as the config drive, or 'True' to use an
@@ -81,12 +75,6 @@ parameters:
         immutable: false
         required: false
         type: integer
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
     min:
         default: 1
         description: Minimum number of servers to launch (default=1)
@@ -103,12 +91,6 @@ parameters:
         immutable: false
         required: false
         type: array
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
-        immutable: false
-        required: false
-        type: string
     property:
         description: Set a property on this server (repeat for multiple values)
         immutable: false
@@ -131,12 +113,6 @@ parameters:
         immutable: false
         required: false
         type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
-        immutable: false
-        required: false
-        type: array
     volume:
         description: Create server from this volume
         immutable: false

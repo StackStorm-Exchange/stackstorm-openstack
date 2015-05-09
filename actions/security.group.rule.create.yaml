@@ -10,12 +10,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     dst-port:
         default: !!python/tuple
         - 0
@@ -43,18 +37,6 @@ parameters:
         immutable: false
         required: true
         type: string
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
-    prefix:
-        default: ''
-        description: add a prefix to all variable names
-        immutable: false
-        required: false
-        type: string
     proto:
         default: tcp
         description: 'IP protocol (icmp, tcp, udp; default: tcp)'
@@ -67,10 +49,4 @@ parameters:
         immutable: false
         required: false
         type: string
-    variable:
-        default: []
-        description: ==SUPPRESS==
-        immutable: false
-        required: false
-        type: array
 runner_type: run-python

@@ -16,12 +16,6 @@ parameters:
         immutable: true
         required: false
         type: string
-    column:
-        default: []
-        description: specify the column(s) to include, can be repeated
-        immutable: false
-        required: false
-        type: array
     end-marker:
         description: End anchor for paging
         immutable: false
@@ -56,21 +50,8 @@ parameters:
         immutable: false
         required: false
         type: string
-    max-width:
-        default: 0
-        description: Maximum display width, 0 to disable
-        immutable: false
-        required: false
-        type: integer
     prefix:
         description: Filter list using <prefix>
-        immutable: false
-        required: false
-        type: string
-    quote:
-        default: nonnumeric
-        description: 'when to include quotes, defaults to nonnumeric (choices: all,
-            minimal, none, nonnumeric)'
         immutable: false
         required: false
         type: string
