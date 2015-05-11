@@ -2,11 +2,19 @@
 
 import argparse
 import logging
-import openstackclient.shell as shell
 import os
-import six
 import sys
+
+from openstackclient import shell
+import six
 import yaml
+
+# HACK until setup.py is worked out to add actions/src to PYTHONPATH
+sys.path.append(os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    '../actions/src'))
+
+from lib.utils import ArgparseUtils
 
 
 LOG = logging.getLogger(__name__)
@@ -23,12 +31,6 @@ ALL = '*'
 
 class CommandProcessor(object):
 
-    TYPE_LOOKUP = {
-        int: 'integer',
-        float: 'number',
-        bool: 'boolean'
-    }
-
     SKIP_GROUP_NAMES = [
         'output formatters',  # https://github.com/openstack/cliff/blob/master/cliff/display.py#L53
         'table formatter',  # https://github.com/openstack/cliff/blob/master/cliff/formatters/table.py#L22
@@ -43,20 +45,21 @@ class CommandProcessor(object):
         self._command_cls = entry_point.load()
         self._skip_groups = []
 
-    def _get_parameter(self, default=None, description=None, type_='string', required=False,
+    def _get_parameter(self, default=None, description='', type_='string', required=False,
                        immutable=False):
-        return {
-            'default': default,
-            'description': description,
-            'type': type_,
-            'required': required,
-            'immutable': immutable
-        } if default is not None else {
-            'description': description,
-            'type': type_,
-            'required': required,
-            'immutable': immutable
+        parameter = {
+            'type': type_
         }
+        # include properties only if they have meaningful values.
+        if required:
+            parameter['required'] = required
+        if immutable:
+            parameter['immutable'] = immutable
+        if description:
+            parameter['description'] = description
+        if default is not None:
+            parameter['default'] = default
+        return parameter
 
     def _is_required(self, action, parser):
         if type(action.required) is bool:
@@ -69,33 +72,6 @@ class CommandProcessor(object):
             if action in mex_group._group_actions:
                 return False
         return True
-
-    def _get_type(self, action):
-        if action.type in self.TYPE_LOOKUP:
-            return self.TYPE_LOOKUP[action.type]
-        # In all these cases the value that will be stored is know so
-        # so we only pick where to append or not.
-        if isinstance(action, argparse._StoreTrueAction) or \
-           isinstance(action, argparse._StoreFalseAction) or \
-           isinstance(action, argparse._AppendConstAction):
-            return 'boolean'
-        if isinstance(action, argparse._AppendAction):
-            return 'array'
-        return 'string'
-
-    def _get_default(self, action):
-        # special handling for the formatter action. default value of table
-        # is no good in this case.
-        if action.dest == 'formatter' and 'json' in action.choices:
-            return 'json'
-        if action.default is not None:
-            return action.default
-        if isinstance(action, argparse._StoreTrueAction):
-            return False
-        # For _AppendConstAction so not append by default.
-        if isinstance(action, argparse._StoreFalseAction) or \
-           isinstance(action, argparse._AppendConstAction):
-            return True
 
     def _setup_skip_groups(self, parser):
         # Add groups to skip group.
@@ -121,18 +97,17 @@ class CommandProcessor(object):
     def _parse_parameter(self, action, parser):
         if self._test_skip_action(action, parser):
             return None, None
-        # param name is from the options string of fully expanded
-        usable_options = [x for x in action.option_strings if x.startswith('--')]
-        name = usable_options[0][len('--'):] if usable_options else action.dest
+
+        name = ArgparseUtils.get_name(action)
 
         # All positionals outside of a mutually exclusive group are required.
         required = self._is_required(action, parser)
 
         # type is string if not specified otherwise
-        type_ = self._get_type(action)
+        type_ = ArgparseUtils.get_type(action)
 
         # for a few actions default is defined by type(action)
-        default = self._get_default(action)
+        default = ArgparseUtils.get_default(action, type_=type_)
 
         # Make sure choices are included in the description. Often action.help
         # may not list choices. It is perhaps better if this type were an enum?
