@@ -6,26 +6,19 @@ name: server.unset
 parameters:
     base:
         default: server unset
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('server_unset = openstackclient.compute.v2.server:UnsetServer')
-        description: null
         immutable: true
-        required: false
         type: string
     property:
         default: []
         description: Property key to remove from server (repeat to unset multiple
             values)
-        immutable: false
-        required: false
         type: array
     server:
         description: Server (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

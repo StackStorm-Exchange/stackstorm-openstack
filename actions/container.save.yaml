@@ -6,19 +6,14 @@ name: container.save
 parameters:
     base:
         default: container save
-        description: null
         immutable: true
-        required: false
         type: string
     container:
         description: Container to save
-        immutable: false
         required: true
         type: string
     ep:
         default: EntryPoint.parse('container_save = openstackclient.object.v1.container:SaveContainer')
-        description: null
         immutable: true
-        required: false
         type: string
 runner_type: run-python

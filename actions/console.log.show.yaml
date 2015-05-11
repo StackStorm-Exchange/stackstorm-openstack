@@ -6,24 +6,17 @@ name: console.log.show
 parameters:
     base:
         default: console log show
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('console_log_show = openstackclient.compute.v2.console:ShowConsoleLog')
-        description: null
         immutable: true
-        required: false
         type: string
     lines:
         description: Number of lines to display from the end of the log (default=all)
-        immutable: false
-        required: false
         type: integer
     server:
         description: Server to show console log (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

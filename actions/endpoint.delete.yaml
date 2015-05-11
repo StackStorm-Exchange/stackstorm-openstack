@@ -6,19 +6,14 @@ name: endpoint.delete
 parameters:
     base:
         default: endpoint delete
-        description: null
         immutable: true
-        required: false
         type: string
     endpoint:
         description: Endpoint ID to delete
-        immutable: false
         required: true
         type: string
     ep:
         default: EntryPoint.parse('endpoint_delete = openstackclient.identity.v2_0.endpoint:DeleteEndpoint')
-        description: null
         immutable: true
-        required: false
         type: string
 runner_type: run-python

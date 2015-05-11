@@ -6,26 +6,19 @@ name: volume.unset
 parameters:
     base:
         default: volume unset
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('volume_unset = openstackclient.volume.v1.volume:UnsetVolume')
-        description: null
         immutable: true
-        required: false
         type: string
     property:
         default: []
         description: Property to remove from volume (repeat option to remove multiple
             properties)
-        immutable: false
-        required: false
         type: array
     volume:
         description: Volume to modify (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

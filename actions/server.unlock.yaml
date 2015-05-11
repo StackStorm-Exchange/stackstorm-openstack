@@ -6,19 +6,14 @@ name: server.unlock
 parameters:
     base:
         default: server unlock
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('server_unlock = openstackclient.compute.v2.server:UnlockServer')
-        description: null
         immutable: true
-        required: false
         type: string
     server:
         description: Server (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

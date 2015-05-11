@@ -6,37 +6,26 @@ name: server.reboot
 parameters:
     base:
         default: server reboot
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('server_reboot = openstackclient.compute.v2.server:RebootServer')
-        description: null
         immutable: true
-        required: false
         type: string
     hard:
         default: SOFT
         description: Perform a hard reboot
-        immutable: false
-        required: false
         type: string
     server:
         description: Server (name or ID)
-        immutable: false
         required: true
         type: string
     soft:
         default: SOFT
         description: Perform a soft reboot
-        immutable: false
-        required: false
         type: string
     wait:
         default: false
         description: Wait for reboot to complete
-        immutable: false
-        required: false
         type: boolean
 runner_type: run-python

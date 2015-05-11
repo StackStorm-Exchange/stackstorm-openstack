@@ -6,61 +6,41 @@ name: image.list
 parameters:
     base:
         default: image list
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('image_list = openstackclient.image.v1.image:ListImage')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
     long:
         default: false
         description: List additional fields in output
-        immutable: false
-        required: false
         type: boolean
     page-size:
         description: ==SUPPRESS==
-        immutable: false
-        required: false
         type: string
     private:
         default: false
         description: List only private images
-        immutable: false
-        required: false
         type: boolean
     property:
         description: Filter output based on property
-        immutable: false
-        required: false
-        type: string
+        type: array
     public:
         default: false
         description: List only public images
-        immutable: false
-        required: false
         type: boolean
     shared:
         default: false
         description: ==SUPPRESS==
-        immutable: false
-        required: false
         type: boolean
     sort:
         description: 'Sort output by selected keys and directions(asc or desc) (default:
             asc), multiple keys and directions can be specified separated by comma'
-        immutable: false
-        required: false
         type: string
 runner_type: run-python

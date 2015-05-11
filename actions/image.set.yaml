@@ -6,75 +6,50 @@ name: image.set
 parameters:
     base:
         default: image set
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('image_set = openstackclient.image.v1.image:SetImage')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: html, json, shell,
             table, value, yaml)'
-        immutable: false
-        required: false
         type: string
     image:
         description: Image to modify (name or ID)
-        immutable: false
         required: true
         type: string
     min-disk:
         description: Minimum disk size needed to boot image, in gigabytes
-        immutable: false
-        required: false
         type: integer
     min-ram:
         description: Minimum RAM size needed to boot image, in megabytes
-        immutable: false
-        required: false
         type: integer
     name:
         description: New image name
-        immutable: false
-        required: false
         type: string
     owner:
         description: New image owner project (name or ID)
-        immutable: false
-        required: false
         type: string
     private:
         default: false
         description: Image is inaccessible to the public (default)
-        immutable: false
-        required: false
         type: boolean
     property:
         description: Set a property on this image (repeat option to set multiple properties)
-        immutable: false
-        required: false
-        type: string
+        type: array
     protected:
         default: false
         description: Prevent image from being deleted
-        immutable: false
-        required: false
         type: boolean
     public:
         default: false
         description: Image is accessible to the public
-        immutable: false
-        required: false
         type: boolean
     unprotected:
         default: false
         description: Allow image to be deleted (default)
-        immutable: false
-        required: false
         type: boolean
 runner_type: run-python

@@ -6,52 +6,40 @@ name: compute.agent.create
 parameters:
     architecture:
         description: Type of architecture
-        immutable: false
         required: true
         type: string
     base:
         default: compute agent create
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('compute_agent_create = openstackclient.compute.v2.agent:CreateAgent')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: html, json, shell,
             table, value, yaml)'
-        immutable: false
-        required: false
         type: string
     hypervisor:
         default: xen
         description: Type of hypervisor
-        immutable: false
         required: true
         type: string
     md5hash:
         description: MD5 hash
-        immutable: false
         required: true
         type: string
     os:
         description: Type of OS
-        immutable: false
         required: true
         type: string
     url:
         description: URL
-        immutable: false
         required: true
         type: string
     version:
         description: Version
-        immutable: false
         required: true
         type: string
 runner_type: run-python

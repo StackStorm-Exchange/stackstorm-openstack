@@ -6,24 +6,18 @@ name: object.delete
 parameters:
     base:
         default: object delete
-        description: null
         immutable: true
-        required: false
         type: string
     container:
         description: Delete object(s) from <container>
-        immutable: false
         required: true
         type: string
     ep:
         default: EntryPoint.parse('object_delete = openstackclient.object.v1.object:DeleteObject')
-        description: null
         immutable: true
-        required: false
         type: string
     objects:
         description: Object(s) to delete
-        immutable: false
         required: true
         type: string
 runner_type: run-python

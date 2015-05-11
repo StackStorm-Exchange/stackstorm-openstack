@@ -6,21 +6,15 @@ name: catalog.list
 parameters:
     base:
         default: catalog list
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('catalog_list = openstackclient.identity.v2_0.catalog:ListCatalog')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
 runner_type: run-python

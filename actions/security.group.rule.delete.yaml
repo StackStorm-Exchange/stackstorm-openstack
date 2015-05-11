@@ -6,37 +6,26 @@ name: security.group.rule.delete
 parameters:
     base:
         default: security group rule delete
-        description: null
         immutable: true
-        required: false
         type: string
     dst-port:
         description: 'Destination port, may be a range: 137:139 (default: 0; only
             required for proto tcp and udp)'
-        immutable: false
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('security_group_rule_delete = openstackclient.compute.v2.security_group:DeleteSecurityGroupRule')
-        description: null
         immutable: true
-        required: false
         type: string
     group:
         description: Security group rule to delete (name or ID)
-        immutable: false
         required: true
         type: string
     proto:
         default: tcp
         description: 'IP protocol (icmp, tcp, udp; default: tcp)'
-        immutable: false
-        required: false
         type: string
     src-ip:
         default: 0.0.0.0/0
         description: 'Source IP (may use CIDR notation; default: 0.0.0.0/0)'
-        immutable: false
-        required: false
         type: string
 runner_type: run-python

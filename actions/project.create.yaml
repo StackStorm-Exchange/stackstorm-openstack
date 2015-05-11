@@ -6,54 +6,37 @@ name: project.create
 parameters:
     base:
         default: project create
-        description: null
         immutable: true
-        required: false
         type: string
     description:
         description: Project description
-        immutable: false
-        required: false
         type: string
     disable:
         default: false
         description: Disable project
-        immutable: false
-        required: false
         type: boolean
     enable:
         default: false
         description: Enable project (default)
-        immutable: false
-        required: false
         type: boolean
     ep:
         default: EntryPoint.parse('project_create = openstackclient.identity.v2_0.project:CreateProject')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: html, json, shell,
             table, value, yaml)'
-        immutable: false
-        required: false
         type: string
     name:
         description: New project name
-        immutable: false
         required: true
         type: string
     or-show:
         default: false
         description: Return existing project
-        immutable: false
-        required: false
         type: boolean
     property:
         description: Add a property to <name> (repeat option to set multiple properties)
-        immutable: false
-        required: false
-        type: string
+        type: array
 runner_type: run-python

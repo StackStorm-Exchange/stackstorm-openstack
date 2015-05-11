@@ -6,27 +6,19 @@ name: service.list
 parameters:
     base:
         default: service list
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('service_list = openstackclient.identity.v2_0.service:ListService')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
     long:
         default: false
         description: List additional fields in output
-        immutable: false
-        required: false
         type: boolean
 runner_type: run-python

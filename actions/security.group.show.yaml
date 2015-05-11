@@ -6,26 +6,19 @@ name: security.group.show
 parameters:
     base:
         default: security group show
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('security_group_show = openstackclient.compute.v2.security_group:ShowSecurityGroup')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: html, json, shell,
             table, value, yaml)'
-        immutable: false
-        required: false
         type: string
     group:
         description: Name or ID of security group to change
-        immutable: false
         required: true
         type: string
 runner_type: run-python

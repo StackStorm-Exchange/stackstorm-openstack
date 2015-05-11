@@ -6,54 +6,37 @@ name: server.migrate
 parameters:
     base:
         default: server migrate
-        description: null
         immutable: true
-        required: false
         type: string
     block-migration:
         default: true
         description: Perform a block live migration
-        immutable: false
-        required: false
         type: boolean
     disk-overcommit:
         default: false
         description: Allow disk over-commit on the destination host
-        immutable: false
-        required: false
         type: boolean
     ep:
         default: EntryPoint.parse('server_migrate = openstackclient.compute.v2.server:MigrateServer')
-        description: null
         immutable: true
-        required: false
         type: string
     live:
         description: Target hostname
-        immutable: false
-        required: false
         type: string
     no-disk-overcommit:
         default: false
         description: Do not over-commit disk on the destination host (default)
-        immutable: false
-        required: false
         type: boolean
     server:
         description: Server (name or ID)
-        immutable: false
         required: true
         type: string
     shared-migration:
         default: true
         description: Perform a shared live migration (default)
-        immutable: false
-        required: false
         type: boolean
     wait:
         default: false
         description: Wait for resize to complete
-        immutable: false
-        required: false
         type: boolean
 runner_type: run-python

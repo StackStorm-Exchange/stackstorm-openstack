@@ -6,40 +6,27 @@ name: volume.set
 parameters:
     base:
         default: volume set
-        description: null
         immutable: true
-        required: false
         type: string
     description:
         description: New volume description
-        immutable: false
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('volume_set = openstackclient.volume.v1.volume:SetVolume')
-        description: null
         immutable: true
-        required: false
         type: string
     name:
         description: New volume name
-        immutable: false
-        required: false
         type: string
     property:
         description: Property to add or modify for this volume (repeat option to set
             multiple properties)
-        immutable: false
-        required: false
-        type: string
+        type: array
     size:
         description: Extend volume size in GB
-        immutable: false
-        required: false
         type: integer
     volume:
         description: Volume to change (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

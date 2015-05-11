@@ -7,62 +7,41 @@ parameters:
     all:
         default: false
         description: List all objects in container (default is 10000)
-        immutable: false
-        required: false
         type: boolean
     base:
         default: object list
-        description: null
         immutable: true
-        required: false
         type: string
     container:
         description: Container to list
-        immutable: false
         required: true
         type: string
     delimiter:
         description: Roll up items with <delimiter>
-        immutable: false
-        required: false
         type: string
     end-marker:
         description: End anchor for paging
-        immutable: false
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('object_list = openstackclient.object.v1.object:ListObject')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
     limit:
         description: Limit the number of objects returned
-        immutable: false
-        required: false
         type: integer
     long:
         default: false
         description: List additional fields in output
-        immutable: false
-        required: false
         type: boolean
     marker:
         description: Anchor for paging
-        immutable: false
-        required: false
         type: string
     prefix:
         description: Filter list using <prefix>
-        immutable: false
-        required: false
         type: string
 runner_type: run-python
