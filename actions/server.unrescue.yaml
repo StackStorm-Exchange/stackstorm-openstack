@@ -1,0 +1,19 @@
+---
+description: Restore server from rescue mode
+enabled: true
+entry_point: src/wrapper.py
+name: server.unrescue
+parameters:
+    base:
+        default: server unrescue
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_unrescue = openstackclient.compute.v2.server:UnrescueServer')
+        immutable: true
+        type: string
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+runner_type: run-python

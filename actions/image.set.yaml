@@ -1,0 +1,55 @@
+---
+description: Set image properties
+enabled: true
+entry_point: src/wrapper.py
+name: image.set
+parameters:
+    base:
+        default: image set
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('image_set = openstackclient.image.v1.image:SetImage')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    image:
+        description: Image to modify (name or ID)
+        required: true
+        type: string
+    min-disk:
+        description: Minimum disk size needed to boot image, in gigabytes
+        type: integer
+    min-ram:
+        description: Minimum RAM size needed to boot image, in megabytes
+        type: integer
+    name:
+        description: New image name
+        type: string
+    owner:
+        description: New image owner project (name or ID)
+        type: string
+    private:
+        default: false
+        description: Image is inaccessible to the public (default)
+        type: boolean
+    property:
+        description: Set a property on this image (repeat option to set multiple properties)
+        type: array
+    protected:
+        default: false
+        description: Prevent image from being deleted
+        type: boolean
+    public:
+        default: false
+        description: Image is accessible to the public
+        type: boolean
+    unprotected:
+        default: false
+        description: Allow image to be deleted (default)
+        type: boolean
+runner_type: run-python

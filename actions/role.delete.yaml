@@ -1,0 +1,19 @@
+---
+description: Delete role(s)
+enabled: true
+entry_point: src/wrapper.py
+name: role.delete
+parameters:
+    base:
+        default: role delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('role_delete = openstackclient.identity.v2_0.role:DeleteRole')
+        immutable: true
+        type: string
+    roles:
+        description: Role(s) to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

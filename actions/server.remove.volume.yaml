@@ -1,0 +1,23 @@
+---
+description: Remove volume from server
+enabled: true
+entry_point: src/wrapper.py
+name: server.remove.volume
+parameters:
+    base:
+        default: server remove volume
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_remove_volume = openstackclient.compute.v2.server:RemoveServerVolume')
+        immutable: true
+        type: string
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+    volume:
+        description: Volume to remove (name or ID)
+        required: true
+        type: string
+runner_type: run-python

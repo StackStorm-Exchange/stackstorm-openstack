@@ -1,0 +1,24 @@
+---
+description: Display hypervisor details
+enabled: true
+entry_point: src/wrapper.py
+name: hypervisor.show
+parameters:
+    base:
+        default: hypervisor show
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('hypervisor_show = openstackclient.compute.v2.hypervisor:ShowHypervisor')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    hypervisor:
+        description: Hypervisor to display (name or ID)
+        required: true
+        type: string
+runner_type: run-python

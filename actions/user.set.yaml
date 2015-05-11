@@ -1,0 +1,43 @@
+---
+description: Set user properties
+enabled: true
+entry_point: src/wrapper.py
+name: user.set
+parameters:
+    base:
+        default: user set
+        immutable: true
+        type: string
+    disable:
+        default: false
+        description: Disable user
+        type: boolean
+    email:
+        description: Set user email address
+        type: string
+    enable:
+        default: false
+        description: Enable user (default)
+        type: boolean
+    ep:
+        default: EntryPoint.parse('user_set = openstackclient.identity.v2_0.user:SetUser')
+        immutable: true
+        type: string
+    name:
+        description: Set user name
+        type: string
+    password:
+        description: Set user password
+        type: string
+    password-prompt:
+        default: false
+        description: Prompt interactively for password
+        type: boolean
+    project:
+        description: Set default project (name or ID)
+        type: string
+    user:
+        description: User to change (name or ID)
+        required: true
+        type: string
+runner_type: run-python

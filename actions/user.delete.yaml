@@ -1,0 +1,19 @@
+---
+description: Delete user(s)
+enabled: true
+entry_point: src/wrapper.py
+name: user.delete
+parameters:
+    base:
+        default: user delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('user_delete = openstackclient.identity.v2_0.user:DeleteUser')
+        immutable: true
+        type: string
+    users:
+        description: User(s) to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

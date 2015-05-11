@@ -1,0 +1,28 @@
+---
+description: Create new volume type
+enabled: true
+entry_point: src/wrapper.py
+name: volume.type.create
+parameters:
+    base:
+        default: volume type create
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('volume_type_create = openstackclient.volume.v1.type:CreateVolumeType')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    name:
+        description: New volume type name
+        required: true
+        type: string
+    property:
+        description: Property to add for this volume type (repeat option to set multiple
+            properties)
+        type: array
+runner_type: run-python

@@ -1,0 +1,23 @@
+---
+description: Add security group to server
+enabled: true
+entry_point: src/wrapper.py
+name: server.add.security.group
+parameters:
+    base:
+        default: server add security group
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_add_security_group = openstackclient.compute.v2.server:AddServerSecurityGroup')
+        immutable: true
+        type: string
+    group:
+        description: Security group to add (name or ID)
+        required: true
+        type: string
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+runner_type: run-python

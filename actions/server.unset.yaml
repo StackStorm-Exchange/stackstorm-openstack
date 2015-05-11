@@ -1,0 +1,24 @@
+---
+description: Unset server properties
+enabled: true
+entry_point: src/wrapper.py
+name: server.unset
+parameters:
+    base:
+        default: server unset
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_unset = openstackclient.compute.v2.server:UnsetServer')
+        immutable: true
+        type: string
+    property:
+        default: []
+        description: Property key to remove from server (repeat to unset multiple
+            values)
+        type: array
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+runner_type: run-python

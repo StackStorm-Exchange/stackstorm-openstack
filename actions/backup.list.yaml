@@ -1,0 +1,24 @@
+---
+description: List backups
+enabled: true
+entry_point: src/wrapper.py
+name: backup.list
+parameters:
+    base:
+        default: backup list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('backup_list = openstackclient.volume.v1.backup:ListBackup')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+runner_type: run-python

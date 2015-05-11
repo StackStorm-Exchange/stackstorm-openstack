@@ -1,0 +1,19 @@
+---
+description: Delete container
+enabled: true
+entry_point: src/wrapper.py
+name: container.delete
+parameters:
+    base:
+        default: container delete
+        immutable: true
+        type: string
+    containers:
+        description: Container(s) to delete
+        required: true
+        type: string
+    ep:
+        default: EntryPoint.parse('container_delete = openstackclient.object.v1.container:DeleteContainer')
+        immutable: true
+        type: string
+runner_type: run-python

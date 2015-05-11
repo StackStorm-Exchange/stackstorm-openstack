@@ -1,15 +1,19 @@
 ---
-    name: help
-    runner_type: run-python
-    description: help from the openstack client.
-    enabled: true
-    entry_point: src/wrapper.py
-    parameters:
-        positional:
-            type: string
-            default: --help
-            immutable: true
-        format:
-            type: string
-            default: default
-            immutable: true
+description: "print detailed help for another command\n    "
+enabled: true
+entry_point: src/wrapper.py
+name: help
+parameters:
+    base:
+        default: help
+        immutable: true
+        type: string
+    cmd:
+        description: name of the command
+        required: true
+        type: string
+    ep:
+        default: <cliff.commandmanager.EntryPointWrapper object at 0x7f6f3d3f8310>
+        immutable: true
+        type: string
+runner_type: run-python

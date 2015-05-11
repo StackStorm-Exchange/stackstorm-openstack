@@ -1,0 +1,58 @@
+---
+description: Ssh to server
+enabled: true
+entry_point: src/wrapper.py
+name: server.ssh
+parameters:
+    address-type:
+        default: public
+        description: Use other IP address (public, private, etc)
+        type: string
+    base:
+        default: server ssh
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_ssh = openstackclient.compute.v2.server:SshServer')
+        immutable: true
+        type: string
+    identity:
+        description: ==SUPPRESS==
+        type: string
+    ipv4:
+        default: false
+        description: Use only IPv4 addresses
+        type: boolean
+    ipv6:
+        default: false
+        description: Use only IPv6 addresses
+        type: boolean
+    l:
+        description: ==SUPPRESS==
+        type: string
+    login:
+        description: Login name (ssh -l option)
+        type: string
+    option:
+        description: ==SUPPRESS==
+        type: string
+    port:
+        description: ==SUPPRESS==
+        type: integer
+    private:
+        default: public
+        description: Use private IP address
+        type: string
+    public:
+        default: public
+        description: Use public IP address
+        type: string
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+    verbose:
+        default: false
+        description: ==SUPPRESS==
+        type: boolean
+runner_type: run-python

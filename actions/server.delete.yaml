@@ -1,18 +1,19 @@
 ---
-    name: server.delete
-    runner_type: run-python
-    description: server delete
-    enabled: true
-    entry_point: src/wrapper.py
-    parameters:
-        positional:
-            type: string
-            default: "server delete {{id}}"
-            immutable: true
-        id:
-            type: string
-            required: true
-        format:
-            type: string
-            default: default
-            immutable: true
+description: Delete server(s)
+enabled: true
+entry_point: src/wrapper.py
+name: server.delete
+parameters:
+    base:
+        default: server delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
+        immutable: true
+        type: string
+    servers:
+        description: Server(s) to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

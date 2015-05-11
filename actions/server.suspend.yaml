@@ -1,0 +1,19 @@
+---
+description: Suspend server
+enabled: true
+entry_point: src/wrapper.py
+name: server.suspend
+parameters:
+    base:
+        default: server suspend
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_suspend = openstackclient.compute.v2.server:SuspendServer')
+        immutable: true
+        type: string
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+runner_type: run-python

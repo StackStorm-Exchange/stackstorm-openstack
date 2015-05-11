@@ -1,0 +1,19 @@
+---
+description: Unlock server
+enabled: true
+entry_point: src/wrapper.py
+name: server.unlock
+parameters:
+    base:
+        default: server unlock
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_unlock = openstackclient.compute.v2.server:UnlockServer')
+        immutable: true
+        type: string
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+runner_type: run-python

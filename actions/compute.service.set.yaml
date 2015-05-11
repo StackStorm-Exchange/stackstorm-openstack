@@ -1,0 +1,36 @@
+---
+description: Set service command
+enabled: true
+entry_point: src/wrapper.py
+name: compute.service.set
+parameters:
+    base:
+        default: compute service set
+        immutable: true
+        type: string
+    disable:
+        default: true
+        description: Disable a service
+        type: boolean
+    enable:
+        default: true
+        description: Enable a service
+        type: boolean
+    ep:
+        default: EntryPoint.parse('compute_service_set = openstackclient.compute.v2.service:SetService')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    host:
+        description: Name of host
+        required: true
+        type: string
+    service:
+        description: Name of service
+        required: true
+        type: string
+runner_type: run-python

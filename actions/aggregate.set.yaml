@@ -1,0 +1,34 @@
+---
+description: Set aggregate properties
+enabled: true
+entry_point: src/wrapper.py
+name: aggregate.set
+parameters:
+    aggregate:
+        description: Aggregate to modify (name or ID)
+        required: true
+        type: string
+    base:
+        default: aggregate set
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('aggregate_set = openstackclient.compute.v2.aggregate:SetAggregate')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    name:
+        description: Set aggregate name
+        type: string
+    property:
+        description: Property to set on <aggregate> (repeat option to set multiple
+            properties)
+        type: array
+    zone:
+        description: Set availability zone name
+        type: string
+runner_type: run-python

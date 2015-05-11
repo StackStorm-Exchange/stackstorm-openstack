@@ -1,0 +1,24 @@
+---
+description: Unset volume properties
+enabled: true
+entry_point: src/wrapper.py
+name: volume.unset
+parameters:
+    base:
+        default: volume unset
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('volume_unset = openstackclient.volume.v1.volume:UnsetVolume')
+        immutable: true
+        type: string
+    property:
+        default: []
+        description: Property to remove from volume (repeat option to remove multiple
+            properties)
+        type: array
+    volume:
+        description: Volume to modify (name or ID)
+        required: true
+        type: string
+runner_type: run-python

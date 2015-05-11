@@ -1,0 +1,60 @@
+---
+description: Create new flavor
+enabled: true
+entry_point: src/wrapper.py
+name: flavor.create
+parameters:
+    base:
+        default: flavor create
+        immutable: true
+        type: string
+    disk:
+        default: 0
+        description: Disk size in GB (default 0G)
+        type: integer
+    ep:
+        default: EntryPoint.parse('flavor_create = openstackclient.compute.v2.flavor:CreateFlavor')
+        immutable: true
+        type: string
+    ephemeral:
+        default: 0
+        description: Ephemeral disk size in GB (default 0G)
+        type: integer
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    id:
+        default: auto
+        description: 'Unique flavor ID; ''auto'' creates a UUID (default: auto)'
+        type: string
+    name:
+        description: New flavor name
+        required: true
+        type: string
+    private:
+        default: true
+        description: Flavor is not available to other projects
+        type: boolean
+    public:
+        default: true
+        description: Flavor is available to other projects (default)
+        type: boolean
+    ram:
+        default: 256
+        description: Memory size in MB (default 256M)
+        type: integer
+    rxtx-factor:
+        default: 1
+        description: RX/TX factor (default 1)
+        type: integer
+    swap:
+        default: 0
+        description: Swap space size in GB (default 0G)
+        type: integer
+    vcpus:
+        default: 1
+        description: Number of vcpus (default 1)
+        type: integer
+runner_type: run-python

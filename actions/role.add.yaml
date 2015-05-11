@@ -1,0 +1,32 @@
+---
+description: Add role to project:user
+enabled: true
+entry_point: src/wrapper.py
+name: role.add
+parameters:
+    base:
+        default: role add
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('role_add = openstackclient.identity.v2_0.role:AddRole')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    project:
+        description: Include <project> (name or ID)
+        required: true
+        type: string
+    role:
+        description: Role to add to <project>:<user> (name or ID)
+        required: true
+        type: string
+    user:
+        description: Include <user> (name or ID)
+        required: true
+        type: string
+runner_type: run-python

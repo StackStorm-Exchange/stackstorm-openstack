@@ -1,0 +1,19 @@
+---
+description: Unpause server
+enabled: true
+entry_point: src/wrapper.py
+name: server.unpause
+parameters:
+    base:
+        default: server unpause
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_unpause = openstackclient.compute.v2.server:UnpauseServer')
+        immutable: true
+        type: string
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+runner_type: run-python

@@ -1,0 +1,19 @@
+---
+description: Delete endpoint
+enabled: true
+entry_point: src/wrapper.py
+name: endpoint.delete
+parameters:
+    base:
+        default: endpoint delete
+        immutable: true
+        type: string
+    endpoint:
+        description: Endpoint ID to delete
+        required: true
+        type: string
+    ep:
+        default: EntryPoint.parse('endpoint_delete = openstackclient.identity.v2_0.endpoint:DeleteEndpoint')
+        immutable: true
+        type: string
+runner_type: run-python

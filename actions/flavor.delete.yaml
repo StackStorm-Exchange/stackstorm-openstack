@@ -1,0 +1,19 @@
+---
+description: Delete flavor
+enabled: true
+entry_point: src/wrapper.py
+name: flavor.delete
+parameters:
+    base:
+        default: flavor delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('flavor_delete = openstackclient.compute.v2.flavor:DeleteFlavor')
+        immutable: true
+        type: string
+    flavor:
+        description: Flavor to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

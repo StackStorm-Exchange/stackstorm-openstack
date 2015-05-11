@@ -1,0 +1,19 @@
+---
+description: Revoke existing token
+enabled: true
+entry_point: src/wrapper.py
+name: token.revoke
+parameters:
+    base:
+        default: token revoke
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('token_revoke = openstackclient.identity.v2_0.token:RevokeToken')
+        immutable: true
+        type: string
+    token:
+        description: Token to be deleted
+        required: true
+        type: string
+runner_type: run-python

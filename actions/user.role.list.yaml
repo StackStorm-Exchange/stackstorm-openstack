@@ -1,0 +1,26 @@
+---
+description: List user-role assignments
+enabled: true
+entry_point: src/wrapper.py
+name: user.role.list
+parameters:
+    base:
+        default: user role list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('user_role_list = openstackclient.identity.v2_0.role:ListUserRole')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    project:
+        description: Filter users by <project> (name or ID)
+        type: string
+    user:
+        description: User to list (name or ID)
+        type: string
+runner_type: run-python

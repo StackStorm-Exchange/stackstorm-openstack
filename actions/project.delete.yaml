@@ -1,0 +1,19 @@
+---
+description: Delete project(s)
+enabled: true
+entry_point: src/wrapper.py
+name: project.delete
+parameters:
+    base:
+        default: project delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('project_delete = openstackclient.identity.v2_0.project:DeleteProject')
+        immutable: true
+        type: string
+    projects:
+        description: Project(s) to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

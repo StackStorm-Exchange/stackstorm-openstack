@@ -1,0 +1,19 @@
+---
+description: Delete snapshot(s)
+enabled: true
+entry_point: src/wrapper.py
+name: snapshot.delete
+parameters:
+    base:
+        default: snapshot delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('snapshot_delete = openstackclient.volume.v1.snapshot:DeleteSnapshot')
+        immutable: true
+        type: string
+    snapshots:
+        description: Snapshot(s) to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

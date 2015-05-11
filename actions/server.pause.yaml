@@ -1,0 +1,19 @@
+---
+description: Pause server
+enabled: true
+entry_point: src/wrapper.py
+name: server.pause
+parameters:
+    base:
+        default: server pause
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_pause = openstackclient.compute.v2.server:PauseServer')
+        immutable: true
+        type: string
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+runner_type: run-python
