@@ -6,19 +6,14 @@ name: network.delete
 parameters:
     base:
         default: network delete
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('network_delete = openstackclient.network.v2.network:DeleteNetwork')
-        description: null
         immutable: true
-        required: false
         type: string
     networks:
         description: Network to delete (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

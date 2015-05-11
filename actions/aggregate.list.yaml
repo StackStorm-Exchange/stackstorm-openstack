@@ -6,27 +6,19 @@ name: aggregate.list
 parameters:
     base:
         default: aggregate list
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('aggregate_list = openstackclient.compute.v2.aggregate:ListAggregate')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
     long:
         default: false
         description: List additional fields in output
-        immutable: false
-        required: false
         type: boolean
 runner_type: run-python

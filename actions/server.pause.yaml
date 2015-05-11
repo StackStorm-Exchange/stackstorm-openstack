@@ -6,19 +6,14 @@ name: server.pause
 parameters:
     base:
         default: server pause
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('server_pause = openstackclient.compute.v2.server:PauseServer')
-        description: null
         immutable: true
-        required: false
         type: string
     server:
         description: Server (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

@@ -6,32 +6,23 @@ name: service.show
 parameters:
     base:
         default: service show
-        description: null
         immutable: true
-        required: false
         type: string
     catalog:
         default: false
         description: Show service catalog information
-        immutable: false
-        required: false
         type: boolean
     ep:
         default: EntryPoint.parse('service_show = openstackclient.identity.v2_0.service:ShowService')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: html, json, shell,
             table, value, yaml)'
-        immutable: false
-        required: false
         type: string
     service:
         description: Service to display (type, name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

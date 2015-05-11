@@ -6,24 +6,18 @@ name: server.add.security.group
 parameters:
     base:
         default: server add security group
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('server_add_security_group = openstackclient.compute.v2.server:AddServerSecurityGroup')
-        description: null
         immutable: true
-        required: false
         type: string
     group:
         description: Security group to add (name or ID)
-        immutable: false
         required: true
         type: string
     server:
         description: Server (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

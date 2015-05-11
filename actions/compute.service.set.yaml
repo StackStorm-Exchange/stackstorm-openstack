@@ -6,43 +6,31 @@ name: compute.service.set
 parameters:
     base:
         default: compute service set
-        description: null
         immutable: true
-        required: false
         type: string
     disable:
         default: true
         description: Disable a service
-        immutable: false
-        required: false
         type: boolean
     enable:
         default: true
         description: Enable a service
-        immutable: false
-        required: false
         type: boolean
     ep:
         default: EntryPoint.parse('compute_service_set = openstackclient.compute.v2.service:SetService')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
     host:
         description: Name of host
-        immutable: false
         required: true
         type: string
     service:
         description: Name of service
-        immutable: false
         required: true
         type: string
 runner_type: run-python

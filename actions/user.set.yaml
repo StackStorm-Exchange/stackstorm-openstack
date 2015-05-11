@@ -6,57 +6,38 @@ name: user.set
 parameters:
     base:
         default: user set
-        description: null
         immutable: true
-        required: false
         type: string
     disable:
         default: false
         description: Disable user
-        immutable: false
-        required: false
         type: boolean
     email:
         description: Set user email address
-        immutable: false
-        required: false
         type: string
     enable:
         default: false
         description: Enable user (default)
-        immutable: false
-        required: false
         type: boolean
     ep:
         default: EntryPoint.parse('user_set = openstackclient.identity.v2_0.user:SetUser')
-        description: null
         immutable: true
-        required: false
         type: string
     name:
         description: Set user name
-        immutable: false
-        required: false
         type: string
     password:
         description: Set user password
-        immutable: false
-        required: false
         type: string
     password-prompt:
         default: false
         description: Prompt interactively for password
-        immutable: false
-        required: false
         type: boolean
     project:
         description: Set default project (name or ID)
-        immutable: false
-        required: false
         type: string
     user:
         description: User to change (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

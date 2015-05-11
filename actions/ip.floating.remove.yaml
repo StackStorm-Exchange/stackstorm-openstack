@@ -6,24 +6,18 @@ name: ip.floating.remove
 parameters:
     base:
         default: ip floating remove
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('ip_floating_remove = openstackclient.compute.v2.floatingip:RemoveFloatingIP')
-        description: null
         immutable: true
-        required: false
         type: string
     ip_address:
         description: IP address to remove from server
-        immutable: false
         required: true
         type: string
     server:
         description: Server to remove the IP address from (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

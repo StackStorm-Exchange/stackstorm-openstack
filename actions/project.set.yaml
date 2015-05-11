@@ -6,46 +6,31 @@ name: project.set
 parameters:
     base:
         default: project set
-        description: null
         immutable: true
-        required: false
         type: string
     description:
         description: Set project description
-        immutable: false
-        required: false
         type: string
     disable:
         default: false
         description: Disable project
-        immutable: false
-        required: false
         type: boolean
     enable:
         default: false
         description: Enable project
-        immutable: false
-        required: false
         type: boolean
     ep:
         default: EntryPoint.parse('project_set = openstackclient.identity.v2_0.project:SetProject')
-        description: null
         immutable: true
-        required: false
         type: string
     name:
         description: Set project name
-        immutable: false
-        required: false
         type: string
     project:
         description: Project to modify (name or ID)
-        immutable: false
         required: true
         type: string
     property:
         description: Set a project property (repeat option to set multiple properties)
-        immutable: false
-        required: false
-        type: string
+        type: array
 runner_type: run-python

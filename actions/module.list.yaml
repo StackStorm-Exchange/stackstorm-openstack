@@ -7,26 +7,18 @@ parameters:
     all:
         default: false
         description: Show all modules that have version information
-        immutable: false
-        required: false
         type: boolean
     base:
         default: module list
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('module_list = openstackclient.common.module:ListModule')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: html, json, shell,
             table, value, yaml)'
-        immutable: false
-        required: false
         type: string
 runner_type: run-python

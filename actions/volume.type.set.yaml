@@ -6,25 +6,18 @@ name: volume.type.set
 parameters:
     base:
         default: volume type set
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('volume_type_set = openstackclient.volume.v1.type:SetVolumeType')
-        description: null
         immutable: true
-        required: false
         type: string
     property:
         description: Property to add or modify for this volume type (repeat option
             to set multiple properties)
-        immutable: false
-        required: false
-        type: string
+        type: array
     volume_type:
         description: Volume type to modify (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

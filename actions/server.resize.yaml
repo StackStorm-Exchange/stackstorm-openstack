@@ -6,42 +6,29 @@ name: server.resize
 parameters:
     base:
         default: server resize
-        description: null
         immutable: true
-        required: false
         type: string
     confirm:
         default: false
         description: Confirm server resize is complete
-        immutable: false
-        required: false
         type: boolean
     ep:
         default: EntryPoint.parse('server_resize = openstackclient.compute.v2.server:ResizeServer')
-        description: null
         immutable: true
-        required: false
         type: string
     flavor:
         description: Resize server to specified flavor
-        immutable: false
-        required: false
         type: string
     revert:
         default: false
         description: Restore server state before resize
-        immutable: false
-        required: false
         type: boolean
     server:
         description: Server (name or ID)
-        immutable: false
         required: true
         type: string
     wait:
         default: false
         description: Wait for resize to complete
-        immutable: false
-        required: false
         type: boolean
 runner_type: run-python

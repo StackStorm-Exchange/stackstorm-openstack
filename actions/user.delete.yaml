@@ -6,19 +6,14 @@ name: user.delete
 parameters:
     base:
         default: user delete
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('user_delete = openstackclient.identity.v2_0.user:DeleteUser')
-        description: null
         immutable: true
-        required: false
         type: string
     users:
         description: User(s) to delete (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

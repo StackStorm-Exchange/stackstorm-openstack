@@ -6,31 +6,23 @@ name: object.create
 parameters:
     base:
         default: object create
-        description: null
         immutable: true
-        required: false
         type: string
     container:
         description: Container for new object
-        immutable: false
         required: true
         type: string
     ep:
         default: EntryPoint.parse('object_create = openstackclient.object.v1.object:CreateObject')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
     objects:
         description: Local filename(s) to upload
-        immutable: false
         required: true
         type: string
 runner_type: run-python

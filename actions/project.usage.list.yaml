@@ -6,31 +6,21 @@ name: project.usage.list
 parameters:
     base:
         default: project usage list
-        description: null
         immutable: true
-        required: false
         type: string
     end:
         description: 'Usage range end date, ex 2012-01-20 (default: tomorrow)'
-        immutable: false
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('project_usage_list = openstackclient.compute.v2.usage:ListProjectUsage')
-        description: null
         immutable: true
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
     start:
         description: 'Usage range start date, ex 2012-01-20 (default: 4 weeks ago)'
-        immutable: false
-        required: false
         type: string
 runner_type: run-python

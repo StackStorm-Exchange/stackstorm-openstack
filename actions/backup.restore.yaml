@@ -6,24 +6,18 @@ name: backup.restore
 parameters:
     backup:
         description: Backup to restore (ID only)
-        immutable: false
         required: true
         type: string
     base:
         default: backup restore
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('backup_restore = openstackclient.volume.v1.backup:RestoreBackup')
-        description: null
         immutable: true
-        required: false
         type: string
     volume:
         description: Volume to restore to (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

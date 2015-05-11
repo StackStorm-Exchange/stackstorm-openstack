@@ -6,26 +6,18 @@ name: complete
 parameters:
     base:
         default: complete
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
-        default: <cliff.commandmanager.EntryPointWrapper object at 0x7fc333d75050>
-        description: null
+        default: <cliff.commandmanager.EntryPointWrapper object at 0x7f6f3d3f8350>
         immutable: true
-        required: false
         type: string
     name:
         description: Command name to support with command completion
-        immutable: false
-        required: false
         type: string
     shell:
         default: bash
         description: 'Shell being used. Use none for data only (default: bash) (choices:
             bash, none)'
-        immutable: false
-        required: false
         type: string
 runner_type: run-python

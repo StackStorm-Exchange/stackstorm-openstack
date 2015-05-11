@@ -6,26 +6,19 @@ name: volume.delete
 parameters:
     base:
         default: volume delete
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('volume_delete = openstackclient.volume.v1.volume:DeleteVolume')
-        description: null
         immutable: true
-        required: false
         type: string
     force:
         default: false
         description: Attempt forced removal of volume(s), regardless of state (defaults
             to False)
-        immutable: false
-        required: false
         type: boolean
     volumes:
         description: Volume(s) to delete (name or ID)
-        immutable: false
         required: true
         type: string
 runner_type: run-python

@@ -7,77 +7,49 @@ parameters:
     all-projects:
         default: false
         description: Include all projects (admin only)
-        immutable: false
-        required: false
         type: boolean
     base:
         default: server list
-        description: null
         immutable: true
-        required: false
         type: string
     ep:
         default: EntryPoint.parse('server_list = openstackclient.compute.v2.server:ListServer')
-        description: null
         immutable: true
-        required: false
         type: string
     flavor:
         description: Search by flavor
-        immutable: false
-        required: false
         type: string
     format:
         default: json
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
-        immutable: false
-        required: false
         type: string
     host:
         description: Search by hostname
-        immutable: false
-        required: false
         type: string
     image:
         description: Search by image
-        immutable: false
-        required: false
         type: string
     instance-name:
         description: Regular expression to match instance name (admin only)
-        immutable: false
-        required: false
         type: string
     ip:
         description: Regular expression to match IP addresses
-        immutable: false
-        required: false
         type: string
     ip6:
         description: Regular expression to match IPv6 addresses
-        immutable: false
-        required: false
         type: string
     long:
         default: false
         description: List additional fields in output
-        immutable: false
-        required: false
         type: boolean
     name:
         description: Regular expression to match names
-        immutable: false
-        required: false
         type: string
     reservation-id:
         description: Only return instances that match the reservation
-        immutable: false
-        required: false
         type: string
     status:
         description: Search by server status
-        immutable: false
-        required: false
         type: string
 runner_type: run-python

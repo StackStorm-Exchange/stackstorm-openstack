@@ -6,29 +6,21 @@ name: object.save
 parameters:
     base:
         default: object save
-        description: null
         immutable: true
-        required: false
         type: string
     container:
         description: Download <object> from <container>
-        immutable: false
         required: true
         type: string
     ep:
         default: EntryPoint.parse('object_save = openstackclient.object.v1.object:SaveObject')
-        description: null
         immutable: true
-        required: false
         type: string
     file:
         description: Destination filename (defaults to object name)
-        immutable: false
-        required: false
         type: string
     object:
         description: Object to save
-        immutable: false
         required: true
         type: string
 runner_type: run-python

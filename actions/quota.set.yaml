@@ -6,105 +6,66 @@ name: quota.set
 parameters:
     base:
         default: quota set
-        description: null
         immutable: true
-        required: false
         type: string
     class:
         default: false
         description: Set quotas for <class>
-        immutable: false
-        required: false
         type: boolean
     cores:
         description: New value for the cores quota
-        immutable: false
-        required: false
         type: integer
     ep:
         default: EntryPoint.parse('quota_set = openstackclient.common.quota:SetQuota')
-        description: null
         immutable: true
-        required: false
         type: string
     fixed-ips:
         description: New value for the fixed-ips quota
-        immutable: false
-        required: false
         type: integer
     floating-ips:
         description: New value for the floating-ips quota
-        immutable: false
-        required: false
         type: integer
     gigabytes:
         description: New value for the gigabytes quota
-        immutable: false
-        required: false
         type: integer
     injected-file-size:
         description: New value for the injected-file-size quota
-        immutable: false
-        required: false
         type: integer
     injected-files:
         description: New value for the injected-files quota
-        immutable: false
-        required: false
         type: integer
     injected-path-size:
         description: New value for the injected-path-size quota
-        immutable: false
-        required: false
         type: integer
     instances:
         description: New value for the instances quota
-        immutable: false
-        required: false
         type: integer
     key-pairs:
         description: New value for the key-pairs quota
-        immutable: false
-        required: false
         type: integer
     project:
         description: Set quotas for this project or class (name/ID)
-        immutable: false
         required: true
         type: string
     properties:
         description: New value for the properties quota
-        immutable: false
-        required: false
         type: integer
     ram:
         description: New value for the ram quota
-        immutable: false
-        required: false
         type: integer
     secgroup-rules:
         description: New value for the secgroup-rules quota
-        immutable: false
-        required: false
         type: integer
     secgroups:
         description: New value for the secgroups quota
-        immutable: false
-        required: false
         type: integer
     snapshots:
         description: New value for the snapshots quota
-        immutable: false
-        required: false
         type: integer
     volume-type:
         description: Set quotas for a specific <volume-type>
-        immutable: false
-        required: false
         type: string
     volumes:
         description: New value for the volumes quota
-        immutable: false
-        required: false
         type: integer
 runner_type: run-python
