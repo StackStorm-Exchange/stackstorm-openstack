@@ -1,0 +1,23 @@
+---
+description: List host command
+enabled: true
+entry_point: src/wrapper.py
+name: host.list
+parameters:
+    base:
+        default: host list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('host_list = openstackclient.compute.v2.host:ListHost')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    zone:
+        description: Only return hosts in the availability zone.
+        type: string
+runner_type: run-python

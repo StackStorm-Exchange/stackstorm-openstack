@@ -1,0 +1,23 @@
+---
+description: Set volume type properties
+enabled: true
+entry_point: src/wrapper.py
+name: volume.type.set
+parameters:
+    base:
+        default: volume type set
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('volume_type_set = openstackclient.volume.v1.type:SetVolumeType')
+        immutable: true
+        type: string
+    property:
+        description: Property to add or modify for this volume type (repeat option
+            to set multiple properties)
+        type: array
+    volume_type:
+        description: Volume type to modify (name or ID)
+        required: true
+        type: string
+runner_type: run-python

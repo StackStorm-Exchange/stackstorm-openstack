@@ -1,0 +1,24 @@
+---
+description: Display image details
+enabled: true
+entry_point: src/wrapper.py
+name: image.show
+parameters:
+    base:
+        default: image show
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('image_show = openstackclient.image.v1.image:ShowImage')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    image:
+        description: Image to display (name or ID)
+        required: true
+        type: string
+runner_type: run-python

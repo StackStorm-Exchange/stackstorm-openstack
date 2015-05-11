@@ -1,0 +1,46 @@
+---
+description: List available images
+enabled: true
+entry_point: src/wrapper.py
+name: image.list
+parameters:
+    base:
+        default: image list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('image_list = openstackclient.image.v1.image:ListImage')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+    page-size:
+        description: ==SUPPRESS==
+        type: string
+    private:
+        default: false
+        description: List only private images
+        type: boolean
+    property:
+        description: Filter output based on property
+        type: array
+    public:
+        default: false
+        description: List only public images
+        type: boolean
+    shared:
+        default: false
+        description: ==SUPPRESS==
+        type: boolean
+    sort:
+        description: 'Sort output by selected keys and directions(asc or desc) (default:
+            asc), multiple keys and directions can be specified separated by comma'
+        type: string
+runner_type: run-python

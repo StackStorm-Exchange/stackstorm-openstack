@@ -1,0 +1,20 @@
+---
+description: List recognized commands by group
+enabled: true
+entry_point: src/wrapper.py
+name: command.list
+parameters:
+    base:
+        default: command list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('command_list = openstackclient.common.module:ListCommand')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+runner_type: run-python

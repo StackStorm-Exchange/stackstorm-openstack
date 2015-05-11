@@ -1,0 +1,39 @@
+---
+description: Show compute and volume limits
+enabled: true
+entry_point: src/wrapper.py
+name: limits.show
+parameters:
+    absolute:
+        default: false
+        description: Show absolute limits
+        type: boolean
+    base:
+        default: limits show
+        immutable: true
+        type: string
+    domain:
+        description: Domain that owns --project (name or ID)  [only valid with --absolute]
+        type: string
+    ep:
+        default: EntryPoint.parse('limits_show = openstackclient.common.limits:ShowLimits')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    project:
+        description: Show limits for a specific project (name or ID) [only valid with
+            --absolute]
+        type: string
+    rate:
+        default: false
+        description: Show rate limits
+        type: boolean
+    reserved:
+        default: false
+        description: Include reservations count [only valid with --absolute]
+        type: boolean
+runner_type: run-python

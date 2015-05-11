@@ -1,0 +1,19 @@
+---
+description: Delete backup(s)
+enabled: true
+entry_point: src/wrapper.py
+name: backup.delete
+parameters:
+    backups:
+        description: Backup(s) to delete (ID only)
+        required: true
+        type: string
+    base:
+        default: backup delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('backup_delete = openstackclient.volume.v1.backup:DeleteBackup')
+        immutable: true
+        type: string
+runner_type: run-python

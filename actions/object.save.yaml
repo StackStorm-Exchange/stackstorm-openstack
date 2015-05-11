@@ -1,0 +1,26 @@
+---
+description: Save object locally
+enabled: true
+entry_point: src/wrapper.py
+name: object.save
+parameters:
+    base:
+        default: object save
+        immutable: true
+        type: string
+    container:
+        description: Download <object> from <container>
+        required: true
+        type: string
+    ep:
+        default: EntryPoint.parse('object_save = openstackclient.object.v1.object:SaveObject')
+        immutable: true
+        type: string
+    file:
+        description: Destination filename (defaults to object name)
+        type: string
+    object:
+        description: Object to save
+        required: true
+        type: string
+runner_type: run-python

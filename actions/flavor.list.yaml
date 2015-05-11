@@ -1,0 +1,36 @@
+---
+description: List flavors
+enabled: true
+entry_point: src/wrapper.py
+name: flavor.list
+parameters:
+    all:
+        default: false
+        description: List all flavors, whether public or private
+        type: boolean
+    base:
+        default: flavor list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('flavor_list = openstackclient.compute.v2.flavor:ListFlavor')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+    private:
+        default: true
+        description: List only private flavors
+        type: boolean
+    public:
+        default: true
+        description: List only public flavors (default)
+        type: boolean
+runner_type: run-python

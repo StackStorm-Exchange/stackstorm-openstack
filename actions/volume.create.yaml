@@ -1,0 +1,59 @@
+---
+description: Create new volume
+enabled: true
+entry_point: src/wrapper.py
+name: volume.create
+parameters:
+    availability-zone:
+        description: Create new volume in <availability-zone>
+        type: string
+    base:
+        default: volume create
+        immutable: true
+        type: string
+    description:
+        description: New volume description
+        type: string
+    ep:
+        default: EntryPoint.parse('volume_create = openstackclient.volume.v1.volume:CreateVolume')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    image:
+        description: Use <image> as source of new volume (name or ID)
+        type: string
+    name:
+        description: New volume name
+        required: true
+        type: string
+    project:
+        description: Specify an alternate project (name or ID)
+        type: string
+    property:
+        description: Set a property on this volume (repeat option to set multiple
+            properties)
+        type: array
+    size:
+        description: New volume size in GB
+        required: true
+        type: integer
+    snapshot:
+        description: Use <snapshot> as source of new volume
+        type: string
+    snapshot-id:
+        description: ==SUPPRESS==
+        type: string
+    source:
+        description: Volume to clone (name or ID)
+        type: string
+    type:
+        description: Use <volume-type> as the new volume type
+        type: string
+    user:
+        description: Specify an alternate user (name or ID)
+        type: string
+runner_type: run-python

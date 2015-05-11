@@ -1,0 +1,19 @@
+---
+description: Delete service
+enabled: true
+entry_point: src/wrapper.py
+name: service.delete
+parameters:
+    base:
+        default: service delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('service_delete = openstackclient.identity.v2_0.service:DeleteService')
+        immutable: true
+        type: string
+    service:
+        description: Service to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

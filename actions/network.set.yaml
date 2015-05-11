@@ -1,0 +1,38 @@
+---
+description: Set network properties
+enabled: true
+entry_point: src/wrapper.py
+name: network.set
+parameters:
+    base:
+        default: network set
+        immutable: true
+        type: string
+    disable:
+        default: true
+        description: Disable network
+        type: boolean
+    enable:
+        default: false
+        description: Enable network
+        type: boolean
+    ep:
+        default: EntryPoint.parse('network_set = openstackclient.network.v2.network:SetNetwork')
+        immutable: true
+        type: string
+    identifier:
+        description: Network to modify (name or ID)
+        required: true
+        type: string
+    name:
+        description: Set network name
+        type: string
+    no-share:
+        default: true
+        description: Do not share the network between projects
+        type: boolean
+    share:
+        default: false
+        description: Share the network between projects
+        type: boolean
+runner_type: run-python

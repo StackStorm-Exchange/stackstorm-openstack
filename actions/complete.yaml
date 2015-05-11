@@ -1,0 +1,23 @@
+---
+description: "print bash completion command\n    "
+enabled: true
+entry_point: src/wrapper.py
+name: complete
+parameters:
+    base:
+        default: complete
+        immutable: true
+        type: string
+    ep:
+        default: <cliff.commandmanager.EntryPointWrapper object at 0x7f6f3d3f8350>
+        immutable: true
+        type: string
+    name:
+        description: Command name to support with command completion
+        type: string
+    shell:
+        default: bash
+        description: 'Shell being used. Use none for data only (default: bash) (choices:
+            bash, none)'
+        type: string
+runner_type: run-python

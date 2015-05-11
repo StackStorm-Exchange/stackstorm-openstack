@@ -1,0 +1,37 @@
+---
+description: Create a new security group rule
+enabled: true
+entry_point: src/wrapper.py
+name: security.group.rule.create
+parameters:
+    base:
+        default: security group rule create
+        immutable: true
+        type: string
+    dst-port:
+        default: 0:0
+        description: 'Destination port, may be a range: 137:139 (default: 0; only
+            required for proto tcp and udp)'
+        type: string
+    ep:
+        default: EntryPoint.parse('security_group_rule_create = openstackclient.compute.v2.security_group:CreateSecurityGroupRule')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    group:
+        description: Create rule in this security group
+        required: true
+        type: string
+    proto:
+        default: tcp
+        description: 'IP protocol (icmp, tcp, udp; default: tcp)'
+        type: string
+    src-ip:
+        default: 0.0.0.0/0
+        description: 'Source IP (may use CIDR notation; default: 0.0.0.0/0)'
+        type: string
+runner_type: run-python

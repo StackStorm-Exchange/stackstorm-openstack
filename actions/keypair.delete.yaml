@@ -1,0 +1,19 @@
+---
+description: Delete public key
+enabled: true
+entry_point: src/wrapper.py
+name: keypair.delete
+parameters:
+    base:
+        default: keypair delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('keypair_delete = openstackclient.compute.v2.keypair:DeleteKeypair')
+        immutable: true
+        type: string
+    name:
+        description: Public key to delete
+        required: true
+        type: string
+runner_type: run-python

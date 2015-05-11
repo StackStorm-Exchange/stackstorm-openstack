@@ -1,0 +1,40 @@
+---
+description: List API extensions
+enabled: true
+entry_point: src/wrapper.py
+name: extension.list
+parameters:
+    base:
+        default: extension list
+        immutable: true
+        type: string
+    compute:
+        default: false
+        description: List extensions for the Compute API
+        type: boolean
+    ep:
+        default: EntryPoint.parse('extension_list = openstackclient.common.extension:ListExtension')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    identity:
+        default: false
+        description: List extensions for the Identity API
+        type: boolean
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+    network:
+        default: false
+        description: List extensions for the Network API
+        type: boolean
+    volume:
+        default: false
+        description: List extensions for the Volume API
+        type: boolean
+runner_type: run-python

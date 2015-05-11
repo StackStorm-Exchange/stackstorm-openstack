@@ -1,0 +1,42 @@
+---
+description: Migrate server to different host
+enabled: true
+entry_point: src/wrapper.py
+name: server.migrate
+parameters:
+    base:
+        default: server migrate
+        immutable: true
+        type: string
+    block-migration:
+        default: true
+        description: Perform a block live migration
+        type: boolean
+    disk-overcommit:
+        default: false
+        description: Allow disk over-commit on the destination host
+        type: boolean
+    ep:
+        default: EntryPoint.parse('server_migrate = openstackclient.compute.v2.server:MigrateServer')
+        immutable: true
+        type: string
+    live:
+        description: Target hostname
+        type: string
+    no-disk-overcommit:
+        default: false
+        description: Do not over-commit disk on the destination host (default)
+        type: boolean
+    server:
+        description: Server (name or ID)
+        required: true
+        type: string
+    shared-migration:
+        default: true
+        description: Perform a shared live migration (default)
+        type: boolean
+    wait:
+        default: false
+        description: Wait for resize to complete
+        type: boolean
+runner_type: run-python

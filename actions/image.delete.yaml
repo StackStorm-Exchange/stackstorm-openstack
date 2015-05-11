@@ -1,0 +1,19 @@
+---
+description: Delete image(s)
+enabled: true
+entry_point: src/wrapper.py
+name: image.delete
+parameters:
+    base:
+        default: image delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('image_delete = openstackclient.image.v1.image:DeleteImage')
+        immutable: true
+        type: string
+    images:
+        description: Image(s) to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

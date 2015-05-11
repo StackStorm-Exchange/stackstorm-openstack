@@ -1,0 +1,19 @@
+---
+description: Delete volume type
+enabled: true
+entry_point: src/wrapper.py
+name: volume.type.delete
+parameters:
+    base:
+        default: volume type delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('volume_type_delete = openstackclient.volume.v1.type:DeleteVolumeType')
+        immutable: true
+        type: string
+    volume_type:
+        description: Volume type to delete (name or ID)
+        required: true
+        type: string
+runner_type: run-python

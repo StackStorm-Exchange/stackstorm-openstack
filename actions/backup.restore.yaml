@@ -1,0 +1,23 @@
+---
+description: Restore backup
+enabled: true
+entry_point: src/wrapper.py
+name: backup.restore
+parameters:
+    backup:
+        description: Backup to restore (ID only)
+        required: true
+        type: string
+    base:
+        default: backup restore
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('backup_restore = openstackclient.volume.v1.backup:RestoreBackup')
+        immutable: true
+        type: string
+    volume:
+        description: Volume to restore to (name or ID)
+        required: true
+        type: string
+runner_type: run-python

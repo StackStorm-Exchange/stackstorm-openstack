@@ -1,0 +1,24 @@
+---
+description: List services
+enabled: true
+entry_point: src/wrapper.py
+name: service.list
+parameters:
+    base:
+        default: service list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('service_list = openstackclient.identity.v2_0.service:ListService')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+runner_type: run-python

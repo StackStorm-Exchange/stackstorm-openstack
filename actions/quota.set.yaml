@@ -1,0 +1,71 @@
+---
+description: Set quotas for project or class
+enabled: true
+entry_point: src/wrapper.py
+name: quota.set
+parameters:
+    base:
+        default: quota set
+        immutable: true
+        type: string
+    class:
+        default: false
+        description: Set quotas for <class>
+        type: boolean
+    cores:
+        description: New value for the cores quota
+        type: integer
+    ep:
+        default: EntryPoint.parse('quota_set = openstackclient.common.quota:SetQuota')
+        immutable: true
+        type: string
+    fixed-ips:
+        description: New value for the fixed-ips quota
+        type: integer
+    floating-ips:
+        description: New value for the floating-ips quota
+        type: integer
+    gigabytes:
+        description: New value for the gigabytes quota
+        type: integer
+    injected-file-size:
+        description: New value for the injected-file-size quota
+        type: integer
+    injected-files:
+        description: New value for the injected-files quota
+        type: integer
+    injected-path-size:
+        description: New value for the injected-path-size quota
+        type: integer
+    instances:
+        description: New value for the instances quota
+        type: integer
+    key-pairs:
+        description: New value for the key-pairs quota
+        type: integer
+    project:
+        description: Set quotas for this project or class (name/ID)
+        required: true
+        type: string
+    properties:
+        description: New value for the properties quota
+        type: integer
+    ram:
+        description: New value for the ram quota
+        type: integer
+    secgroup-rules:
+        description: New value for the secgroup-rules quota
+        type: integer
+    secgroups:
+        description: New value for the secgroups quota
+        type: integer
+    snapshots:
+        description: New value for the snapshots quota
+        type: integer
+    volume-type:
+        description: Set quotas for a specific <volume-type>
+        type: string
+    volumes:
+        description: New value for the volumes quota
+        type: integer
+runner_type: run-python

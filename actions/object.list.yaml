@@ -1,0 +1,47 @@
+---
+description: List objects
+enabled: true
+entry_point: src/wrapper.py
+name: object.list
+parameters:
+    all:
+        default: false
+        description: List all objects in container (default is 10000)
+        type: boolean
+    base:
+        default: object list
+        immutable: true
+        type: string
+    container:
+        description: Container to list
+        required: true
+        type: string
+    delimiter:
+        description: Roll up items with <delimiter>
+        type: string
+    end-marker:
+        description: End anchor for paging
+        type: string
+    ep:
+        default: EntryPoint.parse('object_list = openstackclient.object.v1.object:ListObject')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    limit:
+        description: Limit the number of objects returned
+        type: integer
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+    marker:
+        description: Anchor for paging
+        type: string
+    prefix:
+        description: Filter list using <prefix>
+        type: string
+runner_type: run-python

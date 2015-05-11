@@ -1,0 +1,34 @@
+---
+description: List volumes
+enabled: true
+entry_point: src/wrapper.py
+name: volume.list
+parameters:
+    all-projects:
+        default: false
+        description: Include all projects (admin only)
+        type: boolean
+    base:
+        default: volume list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('volume_list = openstackclient.volume.v1.volume:ListVolume')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+    name:
+        description: Filter results by name
+        type: string
+    status:
+        description: Filter results by status
+        type: string
+runner_type: run-python

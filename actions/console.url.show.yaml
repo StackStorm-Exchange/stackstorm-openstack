@@ -1,0 +1,34 @@
+---
+description: Show server's remote console URL
+enabled: true
+entry_point: src/wrapper.py
+name: console.url.show
+parameters:
+    base:
+        default: console url show
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('console_url_show = openstackclient.compute.v2.console:ShowConsoleURL')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: html, json, shell,
+            table, value, yaml)'
+        type: string
+    novnc:
+        default: novnc
+        description: Show noVNC console URL (default)
+        type: string
+    server:
+        description: Server to show URL (name or ID)
+        required: true
+        type: string
+    spice:
+        description: Show SPICE console URL
+        type: string
+    xvpvnc:
+        description: Show xpvnc console URL
+        type: string
+runner_type: run-python

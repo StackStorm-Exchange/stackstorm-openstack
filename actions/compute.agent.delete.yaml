@@ -1,0 +1,19 @@
+---
+description: Delete compute agent command
+enabled: true
+entry_point: src/wrapper.py
+name: compute.agent.delete
+parameters:
+    base:
+        default: compute agent delete
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('compute_agent_delete = openstackclient.compute.v2.agent:DeleteAgent')
+        immutable: true
+        type: string
+    id:
+        description: ID of agent to delete
+        required: true
+        type: string
+runner_type: run-python

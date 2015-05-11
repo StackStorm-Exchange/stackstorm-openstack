@@ -1,0 +1,32 @@
+---
+description: Set volume properties
+enabled: true
+entry_point: src/wrapper.py
+name: volume.set
+parameters:
+    base:
+        default: volume set
+        immutable: true
+        type: string
+    description:
+        description: New volume description
+        type: string
+    ep:
+        default: EntryPoint.parse('volume_set = openstackclient.volume.v1.volume:SetVolume')
+        immutable: true
+        type: string
+    name:
+        description: New volume name
+        type: string
+    property:
+        description: Property to add or modify for this volume (repeat option to set
+            multiple properties)
+        type: array
+    size:
+        description: Extend volume size in GB
+        type: integer
+    volume:
+        description: Volume to change (name or ID)
+        required: true
+        type: string
+runner_type: run-python

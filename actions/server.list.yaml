@@ -1,15 +1,55 @@
 ---
-    name: server.list
-    runner_type: run-python
-    description: server list
-    enabled: true
-    entry_point: src/wrapper.py
-    parameters:
-        positional:
-            type: string
-            default: server list
-            immutable: true
-        format:
-            type: string
-            default: json
-            immutable: true
+description: List servers
+enabled: true
+entry_point: src/wrapper.py
+name: server.list
+parameters:
+    all-projects:
+        default: false
+        description: Include all projects (admin only)
+        type: boolean
+    base:
+        default: server list
+        immutable: true
+        type: string
+    ep:
+        default: EntryPoint.parse('server_list = openstackclient.compute.v2.server:ListServer')
+        immutable: true
+        type: string
+    flavor:
+        description: Search by flavor
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, html, json,
+            table, yaml)'
+        type: string
+    host:
+        description: Search by hostname
+        type: string
+    image:
+        description: Search by image
+        type: string
+    instance-name:
+        description: Regular expression to match instance name (admin only)
+        type: string
+    ip:
+        description: Regular expression to match IP addresses
+        type: string
+    ip6:
+        description: Regular expression to match IPv6 addresses
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+    name:
+        description: Regular expression to match names
+        type: string
+    reservation-id:
+        description: Only return instances that match the reservation
+        type: string
+    status:
+        description: Search by server status
+        type: string
+runner_type: run-python
