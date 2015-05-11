@@ -1,7 +1,9 @@
 ---
-# Specify one of sectio token or password. If both are provided token will
-# take precedence. Since tokens are epehemral It might be suitable to use
-# password style authetication.
+# Specify one of section openstackrc,token or password.
+# Precedence order is :
+# openstackrc > token > password
+# Since tokens are epehemral It might often be suitable to use password style authetication.
+openstackrc: ""
 token:
     OS_TOKEN: ""
     OS_URL: ""
