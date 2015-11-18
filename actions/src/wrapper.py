@@ -1,3 +1,5 @@
+import six
+
 from lib.base import OpenStackBaseAction
 from lib.utils import ArgparseUtils
 
@@ -37,5 +39,5 @@ class WrapperAction(OpenStackBaseAction):
             # For booleans we only include the option_string.
             # e.g. --wait instead of --wait=True.
             return [action.option_strings[0]] if include_action else None
-        # will end up being of the form option_string value
-        return [action.option_strings[0], str(value)]
+        # will end up being of the form "option_string value"
+        return [action.option_strings[0], six.moves.shlex_quote(str(value))]
