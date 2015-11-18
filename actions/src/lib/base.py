@@ -33,7 +33,9 @@ class OpenStackBaseAction(Action):
             cmd[:0] = ['.', self.openstackrc, '&&']
         else:
             env.update(self.token or self.password)
-        p = subprocess.Popen(' '.join(cmd), stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        cmd_str = ' '.join(cmd)
+        self.logger.debug('Generated command "%s"', cmd_str)
+        p = subprocess.Popen(cmd_str, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                              env=env, shell=True)
         out, err = p.communicate()
         return self._format_output(out=out, err=err, exit=p.returncode)
