@@ -25,8 +25,8 @@ class ArgparseUtils(object):
     def get_type(action):
         if action.type in ArgparseUtils.TYPE_LOOKUP:
             return ArgparseUtils.TYPE_LOOKUP[action.type]
-        # In all these cases the value that will be stored is know so
-        # so we only pick where to append or not.
+        # In all these cases the value that will be stored is known so
+        # so we only pick whether to append or not.
         if isinstance(action, argparse._StoreTrueAction) or \
            isinstance(action, argparse._StoreFalseAction) or \
            isinstance(action, argparse._AppendConstAction):
@@ -67,11 +67,11 @@ class ArgparseUtils(object):
                 return ArgparseUtils.TYPE_LOOKUP[type_](action.default)
             else:
                 action.default
-        if isinstance(action, argparse._StoreTrueAction):
-            return False
-        # For _AppendConstAction so not append by default.
-        if isinstance(action, argparse._StoreFalseAction) or \
+        # For _AppendConstAction do not append by default.
+        if isinstance(action, argparse._StoreTrueAction) or \
            isinstance(action, argparse._AppendConstAction):
+            return False
+        if isinstance(action, argparse._StoreFalseAction):
             return True
 
     @staticmethod
@@ -79,3 +79,16 @@ class ArgparseUtils(object):
         # param name is from the options string of fully expanded
         usable_options = [x for x in action.option_strings if x.startswith('--')]
         return usable_options[0][len('--'):] if usable_options else action.dest
+
+    @staticmethod
+    def is_boolean_included(action, value):
+        """
+        Looking at whether the action is StoreTrueAction, StoreFalseAction or AppendConstAction
+        and at the actual value to decide if the boolean action should be included.
+        """
+        if isinstance(action, argparse._StoreTrueAction) or \
+           isinstance(action, argparse._AppendConstAction):
+            return value
+        if isinstance(action, argparse._StoreFalseAction):
+            return not value
+        return value
