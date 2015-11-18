@@ -31,5 +31,11 @@ class WrapperAction(OpenStackBaseAction):
                 cli_text.append(action.option_strings[0])
                 cli_text.append(v)
             return cli_text
+        # Special handling for boolean
+        if ArgparseUtils.get_type(action) == 'boolean':
+            include_action = ArgparseUtils.is_boolean_included(action, value)
+            # For booleans we only include the option_string.
+            # e.g. --wait instead of --wait=True.
+            return [action.option_strings[0]] if include_action else None
         # will end up being of the form option_string value
-        return [action.option_strings[0], value]
+        return [action.option_strings[0], str(value)]
