@@ -12,7 +12,7 @@ parameters:
         default: EntryPoint.parse('server_delete = openstackclient.compute.v2.server:DeleteServer')
         immutable: true
         type: string
-    servers:
+    server:
         description: Server(s) to delete (name or ID)
         required: true
         type: string
