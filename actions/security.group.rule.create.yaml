@@ -19,19 +19,26 @@ parameters:
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: html, json, shell,
+        description: 'the output format, defaults to table (choices: json, shell,
             table, value, yaml)'
         type: string
     group:
-        description: Create rule in this security group
+        description: Create rule in this security group (name or ID)
         required: true
         type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
     proto:
         default: tcp
         description: 'IP protocol (icmp, tcp, udp; default: tcp)'
         type: string
+    src-group:
+        description: Source security group (ID only)
+        type: string
     src-ip:
         default: 0.0.0.0/0
-        description: 'Source IP (may use CIDR notation; default: 0.0.0.0/0)'
+        description: 'Source IP address block (may use CIDR notation; default: 0.0.0.0/0)'
         type: string
 runner_type: run-python
