@@ -42,7 +42,7 @@ class WrapperAction(OpenStackBaseAction):
         # will end up being of the form "option_string value"
         return [
             action.option_strings[0],
-            six.moves.shlex_quote(
+            six.moves.shlex_quote(  # pylint: disable-msg=too-many-arguments
                 str(value)
             )
         ]
