@@ -22,6 +22,8 @@ class OpenStackBaseAction(Action):
 
     def run(self, **kwargs):
         self.parser = self._get_parser(kwargs.pop('ep'))
+        if 'end_marker' in kwargs:
+            kwargs['end-marker'] = kwargs.pop('end_marker')
         cmd = [self.os_cli_cmd]
         cmd.extend(self.get_cmd(**kwargs))
         # Copy over current environment so that the pythonpath for openstack command is

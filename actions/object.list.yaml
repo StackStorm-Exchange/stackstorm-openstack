@@ -19,7 +19,7 @@ parameters:
     delimiter:
         description: Roll up items with <delimiter>
         type: string
-    end-marker:
+    end_marker:
         description: End anchor for paging
         type: string
     ep:
