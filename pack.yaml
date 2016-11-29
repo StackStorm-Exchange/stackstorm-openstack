@@ -1,6 +1,6 @@
 ---
 name: openstack
 description: OpenStack integration pack
-version: 0.1
+version: 0.1.0
 author: st2dev
 email: info@stackstorm.com
