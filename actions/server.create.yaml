@@ -4,19 +4,19 @@ enabled: true
 entry_point: src/wrapper.py
 name: server.create
 parameters:
-    availability-zone:
+    availability_zone:
         description: Select an availability zone for the server
         type: string
     base:
         default: server create
         immutable: true
         type: string
-    block-device-mapping:
+    block_device_mapping:
         default: []
         description: Map block devices; map is <id>:<type>:<size(GB)>:<delete_on_terminate>
             (optional extension)
         type: array
-    config-drive:
+    config_drive:
         default: 'False'
         description: Use specified volume as the config drive, or 'True' to use an
             ephemeral drive
@@ -45,7 +45,7 @@ parameters:
     image:
         description: Create server from this image
         type: string
-    key-name:
+    key_name:
         description: Keypair to inject into this server (optional extension)
         type: string
     max:
@@ -67,7 +67,7 @@ parameters:
     property:
         description: Set a property on this server (repeat for multiple values)
         type: array
-    security-group:
+    security_group:
         default: []
         description: Security group to assign to this server (repeat for multiple
             groups)
@@ -76,7 +76,7 @@ parameters:
         description: New server name
         required: true
         type: string
-    user-data:
+    user_data:
         description: User data file to serve from the metadata server
         type: string
     volume:

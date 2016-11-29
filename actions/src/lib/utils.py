@@ -2,6 +2,62 @@ import argparse
 
 from openstackclient.common import parseractions
 
+DASH_PARAMETERS = [
+    "rxtx_factor",
+    "container_format",
+    "copy_from",
+    "disk_format",
+    "min_disk",
+    "min_ram",
+    "page_size",
+    "public_key",
+    "key_pairs",
+    "no_share",
+    "or_show",
+    "fixed_ips",
+    "floating_ips",
+    "injected_file_size",
+    "public_key",
+    "injected_files",
+    "min_disk",
+    "min_ram",
+    "injected_path_size",
+    "secgroup_rules",
+    "volume_type",
+    "all_projects",
+    "dst_port",
+    "src_group",
+    "src_ip",
+    "availability_zone",
+    "block_device_mapping",
+    "config_drive",
+    "key_name",
+    "security_group",
+    "user_data",
+    "all_projects",
+    "instance_name",
+    "reservation_id",
+    "block_migration",
+    "disk_overcommit",
+    "no_disk_overcommit",
+    "password_prompt",
+    "shared_migration",
+    "root_password",
+    "address_type",
+    "password_prompt",
+    "availability_zone",
+    "snapshot_id",
+    "all_projects",
+    "end_marker",
+]
+
+
+def process_kwargs(kwargs):
+    for key in DASH_PARAMETERS:
+        if key in kwargs:
+            kwargs[key.replace('_', '-')] = kwargs.pop(key)
+    return kwargs
+
 
 class ArgparseUtils(object):
 

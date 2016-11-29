@@ -19,28 +19,28 @@ parameters:
         default: EntryPoint.parse('quota_set = openstackclient.common.quota:SetQuota')
         immutable: true
         type: string
-    fixed-ips:
+    fixed_ips:
         description: New value for the fixed-ips quota
         type: integer
-    floating-ips:
+    floating_ips:
         description: New value for the floating-ips quota
         type: integer
     gigabytes:
         description: New value for the gigabytes quota
         type: integer
-    injected-file-size:
+    injected_file_size:
         description: New value for the injected-file-size quota
         type: integer
-    injected-files:
+    injected_files:
         description: New value for the injected-files quota
         type: integer
-    injected-path-size:
+    injected_path_size:
         description: New value for the injected-path-size quota
         type: integer
     instances:
         description: New value for the instances quota
         type: integer
-    key-pairs:
+    key_pairs:
         description: New value for the key-pairs quota
         type: integer
     project:
@@ -53,7 +53,7 @@ parameters:
     ram:
         description: New value for the ram quota
         type: integer
-    secgroup-rules:
+    secgroup_rules:
         description: New value for the secgroup-rules quota
         type: integer
     secgroups:
@@ -62,7 +62,7 @@ parameters:
     snapshots:
         description: New value for the snapshots quota
         type: integer
-    volume-type:
+    volume_type:
         description: Set quotas for a specific <volume-type>
         type: string
     volumes:

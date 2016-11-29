@@ -45,7 +45,7 @@ parameters:
         default: 256
         description: Memory size in MB (default 256M)
         type: integer
-    rxtx-factor:
+    rxtx_factor:
         default: 1
         description: RX/TX factor (default 1)
         type: integer

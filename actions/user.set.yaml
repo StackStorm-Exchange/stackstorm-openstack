@@ -29,7 +29,7 @@ parameters:
     password:
         description: Set user password
         type: string
-    password-prompt:
+    password_prompt:
         default: false
         description: Prompt interactively for password
         type: boolean

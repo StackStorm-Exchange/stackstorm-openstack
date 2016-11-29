@@ -19,7 +19,7 @@ parameters:
         description: Property to add/change for this server (repeat option to set
             multiple properties)
         type: array
-    root-password:
+    root_password:
         default: false
         description: Set new root password (interactive only)
         type: boolean

@@ -8,7 +8,7 @@ parameters:
         default: security group rule create
         immutable: true
         type: string
-    dst-port:
+    dst_port:
         default: 0:0
         description: 'Destination port, may be a range: 137:139 (default: 0; only
             required for proto tcp and udp)'
@@ -34,10 +34,10 @@ parameters:
         default: tcp
         description: 'IP protocol (icmp, tcp, udp; default: tcp)'
         type: string
-    src-group:
+    src_group:
         description: Source security group (ID only)
         type: string
-    src-ip:
+    src_ip:
         default: 0.0.0.0/0
         description: 'Source IP address block (may use CIDR notation; default: 0.0.0.0/0)'
         type: string

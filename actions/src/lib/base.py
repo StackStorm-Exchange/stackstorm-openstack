@@ -6,6 +6,7 @@ import subprocess
 import sys
 
 from st2actions.runners.pythonrunner import Action
+from utils import process_kwargs
 
 
 class OpenStackBaseAction(Action):
@@ -22,8 +23,7 @@ class OpenStackBaseAction(Action):
 
     def run(self, **kwargs):
         self.parser = self._get_parser(kwargs.pop('ep'))
-        if 'end_marker' in kwargs:
-            kwargs['end-marker'] = kwargs.pop('end_marker')
+        kwargs = process_kwargs(kwargs)
         cmd = [self.os_cli_cmd]
         cmd.extend(self.get_cmd(**kwargs))
         # Copy over current environment so that the pythonpath for openstack command is

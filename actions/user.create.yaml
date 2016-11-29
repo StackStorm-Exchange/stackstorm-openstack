@@ -32,14 +32,14 @@ parameters:
         description: New user name
         required: true
         type: string
-    or-show:
+    or_show:
         default: false
         description: Return existing user
         type: boolean
     password:
         description: Set user password
         type: string
-    password-prompt:
+    password_prompt:
         default: false
         description: Prompt interactively for password
         type: boolean

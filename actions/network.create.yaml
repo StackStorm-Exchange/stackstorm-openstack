@@ -32,7 +32,7 @@ parameters:
         description: New network name
         required: true
         type: string
-    no-share:
+    no_share:
         default: true
         description: Do not share the network between projects
         type: boolean
