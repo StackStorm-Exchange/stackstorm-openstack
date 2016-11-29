@@ -4,7 +4,7 @@ enabled: true
 entry_point: src/wrapper.py
 name: server.ssh
 parameters:
-    address-type:
+    address_type:
         default: public
         description: Use other IP address (public, private, etc)
         type: string

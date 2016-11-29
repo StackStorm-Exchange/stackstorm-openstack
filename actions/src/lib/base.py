@@ -6,6 +6,7 @@ import subprocess
 import sys
 
 from st2actions.runners.pythonrunner import Action
+from utils import process_kwargs
 
 
 class OpenStackBaseAction(Action):
@@ -22,6 +23,7 @@ class OpenStackBaseAction(Action):
 
     def run(self, **kwargs):
         self.parser = self._get_parser(kwargs.pop('ep'))
+        kwargs = process_kwargs(kwargs)
         cmd = [self.os_cli_cmd]
         cmd.extend(self.get_cmd(**kwargs))
         # Copy over current environment so that the pythonpath for openstack command is
@@ -53,7 +55,7 @@ class OpenStackBaseAction(Action):
     def _get_parser(self, ep):
         # EntryPoint is needed only for eval to work. Locaizing the import
         # for readability and to avoid accidental deletion.
-        from pkg_resources import EntryPoint
+        from pkg_resources import EntryPoint  # NOQA
         entry_point = eval(ep)
         command_cls = entry_point.load(require=False)
         command = command_cls(None, None)

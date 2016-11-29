@@ -4,7 +4,7 @@ enabled: true
 entry_point: src/wrapper.py
 name: security.group.list
 parameters:
-    all-projects:
+    all_projects:
         default: false
         description: Display information from all projects (admin only)
         type: boolean

@@ -21,10 +21,10 @@ parameters:
         description: Image to modify (name or ID)
         required: true
         type: string
-    min-disk:
+    min_disk:
         description: Minimum disk size needed to boot image, in gigabytes
         type: integer
-    min-ram:
+    min_ram:
         description: Minimum RAM size needed to boot image, in megabytes
         type: integer
     name:

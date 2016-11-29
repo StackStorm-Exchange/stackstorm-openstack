@@ -11,14 +11,14 @@ parameters:
     checksum:
         description: Image hash used for verification
         type: string
-    container-format:
+    container_format:
         default: bare
         description: 'Image container format (default: bare)'
         type: string
-    copy-from:
+    copy_from:
         description: Copy image from the data store (similar to --location)
         type: string
-    disk-format:
+    disk_format:
         default: raw
         description: 'Image disk format (default: raw)'
         type: string
@@ -45,10 +45,10 @@ parameters:
     location:
         description: Download image from an existing URL
         type: string
-    min-disk:
+    min_disk:
         description: Minimum disk size needed to boot image, in gigabytes
         type: integer
-    min-ram:
+    min_ram:
         description: Minimum RAM size needed to boot image, in megabytes
         type: integer
     name:

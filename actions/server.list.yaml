@@ -4,7 +4,7 @@ enabled: true
 entry_point: src/wrapper.py
 name: server.list
 parameters:
-    all-projects:
+    all_projects:
         default: false
         description: Include all projects (admin only)
         type: boolean
@@ -30,7 +30,7 @@ parameters:
     image:
         description: Search by image
         type: string
-    instance-name:
+    instance_name:
         description: Regular expression to match instance name (admin only)
         type: string
     ip:
@@ -46,7 +46,7 @@ parameters:
     name:
         description: Regular expression to match names
         type: string
-    reservation-id:
+    reservation_id:
         description: Only return instances that match the reservation
         type: string
     status:

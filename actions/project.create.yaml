@@ -32,7 +32,7 @@ parameters:
         description: New project name
         required: true
         type: string
-    or-show:
+    or_show:
         default: false
         description: Return existing project
         type: boolean

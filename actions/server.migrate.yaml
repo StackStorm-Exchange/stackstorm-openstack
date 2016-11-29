@@ -8,11 +8,11 @@ parameters:
         default: server migrate
         immutable: true
         type: string
-    block-migration:
+    block_migration:
         default: true
         description: Perform a block live migration
         type: boolean
-    disk-overcommit:
+    disk_overcommit:
         default: false
         description: Allow disk over-commit on the destination host
         type: boolean
@@ -23,7 +23,7 @@ parameters:
     live:
         description: Target hostname
         type: string
-    no-disk-overcommit:
+    no_disk_overcommit:
         default: false
         description: Do not over-commit disk on the destination host (default)
         type: boolean
@@ -31,7 +31,7 @@ parameters:
         description: Server (name or ID)
         required: true
         type: string
-    shared-migration:
+    shared_migration:
         default: true
         description: Perform a shared live migration (default)
         type: boolean

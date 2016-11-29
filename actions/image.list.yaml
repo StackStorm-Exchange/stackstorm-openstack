@@ -21,7 +21,7 @@ parameters:
         default: false
         description: List additional fields in output
         type: boolean
-    page-size:
+    page_size:
         description: ==SUPPRESS==
         type: string
     private:

@@ -12,7 +12,7 @@ parameters:
         default: container list
         immutable: true
         type: string
-    end-marker:
+    end_marker:
         description: End anchor for paging
         type: string
     ep:

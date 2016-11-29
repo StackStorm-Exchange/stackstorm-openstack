@@ -27,7 +27,7 @@ parameters:
     name:
         description: Set network name
         type: string
-    no-share:
+    no_share:
         default: true
         description: Do not share the network between projects
         type: boolean

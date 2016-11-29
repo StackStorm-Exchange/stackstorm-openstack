@@ -21,7 +21,7 @@ parameters:
         description: New public key name
         required: true
         type: string
-    public-key:
+    public_key:
         description: Filename for public key to add
         type: string
 runner_type: run-python
