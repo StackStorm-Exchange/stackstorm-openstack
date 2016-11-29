@@ -53,7 +53,7 @@ class OpenStackBaseAction(Action):
     def _get_parser(self, ep):
         # EntryPoint is needed only for eval to work. Locaizing the import
         # for readability and to avoid accidental deletion.
-        from pkg_resources import EntryPoint
+        from pkg_resources import EntryPoint  # NOQA
         entry_point = eval(ep)
         command_cls = entry_point.load(require=False)
         command = command_cls(None, None)
