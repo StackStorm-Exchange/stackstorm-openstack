@@ -32,10 +32,17 @@ ALL = '*'
 class CommandProcessor(object):
 
     SKIP_GROUP_NAMES = [
-        'output formatters',  # https://github.com/openstack/cliff/blob/master/cliff/display.py#L53
-        'table formatter',  # https://github.com/openstack/cliff/blob/master/cliff/formatters/table.py#L22
-        'shell formatter',  # https://github.com/openstack/cliff/blob/master/cliff/formatters/shell.py#L14
-        'CSV Formatter'  # https://github.com/openstack/cliff/blob/master/cliff/formatters/commaseparated.py#L20
+        'output formatters',
+        # https://github.com/openstack/cliff/blob/master/cliff/display.py#L53
+
+        'table formatter',
+        # https://github.com/openstack/cliff/blob/master/cliff/formatters/table.py#L22
+
+        'shell formatter',
+        # https://github.com/openstack/cliff/blob/master/cliff/formatters/shell.py#L14
+
+        'CSV Formatter'
+        # https://github.com/openstack/cliff/blob/master/cliff/formatters/commaseparated.py#L20
     ]
 
     def __init__(self, command, entry_point):
