@@ -40,7 +40,9 @@ class WrapperAction(OpenStackBaseAction):
             # e.g. --wait instead of --wait=True.
             return [action.option_strings[0]] if include_action else None
         # will end up being of the form "option_string value"
-        return [action.option_strings[0],
+        return [
+                action.option_strings[0],
                 six.moves.shlex_quote(
                     str(value)
-                )]
+                )
+               ]
