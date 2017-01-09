@@ -29,9 +29,13 @@ class OpenStackBaseAction(Action):
         # Copy over current environment so that the pythonpath for openstack command is
         # still available.
         env = os.environ.copy()
-        # If available source the openstackrc file before running the command.
-        # The precedence order is openstackrc > token > password
-        if self.openstackrc:
+        # If "cloud" was specified, use a clouds.yaml file for authentication.
+        # Next, check for an openstackrc file specified in the pack configuration.
+        # Finally, check for pack configured token or password.
+        # The precedence order is cloud > openstackrc > token > password.
+        if 'cloud' in kwargs:
+            cmd.append('--os-cloud %s' % kwargs['cloud'])
+        elif self.openstackrc:
             cmd[:0] = ['.', self.openstackrc, '&&']
         else:
             env.update(self.token or self.password)
