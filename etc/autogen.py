@@ -118,10 +118,10 @@ class CommandProcessor(object):
 
         # Make sure choices are included in the description. Often action.help
         # may not list choices. It is perhaps better if this type were an enum?
-        descripton = str(action.help) if not action.choices else \
+        description = str(action.help) if not action.choices else \
             '%s (choices: %s)' % (action.help, ', '.join(action.choices))
 
-        return name, self._get_parameter(default=default, description=descripton,
+        return name, self._get_parameter(default=default, description=description,
                                          type_=type_, required=required)
 
     def _parse_parameters(self, parser):
@@ -143,25 +143,38 @@ class CommandProcessor(object):
             LOG.debug('\033[92m\033[4m\033[1m%s\033[0m', name)
             LOG.debug('%s\n%s', action, meta)
 
+            name = name.replace("-", "_")
             parameters[name] = meta
 
         parameters['ep'] = self._get_parameter(default=repr(self._entry_point), immutable=True)
         parameters['base'] = self._get_parameter(default=self._command_text, immutable=True)
+
+        # Add a cloud parameter to the action
+        cloud_param = {
+            'type': 'string',
+            'description': 'A specific cloud to query'
+        }
+        parameters['cloud'] = cloud_param
+
         return parameters
 
     def __call__(self):
-        command = self._command_cls(None, None)
-        parser = command.get_parser('autogen')
-        parameters = self._parse_parameters(parser)
-        LOG.debug('No of parameters %s', len(parameters))
-        return {
-            'name': self._command_name,
-            'runner_type': 'run-python',
-            'entry_point': SCRIPT_RELATIVE_PATH,
-            'enabled': True,
-            'description': self._command_cls.__doc__,
-            'parameters': parameters
-        }
+        try:
+            command = self._command_cls(None, None)
+            parser = command.get_parser('autogen')
+            parameters = self._parse_parameters(parser)
+            LOG.debug('No of parameters %s', len(parameters))
+            return {
+                'name': self._command_name,
+                'runner_type': 'run-python',
+                'entry_point': SCRIPT_RELATIVE_PATH,
+                'enabled': True,
+                'description': self._command_cls.__doc__,
+                'parameters': parameters
+            }
+        except Exception as err:
+            print("Unable to generate %s: %s") % (self._command_name, err)
+            pass
 
 
 class MetaDataWriter(object):
@@ -173,7 +186,7 @@ class MetaDataWriter(object):
     def write(self, command):
         metadata_file_path = os.path.join(self._base_path, '%s.%s' % (command['name'], 'yaml'))
         with open(metadata_file_path, 'w') as out:
-            out.write(yaml.dump(command, explicit_start=True, default_flow_style=False, indent=4))
+            out.write(yaml.safe_dump(command, explicit_start=True, default_flow_style=False, indent=4))
         return metadata_file_path
 
 
@@ -230,8 +243,9 @@ def _process_commands(commands, namespace=ALL, base_write_path=BASE_PATH):
         if not _is_command_in_namespace(command, namespace):
             continue
         writeable_command = CommandProcessor(command, ep)()
-        path = writer.write(writeable_command)
-        LOG.info('%s : %s ', writeable_command['name'], path)
+        if writeable_command is not None:
+            path = writer.write(writeable_command)
+            LOG.info('%s : %s ', writeable_command['name'], path)
 
 
 def _setup_logging(debug=False):
