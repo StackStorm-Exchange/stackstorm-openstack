@@ -186,7 +186,8 @@ class MetaDataWriter(object):
     def write(self, command):
         metadata_file_path = os.path.join(self._base_path, '%s.%s' % (command['name'], 'yaml'))
         with open(metadata_file_path, 'w') as out:
-            out.write(yaml.safe_dump(command, explicit_start=True, default_flow_style=False, indent=4))
+            out.write(yaml.safe_dump(command, explicit_start=True,
+                                     default_flow_style=False, indent=4))
         return metadata_file_path
 
 
