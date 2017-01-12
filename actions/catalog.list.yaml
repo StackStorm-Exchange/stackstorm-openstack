@@ -1,5 +1,5 @@
 ---
-description: List services in the service catalog
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: catalog.list
@@ -8,13 +8,26 @@ parameters:
         default: catalog list
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
     ep:
         default: EntryPoint.parse('catalog_list = openstackclient.identity.v2_0.catalog:ListCatalog')
         immutable: true
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: csv, html, json,
-            table, yaml)'
+        description: 'the output format, defaults to table (choices: csv, json, table,
+            value, yaml)'
+        type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
 runner_type: run-python

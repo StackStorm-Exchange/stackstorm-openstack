@@ -1,5 +1,5 @@
 ---
-description: Scale server to a new flavor
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: server.resize
@@ -7,6 +7,9 @@ parameters:
     base:
         default: server resize
         immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
         type: string
     confirm:
         default: false
@@ -18,6 +21,12 @@ parameters:
         type: string
     flavor:
         description: Resize server to specified flavor
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
     revert:
         default: false

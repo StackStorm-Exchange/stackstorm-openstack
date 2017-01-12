@@ -1,5 +1,5 @@
 ---
-description: Create new project
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: project.create
@@ -7,6 +7,9 @@ parameters:
     base:
         default: project create
         immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
         type: string
     description:
         description: Project description
@@ -25,17 +28,27 @@ parameters:
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: html, json, shell,
+        description: 'the output format, defaults to table (choices: json, shell,
             table, value, yaml)'
         type: string
     name:
         description: New project name
         required: true
         type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
     or_show:
         default: false
         description: Return existing project
         type: boolean
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     property:
         description: Add a property to <name> (repeat option to set multiple properties)
         type: array

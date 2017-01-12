@@ -1,5 +1,5 @@
 ---
-description: Delete volume type
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: volume.type.delete
@@ -8,12 +8,21 @@ parameters:
         default: volume type delete
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
     ep:
-        default: EntryPoint.parse('volume_type_delete = openstackclient.volume.v1.type:DeleteVolumeType')
+        default: EntryPoint.parse('volume_type_delete = openstackclient.volume.v2.volume_type:DeleteVolumeType')
         immutable: true
         type: string
-    volume_type:
-        description: Volume type to delete (name or ID)
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
+    volume_types:
+        description: Volume type(s) to delete (name or ID)
         required: true
         type: string
 runner_type: run-python

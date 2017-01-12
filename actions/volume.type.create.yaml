@@ -1,5 +1,5 @@
 ---
-description: Create new volume type
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: volume.type.create
@@ -8,21 +8,53 @@ parameters:
         default: volume type create
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
+    description:
+        description: Volume type description
+        type: string
     ep:
-        default: EntryPoint.parse('volume_type_create = openstackclient.volume.v1.type:CreateVolumeType')
+        default: EntryPoint.parse('volume_type_create = openstackclient.volume.v2.volume_type:CreateVolumeType')
         immutable: true
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: html, json, shell,
+        description: 'the output format, defaults to table (choices: json, shell,
             table, value, yaml)'
         type: string
     name:
-        description: New volume type name
+        description: Volume type name
         required: true
         type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
+    private:
+        default: false
+        description: Volume type is not accessible to the public
+        type: boolean
+    project:
+        description: Allow <project> to access private type (name or ID) (Must be
+            used with --private option)
+        type: string
+    project_domain:
+        description: Domain the project belongs to (name or ID). This can be used
+            in case collisions between project names exist.
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     property:
-        description: Property to add for this volume type (repeat option to set multiple
+        description: Set a property on this volume type (repeat option to set multiple
             properties)
         type: array
+    public:
+        default: false
+        description: Volume type is accessible to the public
+        type: boolean
 runner_type: run-python

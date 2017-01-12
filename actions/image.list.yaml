@@ -1,5 +1,5 @@
 ---
-description: List available images
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: image.list
@@ -8,18 +8,32 @@ parameters:
         default: image list
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
     ep:
-        default: EntryPoint.parse('image_list = openstackclient.image.v1.image:ListImage')
+        default: EntryPoint.parse('image_list = openstackclient.image.v2.image:ListImage')
         immutable: true
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: csv, html, json,
-            table, yaml)'
+        description: 'the output format, defaults to table (choices: csv, json, table,
+            value, yaml)'
         type: string
+    limit:
+        description: Maximum number of images to display.
+        type: integer
     long:
         default: false
         description: List additional fields in output
+        type: boolean
+    marker:
+        description: The last image (name or ID) of the previous page. Display list
+            of images after marker. Display all images if not specified.
+        type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
         type: boolean
     page_size:
         description: ==SUPPRESS==
@@ -28,6 +42,12 @@ parameters:
         default: false
         description: List only private images
         type: boolean
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     property:
         description: Filter output based on property
         type: array
@@ -37,10 +57,12 @@ parameters:
         type: boolean
     shared:
         default: false
-        description: ==SUPPRESS==
+        description: List only shared images
         type: boolean
     sort:
+        default: name:asc
         description: 'Sort output by selected keys and directions(asc or desc) (default:
-            asc), multiple keys and directions can be specified separated by comma'
+            name:asc), multiple keys and directions can be specified separated by
+            comma'
         type: string
 runner_type: run-python

@@ -1,0 +1,53 @@
+---
+description: null
+enabled: true
+entry_point: src/wrapper.py
+name: port.list
+parameters:
+    base:
+        default: port list
+        immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
+    device_owner:
+        description: List only ports with the specified device owner. This is the
+            entity that uses the port (for example, network:dhcp).
+        type: string
+    ep:
+        default: EntryPoint.parse('port_list = openstackclient.network.v2.port:ListPort')
+        immutable: true
+        type: string
+    format:
+        default: json
+        description: 'the output format, defaults to table (choices: csv, json, table,
+            value, yaml)'
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+    mac_address:
+        description: List only ports with this MAC address
+        type: string
+    network:
+        description: List only ports connected to this network (name or ID)
+        type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
+    router:
+        description: List only ports attached to this router (name or ID)
+        type: string
+    server:
+        description: List only ports attached to this server (name or ID)
+        type: string
+runner_type: run-python

@@ -1,5 +1,5 @@
 ---
-description: Set volume type properties
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: volume.type.set
@@ -8,13 +8,35 @@ parameters:
         default: volume type set
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
+    description:
+        description: Set volume type description
+        type: string
     ep:
-        default: EntryPoint.parse('volume_type_set = openstackclient.volume.v1.type:SetVolumeType')
+        default: EntryPoint.parse('volume_type_set = openstackclient.volume.v2.volume_type:SetVolumeType')
         immutable: true
         type: string
+    name:
+        description: Set volume type name
+        type: string
+    project:
+        description: Set volume type access to project (name or ID) (admin only)
+        type: string
+    project_domain:
+        description: Domain the project belongs to (name or ID). This can be used
+            in case collisions between project names exist.
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     property:
-        description: Property to add or modify for this volume type (repeat option
-            to set multiple properties)
+        description: Set a property on this volume type (repeat option to set multiple
+            properties)
         type: array
     volume_type:
         description: Volume type to modify (name or ID)

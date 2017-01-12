@@ -1,5 +1,5 @@
 ---
-description: List API extensions
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: extension.list
@@ -7,6 +7,9 @@ parameters:
     base:
         default: extension list
         immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
         type: string
     compute:
         default: false
@@ -18,8 +21,8 @@ parameters:
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: csv, html, json,
-            table, yaml)'
+        description: 'the output format, defaults to table (choices: csv, json, table,
+            value, yaml)'
         type: string
     identity:
         default: false
@@ -33,8 +36,18 @@ parameters:
         default: false
         description: List extensions for the Network API
         type: boolean
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     volume:
         default: false
-        description: List extensions for the Volume API
+        description: List extensions for the Block Storage API
         type: boolean
 runner_type: run-python
