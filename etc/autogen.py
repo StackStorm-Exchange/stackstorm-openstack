@@ -156,6 +156,19 @@ class CommandProcessor(object):
         }
         parameters['cloud'] = cloud_param
 
+        # Add project parameters to the action
+        project_name_param = {
+            'type': 'string',
+            'description': 'Run the action under a different project, identified by name'
+        }
+        parameters['project_name'] = project_name_param
+
+        project_id_param = {
+            'type': 'string',
+            'description': 'Run the action under a different project, identified by id'
+        }
+        parameters['project_id'] = project_id_param
+
         return parameters
 
     def __call__(self):
