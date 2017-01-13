@@ -1,5 +1,5 @@
 ---
-description: Save object locally
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: object.save
@@ -7,6 +7,9 @@ parameters:
     base:
         default: object save
         immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
         type: string
     container:
         description: Download <object> from <container>
@@ -22,5 +25,11 @@ parameters:
     object:
         description: Object to save
         required: true
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
 runner_type: run-python

@@ -1,5 +1,5 @@
 ---
-description: Set network properties
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: network.set
@@ -8,31 +8,95 @@ parameters:
         default: network set
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
+    default:
+        default: false
+        description: Set the network as the default external network
+        type: boolean
+    description:
+        description: Set network description
+        type: string
     disable:
-        default: true
+        default: false
         description: Disable network
+        type: boolean
+    disable_port_security:
+        default: false
+        description: Disable port security by default for ports created on this network
         type: boolean
     enable:
         default: false
         description: Enable network
         type: boolean
+    enable_port_security:
+        default: false
+        description: Enable port security by default for ports created on this network
+        type: boolean
     ep:
         default: EntryPoint.parse('network_set = openstackclient.network.v2.network:SetNetwork')
         immutable: true
         type: string
-    identifier:
-        description: Network to modify (name or ID)
-        required: true
-        type: string
+    external:
+        default: false
+        description: Set this network as an external network (external-net extension
+            required)
+        type: boolean
+    internal:
+        default: false
+        description: Set this network as an internal network
+        type: boolean
     name:
         description: Set network name
         type: string
+    network:
+        description: Network to modify (name or ID)
+        required: true
+        type: string
+    no_default:
+        default: false
+        description: Do not use the network as the default external network
+        type: boolean
+    no_qos_policy:
+        default: false
+        description: Remove the QoS policy attached to this network
+        type: boolean
     no_share:
-        default: true
+        default: false
         description: Do not share the network between projects
         type: boolean
+    no_transparent_vlan:
+        default: false
+        description: Do not make the network VLAN transparent
+        type: boolean
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
+    provider_network_type:
+        description: 'The physical mechanism by which the virtual network is implemented.
+            The supported options are: flat, geneve, gre, local, vlan, vxlan. (choices:
+            flat, geneve, gre, local, vlan, vxlan)'
+        type: string
+    provider_physical_network:
+        description: Name of the physical network over which the virtual network is
+            implemented
+        type: string
+    provider_segment:
+        description: VLAN ID for VLAN networks or Tunnel ID for GENEVE/GRE/VXLAN networks
+        type: string
+    qos_policy:
+        description: QoS policy to attach to this network (name or ID)
+        type: string
     share:
         default: false
         description: Share the network between projects
+        type: boolean
+    transparent_vlan:
+        default: false
+        description: Make the network VLAN transparent
         type: boolean
 runner_type: run-python

@@ -1,5 +1,5 @@
 ---
-description: Lock a server. A non-admin user will not be able to execute actions
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: server.lock
@@ -8,12 +8,21 @@ parameters:
         default: server lock
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
     ep:
         default: EntryPoint.parse('server_lock = openstackclient.compute.v2.server:LockServer')
         immutable: true
         type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     server:
-        description: Server (name or ID)
+        description: Server(s) to lock (name or ID)
         required: true
         type: string
 runner_type: run-python

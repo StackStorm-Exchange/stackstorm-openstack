@@ -1,5 +1,5 @@
 ---
-description: Create new public key
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: keypair.create
@@ -8,20 +8,34 @@ parameters:
         default: keypair create
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
     ep:
         default: EntryPoint.parse('keypair_create = openstackclient.compute.v2.keypair:CreateKeypair')
         immutable: true
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: html, json, shell,
+        description: 'the output format, defaults to table (choices: json, shell,
             table, value, yaml)'
         type: string
     name:
-        description: New public key name
+        description: New public or private key name
         required: true
         type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     public_key:
-        description: Filename for public key to add
+        description: Filename for public key to add. If not used, creates a private
+            key.
         type: string
 runner_type: run-python

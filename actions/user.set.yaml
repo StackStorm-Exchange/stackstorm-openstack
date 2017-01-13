@@ -1,5 +1,5 @@
 ---
-description: Set user properties
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: user.set
@@ -7,6 +7,9 @@ parameters:
     base:
         default: user set
         immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
         type: string
     disable:
         default: false
@@ -36,8 +39,14 @@ parameters:
     project:
         description: Set default project (name or ID)
         type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     user:
-        description: User to change (name or ID)
+        description: User to modify (name or ID)
         required: true
         type: string
 runner_type: run-python

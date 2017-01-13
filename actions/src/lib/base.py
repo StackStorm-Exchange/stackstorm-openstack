@@ -33,12 +33,21 @@ class OpenStackBaseAction(Action):
         # Next, check for an openstackrc file specified in the pack configuration.
         # Finally, check for pack configured token or password.
         # The precedence order is cloud > openstackrc > token > password.
-        if 'cloud' in kwargs:
+        if 'cloud' in kwargs and kwargs['cloud'] is not None:
             cmd.append('--os-cloud %s' % kwargs['cloud'])
         elif self.openstackrc:
             cmd[:0] = ['.', self.openstackrc, '&&']
         else:
             env.update(self.token or self.password)
+
+        # If a project name or id was specified in the action, configure openstackclient
+        # to run under that project. This will take precedence over prior authentication
+        # settings.
+        if 'project_name' in kwargs and kwargs['project_name'] is not None:
+            cmd.append('--os-project-name %s' % kwargs['project_name'])
+        elif 'project_id' in kwargs and kwargs['project_id'] is not None:
+            cmd.append('--os-project-id %s' % kwargs['project_id'])
+
         cmd_str = ' '.join(cmd)
         self.logger.debug('Generated command "%s"', cmd_str)
         p = subprocess.Popen(cmd_str, stdout=subprocess.PIPE, stderr=subprocess.PIPE,

@@ -1,5 +1,5 @@
 ---
-description: Show quotas for project or class
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: quota.show
@@ -12,6 +12,9 @@ parameters:
         default: false
         description: Show quotas for <class>
         type: boolean
+    cloud:
+        description: A specific cloud to query
+        type: string
     default:
         default: false
         description: Show default quotas for <project>
@@ -22,11 +25,20 @@ parameters:
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: html, json, shell,
+        description: 'the output format, defaults to table (choices: json, shell,
             table, value, yaml)'
         type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
     project:
-        description: Show this project or class (name/ID)
-        required: true
+        description: Show quotas for this project or class (name or ID)
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
 runner_type: run-python

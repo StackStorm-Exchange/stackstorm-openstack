@@ -1,5 +1,5 @@
 ---
-description: List objects
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: object.list
@@ -11,6 +11,9 @@ parameters:
     base:
         default: object list
         immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
         type: string
     container:
         description: Container to list
@@ -28,8 +31,8 @@ parameters:
         type: string
     format:
         default: json
-        description: 'the output format, defaults to table (choices: csv, html, json,
-            table, yaml)'
+        description: 'the output format, defaults to table (choices: csv, json, table,
+            value, yaml)'
         type: string
     limit:
         description: Limit the number of objects returned
@@ -41,7 +44,17 @@ parameters:
     marker:
         description: Anchor for paging
         type: string
+    noindent:
+        default: false
+        description: whether to disable indenting the JSON
+        type: boolean
     prefix:
         description: Filter list using <prefix>
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
 runner_type: run-python

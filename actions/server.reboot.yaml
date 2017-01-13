@@ -1,5 +1,5 @@
 ---
-description: Perform a hard or soft server reboot
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: server.reboot
@@ -8,6 +8,9 @@ parameters:
         default: server reboot
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
     ep:
         default: EntryPoint.parse('server_reboot = openstackclient.compute.v2.server:RebootServer')
         immutable: true
@@ -15,6 +18,12 @@ parameters:
     hard:
         default: SOFT
         description: Perform a hard reboot
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
     server:
         description: Server (name or ID)

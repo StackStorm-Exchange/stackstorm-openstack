@@ -1,5 +1,5 @@
 ---
-description: Save container contents locally
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: container.save
@@ -8,6 +8,9 @@ parameters:
         default: container save
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
     container:
         description: Container to save
         required: true
@@ -15,5 +18,11 @@ parameters:
     ep:
         default: EntryPoint.parse('container_save = openstackclient.object.v1.container:SaveContainer')
         immutable: true
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
 runner_type: run-python

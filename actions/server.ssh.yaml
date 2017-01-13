@@ -1,5 +1,5 @@
 ---
-description: Ssh to server
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: server.ssh
@@ -11,6 +11,9 @@ parameters:
     base:
         default: server ssh
         immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
         type: string
     ep:
         default: EntryPoint.parse('server_ssh = openstackclient.compute.v2.server:SshServer')
@@ -27,11 +30,8 @@ parameters:
         default: false
         description: Use only IPv6 addresses
         type: boolean
-    l:
-        description: ==SUPPRESS==
-        type: string
     login:
-        description: Login name (ssh -l option)
+        description: ==SUPPRESS==
         type: string
     option:
         description: ==SUPPRESS==
@@ -42,6 +42,12 @@ parameters:
     private:
         default: public
         description: Use private IP address
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
     public:
         default: public

@@ -1,5 +1,5 @@
 ---
-description: Unset volume type properties
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: volume.type.unset
@@ -8,13 +8,28 @@ parameters:
         default: volume type unset
         immutable: true
         type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
     ep:
-        default: EntryPoint.parse('volume_type_unset = openstackclient.volume.v1.type:UnsetVolumeType')
+        default: EntryPoint.parse('volume_type_unset = openstackclient.volume.v2.volume_type:UnsetVolumeType')
         immutable: true
         type: string
+    project:
+        description: Removes volume type access to project (name or ID)  (admin only)
+        type: string
+    project_domain:
+        description: Domain the project belongs to (name or ID). This can be used
+            in case collisions between project names exist.
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
     property:
-        default: []
-        description: Property to remove from volume type (repeat option to remove
+        description: Remove a property from this volume type (repeat option to remove
             multiple properties)
         type: array
     volume_type:

@@ -1,5 +1,5 @@
 ---
-description: Set project properties
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: project.set
@@ -7,6 +7,9 @@ parameters:
     base:
         default: project set
         immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
         type: string
     description:
         description: Set project description
@@ -29,6 +32,12 @@ parameters:
     project:
         description: Project to modify (name or ID)
         required: true
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
         type: string
     property:
         description: Set a project property (repeat option to set multiple properties)
