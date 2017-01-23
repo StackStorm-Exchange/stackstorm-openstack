@@ -1,6 +1,6 @@
 import argparse
 
-from openstackclient.common import parseractions
+from osc_lib.cli import parseractions
 
 DASH_PARAMETERS = [
     "rxtx_factor",
