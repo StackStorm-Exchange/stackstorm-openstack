@@ -4,12 +4,23 @@
 # openstackrc > token > password
 # Since tokens are epehemral It might often be suitable to use password style authetication.
 openstackrc: ""
+
 token:
     OS_TOKEN: ""
     OS_URL: ""
+
 password:
     OS_AUTH_URL: ""
     OS_TENANT_ID: ""
     OS_TENANT_NAME: ""
     OS_USERNAME: ""
     OS_PASSWORD: ""
+
+messaging:
+    # The value for service type depends on how the zaqar service is
+    # registered under Keystone. Please refer to Keystone for the
+    # actual value for the service type.
+    service_type: 'messaging'
+    claim_ttl: 60
+    claim_grace: 60
+    queues: []

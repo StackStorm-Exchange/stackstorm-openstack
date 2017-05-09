@@ -1,0 +1,19 @@
+class_name: MessageQueueSensor
+enabled: true
+entry_point: messaging_sensor.py
+description: Sensor which monitors specific messaging queues
+poll_interval: 5
+trigger_types:
+    -
+        name: messaging
+        pack: openstack
+        description: Trigger being dispatched for each message in the queue
+        payload_schema:
+            type: object
+            properties:
+                queue:
+                    type: string
+                message:
+                    anyOf:
+                        - type: string
+                        - type: object
