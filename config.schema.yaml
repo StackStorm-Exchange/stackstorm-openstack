@@ -1,0 +1,61 @@
+---
+  openstackrc:
+    description: "Path to OpenStack RC file"
+    type: "string"
+    required: false
+  token:
+    description: "Token configuration."
+    type: "object"
+    required: false
+    additionalProperties: false
+    properties:
+      OS_TOKEN:
+        description: "OpenStack Token"
+        type: "string"
+        secret: true
+      OS_URL:
+        description: "OpenStack URL"
+        type: "string"
+  password:
+    description: "Password configuration."
+    type: "object"
+    required: false
+    additionalProperties: false
+    properties:
+      OS_AUTH_URL:
+        description: "OpenStack Authentication URL"
+        type: "string"
+      OS_TENANT_ID:
+        description: "OpenStack Tenant ID"
+        type: "string"
+      OS_TENANT_NAME:
+        description: "OpenStack Tenant Name"
+        type: "string"
+      OS_USERNAME:
+        description: "OpenStack Username"
+        type: "string"
+      OS_PASSWORD:
+        description: "OpenStack Password"
+        type: "string"
+        secret: true
+  messaging:
+    description: "Zaqar messaging configuration."
+    type: "object"
+    required: false
+    additionalProperties: false
+    properties:
+      service_type:
+        description: "Messaging Service Type"
+        type: "string"
+        default: "messaging"
+      claim_ttl:
+        description: "Claim TTL"
+        type: "integer"
+        default: 60
+      claim_grace:
+        description: "Claim Grace"
+        type: "integer"
+        default: 60
+      queues:
+        description: "Queues to monitor"
+        type: "array"

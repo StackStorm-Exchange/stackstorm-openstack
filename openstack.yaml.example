@@ -2,7 +2,7 @@
 # Specify one of section openstackrc,token or password.
 # Precedence order is :
 # openstackrc > token > password
-# Since tokens are epehemral It might often be suitable to use password style authetication.
+# Since tokens are ephemeral it might often be preferred to use password style authetication.
 openstackrc: ""
 
 token:
