@@ -50,4 +50,4 @@ parameters:
     server:
         description: List only ports attached to this server (name or ID)
         type: string
-runner_type: run-python
+runner_type: python-script

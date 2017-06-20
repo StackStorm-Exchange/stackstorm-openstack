@@ -64,4 +64,4 @@ parameters:
         description: Domain the user belongs to (name or ID). This can be used in
             case collisions between user names exist.
         type: string
-runner_type: run-python
+runner_type: python-script

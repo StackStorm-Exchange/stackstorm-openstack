@@ -29,4 +29,4 @@ parameters:
         description: Property to remove from aggregate (repeat option to remove multiple
             properties)
         type: array
-runner_type: run-python
+runner_type: python-script

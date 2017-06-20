@@ -49,4 +49,4 @@ parameters:
         default: false
         description: Include reservations count [only valid with --absolute]
         type: boolean
-runner_type: run-python
+runner_type: python-script

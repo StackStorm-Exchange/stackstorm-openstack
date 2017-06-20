@@ -38,4 +38,4 @@ parameters:
         default: false
         description: Show only bare public key paired with the generated key
         type: boolean
-runner_type: run-python
+runner_type: python-script

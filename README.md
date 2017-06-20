@@ -7,6 +7,10 @@ StackStorm pack for OpenStack integration.
 Copy the example configuration in [openstack.yaml.example](./openstack.yaml.example)
 to `/opt/stackstorm/configs/openstack.yaml` and edit as required.
 
+**Note** : When modifying the configuration in `/opt/stackstorm/configs/` please
+           remember to tell StackStorm to load these new values by running
+           `st2ctl reload --register-configs`
+
 Pack configuration requires URLs of the openstack APIs and an authetication mechanism. There are two way to supply this information :
 
 ### Token based

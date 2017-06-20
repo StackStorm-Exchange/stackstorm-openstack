@@ -49,4 +49,4 @@ parameters:
     user:
         description: User to filter (name or ID)
         type: string
-runner_type: run-python
+runner_type: python-script

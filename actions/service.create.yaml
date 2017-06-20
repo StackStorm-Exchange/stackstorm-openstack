@@ -43,4 +43,4 @@ parameters:
         description: New service type (compute, image, identity, volume, etc)
         required: true
         type: string
-runner_type: run-python
+runner_type: python-script

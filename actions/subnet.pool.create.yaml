@@ -78,4 +78,4 @@ parameters:
         default: false
         description: Set this subnet pool as shared
         type: boolean
-runner_type: run-python
+runner_type: python-script

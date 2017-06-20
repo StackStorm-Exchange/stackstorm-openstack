@@ -54,4 +54,4 @@ parameters:
             the network type, VLAN ID for vlan network type and tunnel ID for geneve,
             gre and vxlan network types
         type: integer
-runner_type: run-python
+runner_type: python-script

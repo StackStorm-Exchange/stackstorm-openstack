@@ -57,4 +57,4 @@ parameters:
         default: false
         description: Volume type is accessible to the public
         type: boolean
-runner_type: run-python
+runner_type: python-script

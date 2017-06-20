@@ -32,4 +32,4 @@ parameters:
     volume_type:
         description: Volume type to disassociate the QoS from (name or ID)
         type: string
-runner_type: run-python
+runner_type: python-script

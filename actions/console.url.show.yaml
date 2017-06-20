@@ -53,4 +53,4 @@ parameters:
     xvpvnc:
         description: Show xvpvnc console URL
         type: string
-runner_type: run-python
+runner_type: python-script

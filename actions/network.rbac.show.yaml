@@ -34,4 +34,4 @@ parameters:
         description: RBAC policy (ID only)
         required: true
         type: string
-runner_type: run-python
+runner_type: python-script

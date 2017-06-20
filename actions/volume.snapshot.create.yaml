@@ -52,4 +52,4 @@ parameters:
     volume:
         description: Volume to snapshot (name or ID) (default is <snapshot-name>)
         type: string
-runner_type: run-python
+runner_type: python-script

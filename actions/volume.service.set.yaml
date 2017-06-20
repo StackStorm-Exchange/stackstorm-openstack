@@ -41,4 +41,4 @@ parameters:
         description: Name of service (Binary name)
         required: true
         type: string
-runner_type: run-python
+runner_type: python-script

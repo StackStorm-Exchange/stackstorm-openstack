@@ -38,4 +38,4 @@ parameters:
         description: Security group which should be removed this port (name or ID)
             (repeat option to unset multiple security groups)
         type: array
-runner_type: run-python
+runner_type: python-script

@@ -65,4 +65,4 @@ parameters:
             name:asc), multiple keys and directions can be specified separated by
             comma'
         type: string
-runner_type: run-python
+runner_type: python-script

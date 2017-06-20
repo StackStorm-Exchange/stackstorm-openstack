@@ -59,4 +59,4 @@ parameters:
     project_name:
         description: Run the action under a different project, identified by name
         type: string
-runner_type: run-python
+runner_type: python-script

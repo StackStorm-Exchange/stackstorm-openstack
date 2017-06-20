@@ -99,4 +99,4 @@ parameters:
         default: false
         description: Make the network VLAN transparent
         type: boolean
-runner_type: run-python
+runner_type: python-script

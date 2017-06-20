@@ -98,4 +98,4 @@ parameters:
             | normal | baremetal, default: normal) (choices: direct, direct-physical,
             macvtap, normal, baremetal)'
         type: string
-runner_type: run-python
+runner_type: python-script

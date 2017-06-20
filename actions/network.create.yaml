@@ -43,4 +43,4 @@ parameters:
         default: false
         description: Share the network between projects
         type: boolean
-runner_type: run-python
+runner_type: python-script

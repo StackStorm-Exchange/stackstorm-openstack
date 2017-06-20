@@ -38,4 +38,4 @@ parameters:
         description: Filename for public key to add. If not used, creates a private
             key.
         type: string
-runner_type: run-python
+runner_type: python-script

@@ -34,4 +34,4 @@ parameters:
     url:
         description: URL of the agent
         type: string
-runner_type: run-python
+runner_type: python-script

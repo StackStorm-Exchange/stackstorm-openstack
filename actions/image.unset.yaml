@@ -34,4 +34,4 @@ parameters:
         default: []
         description: Unset a tag on this image (repeat option to set multiple tags)
         type: array
-runner_type: run-python
+runner_type: python-script

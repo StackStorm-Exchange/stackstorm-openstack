@@ -101,4 +101,4 @@ parameters:
         default: false
         description: Wait for build to complete
         type: boolean
-runner_type: run-python
+runner_type: python-script
