@@ -29,4 +29,4 @@ parameters:
         description: Server (name or ID) to remove the floating IP address from
         required: true
         type: string
-runner_type: run-python
+runner_type: python-script

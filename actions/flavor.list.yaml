@@ -52,4 +52,4 @@ parameters:
         default: true
         description: List only public flavors (default)
         type: boolean
-runner_type: run-python
+runner_type: python-script

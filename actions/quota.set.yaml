@@ -68,4 +68,4 @@ parameters:
     volumes:
         description: New value for the volumes quota
         type: integer
-runner_type: run-python
+runner_type: python-script

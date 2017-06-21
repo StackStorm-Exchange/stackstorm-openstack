@@ -28,4 +28,4 @@ parameters:
         default: false
         description: List additional fields in output
         type: boolean
-runner_type: run-python
+runner_type: python-script

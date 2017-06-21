@@ -21,4 +21,4 @@ parameters:
         description: 'the output format, defaults to table (choices: csv, html, json,
             table, yaml)'
         type: string
-runner_type: run-python
+runner_type: python-script

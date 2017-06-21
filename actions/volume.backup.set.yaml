@@ -37,4 +37,4 @@ parameters:
             regard to actual status, exercise caution when using) (choices: available,
             error)'
         type: string
-runner_type: run-python
+runner_type: python-script

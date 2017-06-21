@@ -40,4 +40,4 @@ parameters:
     snapshot_name:
         description: Name of new consistency group snapshot (default to None)
         type: string
-runner_type: run-python
+runner_type: python-script

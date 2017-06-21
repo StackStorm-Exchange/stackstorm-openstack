@@ -28,4 +28,4 @@ parameters:
         default: 0.0.0.0/0
         description: 'Source IP (may use CIDR notation; default: 0.0.0.0/0)'
         type: string
-runner_type: run-python
+runner_type: python-script

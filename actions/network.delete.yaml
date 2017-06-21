@@ -16,4 +16,4 @@ parameters:
         description: Network to delete (name or ID)
         required: true
         type: string
-runner_type: run-python
+runner_type: python-script

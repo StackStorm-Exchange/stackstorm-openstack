@@ -42,4 +42,4 @@ parameters:
     property:
         description: Set a project property (repeat option to set multiple properties)
         type: array
-runner_type: run-python
+runner_type: python-script

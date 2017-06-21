@@ -52,4 +52,4 @@ parameters:
         default: false
         description: Make the QoS policy accessible by other projects
         type: boolean
-runner_type: run-python
+runner_type: python-script

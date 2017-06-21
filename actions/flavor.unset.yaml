@@ -36,4 +36,4 @@ parameters:
         description: Property to remove from flavor (repeat option to unset multiple
             properties)
         type: array
-runner_type: run-python
+runner_type: python-script

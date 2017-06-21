@@ -55,4 +55,4 @@ parameters:
     volume:
         description: Filters results by a volume (name or ID).
         type: string
-runner_type: run-python
+runner_type: python-script

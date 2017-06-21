@@ -38,4 +38,4 @@ parameters:
         default: true
         description: Show password in clear text
         type: boolean
-runner_type: run-python
+runner_type: python-script

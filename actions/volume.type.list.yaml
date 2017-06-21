@@ -46,4 +46,4 @@ parameters:
         default: false
         description: List only public types
         type: boolean
-runner_type: run-python
+runner_type: python-script

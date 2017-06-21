@@ -36,4 +36,4 @@ parameters:
         description: Property to add or modify for this flavor (repeat option to set
             multiple properties)
         type: array
-runner_type: run-python
+runner_type: python-script

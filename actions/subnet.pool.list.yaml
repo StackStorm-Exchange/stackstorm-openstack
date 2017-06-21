@@ -64,4 +64,4 @@ parameters:
         default: false
         description: List subnet pools shared between projects
         type: boolean
-runner_type: run-python
+runner_type: python-script

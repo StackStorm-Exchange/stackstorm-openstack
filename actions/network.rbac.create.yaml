@@ -60,4 +60,4 @@ parameters:
             "network") (choices: qos_policy, network)'
         required: true
         type: string
-runner_type: run-python
+runner_type: python-script

@@ -179,7 +179,7 @@ class CommandProcessor(object):
             LOG.debug('No of parameters %s', len(parameters))
             return {
                 'name': self._command_name,
-                'runner_type': 'run-python',
+                'runner_type': 'python-script',
                 'entry_point': SCRIPT_RELATIVE_PATH,
                 'enabled': True,
                 'description': self._command_cls.__doc__,

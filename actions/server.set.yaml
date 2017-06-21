@@ -40,4 +40,4 @@ parameters:
         description: 'New server state (valid value: active, error) (choices: active,
             error)'
         type: string
-runner_type: run-python
+runner_type: python-script

@@ -33,4 +33,4 @@ parameters:
     zone:
         description: Only return hosts in the availability zone
         type: string
-runner_type: run-python
+runner_type: python-script

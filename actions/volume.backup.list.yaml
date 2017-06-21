@@ -55,4 +55,4 @@ parameters:
     volume:
         description: Filters results by the volume which they backup (name or ID)
         type: string
-runner_type: run-python
+runner_type: python-script

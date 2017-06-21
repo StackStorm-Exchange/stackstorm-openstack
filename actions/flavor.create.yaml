@@ -82,4 +82,4 @@ parameters:
         default: 1
         description: Number of vcpus (default 1)
         type: integer
-runner_type: run-python
+runner_type: python-script

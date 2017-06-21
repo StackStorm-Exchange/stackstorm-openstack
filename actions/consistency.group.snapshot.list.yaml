@@ -46,4 +46,4 @@ parameters:
             "deleting" or "error_deleting") (choices: available, error, creating,
             deleting, error-deleting)'
         type: string
-runner_type: run-python
+runner_type: python-script

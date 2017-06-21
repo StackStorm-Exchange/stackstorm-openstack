@@ -40,4 +40,4 @@ parameters:
     service:
         description: List only specified service (name only)
         type: string
-runner_type: run-python
+runner_type: python-script

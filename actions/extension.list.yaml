@@ -50,4 +50,4 @@ parameters:
         default: false
         description: List extensions for the Block Storage API
         type: boolean
-runner_type: run-python
+runner_type: python-script

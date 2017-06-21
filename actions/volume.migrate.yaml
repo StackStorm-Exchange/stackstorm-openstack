@@ -44,4 +44,4 @@ parameters:
         description: Volume to migrate (name or ID)
         required: true
         type: string
-runner_type: run-python
+runner_type: python-script

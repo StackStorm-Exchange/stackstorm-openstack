@@ -29,4 +29,4 @@ parameters:
         description: 'Shell being used. Use none for data only (default: bash) (choices:
             bash, none)'
         type: string
-runner_type: run-python
+runner_type: python-script
