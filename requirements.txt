@@ -1,3 +1,11 @@
 python-openstackclient
 funcsigs
 pyyaml
+python-novaclient
+python-neutronclient
+python-keystoneclient
+python-glanceclient
+python-swiftclient
+python-cinderclient
+python-heatclient
+python-ceilometerclient
