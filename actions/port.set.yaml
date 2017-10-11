@@ -4,6 +4,10 @@ enabled: true
 entry_point: src/wrapper.py
 name: port.set
 parameters:
+    allowed_address:
+        description: 'Add allowed-address pair associated with this port: ip-address=<ip-address>[,mac-address=<mac-address>]
+            (repeat option to set multiple allowed-address pairs)'
+        type: string
     base:
         default: port set
         immutable: true
@@ -15,6 +19,11 @@ parameters:
         type: string
     cloud:
         description: A specific cloud to query
+        type: string
+    data_plane_status:
+        description: 'Set data plane status of this port (ACTIVE | DOWN). Unset it
+            to None with the ''port unset'' command (requires data plane status extension)
+            (choices: ACTIVE, DOWN)'
         type: string
     description:
         description: Description of this port
@@ -53,7 +62,7 @@ parameters:
         immutable: true
         type: string
     fixed_ip:
-        description: 'Desired IP and/or subnet (name or ID) for this port: subnet=<subnet>,ip-address=<ip-address>
+        description: 'Desired IP and/or subnet for this port (name or ID): subnet=<subnet>,ip-address=<ip-address>
             (repeat option to set multiple fixed IP addresses)'
         type: string
     host:
@@ -62,9 +71,18 @@ parameters:
     host_id:
         description: ==SUPPRESS==
         type: string
+    mac_address:
+        description: MAC address of this port (admin only)
+        type: string
     name:
         description: Set port name
         type: string
+    no_allowed_address:
+        default: false
+        description: Clear existing allowed-address pairs associatedwith this port.(Specify
+            both --allowed-address and --no-allowed-addressto overwrite the current
+            allowed-address pairs)
+        type: boolean
     no_binding_profile:
         default: false
         description: Clear existing information of binding:profile.Specify both --binding-profile
@@ -79,6 +97,11 @@ parameters:
         default: false
         description: Clear existing security groups associated with this port
         type: boolean
+    no_tag:
+        default: false
+        description: Clear tags associated with the port. Specify both --tag and --no-tag
+            to overwrite current tags
+        type: boolean
     port:
         description: Port to modify (name or ID)
         required: true
@@ -89,13 +112,19 @@ parameters:
     project_name:
         description: Run the action under a different project, identified by name
         type: string
+    qos_policy:
+        description: Attach QoS policy to this port (name or ID)
+        type: string
     security_group:
         description: Security group to associate with this port (name or ID) (repeat
             option to set multiple security groups)
         type: array
+    tag:
+        description: Tag to be added to the port (repeat option to set multiple tags)
+        type: array
     vnic_type:
         description: 'VNIC type for this port (direct | direct-physical | macvtap
-            | normal | baremetal, default: normal) (choices: direct, direct-physical,
-            macvtap, normal, baremetal)'
+            | normal | baremetal | virtio-forwarder,  default: normal) (choices: direct,
+            direct-physical, macvtap, normal, baremetal, virtio-forwarder)'
         type: string
 runner_type: python-script

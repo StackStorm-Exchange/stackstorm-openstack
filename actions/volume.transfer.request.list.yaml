@@ -6,7 +6,7 @@ name: volume.transfer.request.list
 parameters:
     all_projects:
         default: false
-        description: Shows detail for all projects. Admin only. (defaults to False)
+        description: Include all projects (admin only)
         type: boolean
     base:
         default: volume transfer request list

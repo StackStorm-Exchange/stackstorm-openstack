@@ -4,6 +4,10 @@ enabled: true
 entry_point: src/wrapper.py
 name: network.rbac.list
 parameters:
+    action:
+        description: 'List network RBAC policies according to given action ("access_as_external"
+            or "access_as_shared") (choices: access_as_external, access_as_shared)'
+        type: string
     base:
         default: network rbac list
         immutable: true
@@ -20,6 +24,10 @@ parameters:
         description: 'the output format, defaults to table (choices: csv, json, table,
             value, yaml)'
         type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
     noindent:
         default: false
         description: whether to disable indenting the JSON
@@ -29,5 +37,9 @@ parameters:
         type: string
     project_name:
         description: Run the action under a different project, identified by name
+        type: string
+    type:
+        description: 'List network RBAC policies according to given object type ("qos_policy"
+            or "network") (choices: qos_policy, network)'
         type: string
 runner_type: python-script

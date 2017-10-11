@@ -13,11 +13,11 @@ parameters:
         type: string
     disable:
         default: false
-        description: Freeze and disable the specified volume host.
+        description: Freeze and disable the specified volume host
         type: boolean
     enable:
         default: false
-        description: Thaw and enable the specified volume host.
+        description: Thaw and enable the specified volume host
         type: boolean
     ep:
         default: EntryPoint.parse('volume_host_set = openstackclient.volume.v2.volume_host:SetVolumeHost')

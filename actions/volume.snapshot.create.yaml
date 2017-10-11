@@ -47,7 +47,8 @@ parameters:
             source-name=test_name --remote-source source-id=test_id'''
         type: array
     snapshot_name:
-        description: Name of the new snapshot (default to None)
+        description: Name of the new snapshot
+        required: true
         type: string
     volume:
         description: Volume to snapshot (name or ID) (default is <snapshot-name>)

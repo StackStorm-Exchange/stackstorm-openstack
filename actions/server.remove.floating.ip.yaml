@@ -16,7 +16,7 @@ parameters:
         immutable: true
         type: string
     ip_address:
-        description: Floating IP address (IP address only) to remove from server
+        description: Floating IP address to remove from server (IP only)
         required: true
         type: string
     project_id:
@@ -26,7 +26,7 @@ parameters:
         description: Run the action under a different project, identified by name
         type: string
     server:
-        description: Server (name or ID) to remove the floating IP address from
+        description: Server to remove the floating IP address from (name or ID)
         required: true
         type: string
 runner_type: python-script

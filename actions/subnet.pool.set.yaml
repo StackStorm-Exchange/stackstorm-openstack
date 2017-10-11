@@ -22,6 +22,10 @@ parameters:
     default_prefix_length:
         description: Set subnet pool default prefix length
         type: integer
+    default_quota:
+        description: Set default quota for subnet pool as the number ofIP addresses
+            allowed in a subnet
+        type: integer
     description:
         description: Set subnet pool description
         type: string
@@ -46,6 +50,11 @@ parameters:
         default: false
         description: Set this as a non-default subnet pool
         type: boolean
+    no_tag:
+        default: false
+        description: Clear tags associated with the subnet pool. Specify both --tag
+            and --no-tag to overwrite current tags
+        type: boolean
     pool_prefix:
         description: Set subnet pool prefixes (in CIDR notation) (repeat option to
             set multiple prefixes)
@@ -60,4 +69,8 @@ parameters:
         description: Subnet pool to modify (name or ID)
         required: true
         type: string
+    tag:
+        description: Tag to be added to the subnet pool (repeat option to set multiple
+            tags)
+        type: array
 runner_type: python-script

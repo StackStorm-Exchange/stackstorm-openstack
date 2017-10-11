@@ -16,7 +16,7 @@ parameters:
         immutable: true
         type: string
     ip_address:
-        description: Fixed IP address (IP address only) to remove from the server
+        description: Fixed IP address to remove from the server (IP only)
         required: true
         type: string
     project_id:
@@ -26,7 +26,7 @@ parameters:
         description: Run the action under a different project, identified by name
         type: string
     server:
-        description: Server (name or ID) to remove the fixed IP address from
+        description: Server to remove the fixed IP address from (name or ID)
         required: true
         type: string
 runner_type: python-script

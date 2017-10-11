@@ -46,6 +46,6 @@ parameters:
         type: boolean
     wait:
         default: false
-        description: Wait for resize to complete
+        description: Wait for migrate to complete
         type: boolean
 runner_type: python-script

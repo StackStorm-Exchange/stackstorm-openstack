@@ -15,8 +15,11 @@ parameters:
         default: EntryPoint.parse('server_add_fixed_ip = openstackclient.compute.v2.server:AddFixedIP')
         immutable: true
         type: string
+    fixed_ip_address:
+        description: Requested fixed IP address
+        type: string
     network:
-        description: Network (name or ID) to allocate the fixed IP address from
+        description: Network to allocate the fixed IP address from (name or ID)
         required: true
         type: string
     project_id:
@@ -26,7 +29,7 @@ parameters:
         description: Run the action under a different project, identified by name
         type: string
     server:
-        description: Server (name or ID) to receive the fixed IP address
+        description: Server to receive the fixed IP address (name or ID)
         required: true
         type: string
 runner_type: python-script

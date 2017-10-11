@@ -20,6 +20,10 @@ parameters:
         description: 'the output format, defaults to table (choices: csv, json, table,
             value, yaml)'
         type: string
+    group:
+        description: 'Show commands filtered by a command group, for example: identity,
+            volume, compute, image, network and other keywords'
+        type: string
     noindent:
         default: false
         description: whether to disable indenting the JSON

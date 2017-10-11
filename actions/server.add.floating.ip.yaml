@@ -15,8 +15,11 @@ parameters:
         default: EntryPoint.parse('server_add_floating_ip = openstackclient.compute.v2.server:AddFloatingIP')
         immutable: true
         type: string
+    fixed_ip_address:
+        description: Fixed IP address to associate with this floating IP address
+        type: string
     ip_address:
-        description: Floating IP address (IP address only) to assign to server
+        description: Floating IP address to assign to server (IP only)
         required: true
         type: string
     project_id:
@@ -26,7 +29,7 @@ parameters:
         description: Run the action under a different project, identified by name
         type: string
     server:
-        description: Server (name or ID) to receive the floating IP address
+        description: Server to receive the floating IP address (name or ID)
         required: true
         type: string
 runner_type: python-script

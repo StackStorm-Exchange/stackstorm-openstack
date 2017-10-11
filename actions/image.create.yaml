@@ -14,9 +14,15 @@ parameters:
     cloud:
         description: A specific cloud to query
         type: string
+    community:
+        default: false
+        description: Image is accessible to the community
+        type: boolean
     container_format:
         default: bare
-        description: 'Image container format (default: bare)'
+        description: 'Image container format. The supported options are: ami, ari,
+            aki, bare, docker, ova, ovf. The default format is: bare (choices: ami,
+            ari, aki, bare, docker, ova, ovf)'
         type: string
     copy_from:
         description: ==SUPPRESS==
@@ -94,6 +100,10 @@ parameters:
     public:
         default: false
         description: Image is accessible to the public
+        type: boolean
+    shared:
+        default: false
+        description: Image can be shared
         type: boolean
     size:
         description: ==SUPPRESS==

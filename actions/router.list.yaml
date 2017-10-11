@@ -4,6 +4,13 @@ enabled: true
 entry_point: src/wrapper.py
 name: router.list
 parameters:
+    agent:
+        description: List routers hosted by an agent (ID only)
+        type: string
+    any_tags:
+        description: List routers which have any given tag(s) (Comma-separated list
+            of tags)
+        type: string
     base:
         default: router list
         immutable: true
@@ -39,6 +46,14 @@ parameters:
         default: false
         description: whether to disable indenting the JSON
         type: boolean
+    not_any_tags:
+        description: Exclude routers which have any given tag(s) (Comma-separated
+            list of tags)
+        type: string
+    not_tags:
+        description: Exclude routers which have all given tag(s) (Comma-separated
+            list of tags)
+        type: string
     project:
         description: List routers according to their project (name or ID)
         type: string
@@ -51,5 +66,9 @@ parameters:
         type: string
     project_name:
         description: Run the action under a different project, identified by name
+        type: string
+    tags:
+        description: List routers which have all given tag(s) (Comma-separated list
+            of tags)
         type: string
 runner_type: python-script

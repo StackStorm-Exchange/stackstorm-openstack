@@ -5,8 +5,12 @@ entry_point: src/wrapper.py
 name: subnet.pool.list
 parameters:
     address_scope:
-        description: List only subnet pools of given address scope (name or ID) in
-            output
+        description: List only subnet pools of given address scope in output (name
+            or ID)
+        type: string
+    any_tags:
+        description: List subnet pools which have any given tag(s) (Comma-separated
+            list of tags)
         type: string
     base:
         default: subnet pool list
@@ -47,6 +51,14 @@ parameters:
         default: false
         description: whether to disable indenting the JSON
         type: boolean
+    not_any_tags:
+        description: Exclude subnet pools which have any given tag(s) (Comma-separated
+            list of tags)
+        type: string
+    not_tags:
+        description: Exclude subnet pools which have all given tag(s) (Comma-separated
+            list of tags)
+        type: string
     project:
         description: List subnet pools according to their project (name or ID)
         type: string
@@ -64,4 +76,8 @@ parameters:
         default: false
         description: List subnet pools shared between projects
         type: boolean
+    tags:
+        description: List subnet pools which have all given tag(s) (Comma-separated
+            list of tags)
+        type: string
 runner_type: python-script
