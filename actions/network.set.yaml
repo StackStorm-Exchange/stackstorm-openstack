@@ -66,9 +66,10 @@ parameters:
         default: false
         description: Do not share the network between projects
         type: boolean
-    no_transparent_vlan:
+    no_tag:
         default: false
-        description: Do not make the network VLAN transparent
+        description: Clear tags associated with the network. Specify both --tag and
+            --no-tag to overwrite current tags
         type: boolean
     project_id:
         description: Run the action under a different project, identified by id
@@ -78,8 +79,7 @@ parameters:
         type: string
     provider_network_type:
         description: 'The physical mechanism by which the virtual network is implemented.
-            The supported options are: flat, geneve, gre, local, vlan, vxlan. (choices:
-            flat, geneve, gre, local, vlan, vxlan)'
+            For example: flat, geneve, gre, local, vlan, vxlan.'
         type: string
     provider_physical_network:
         description: Name of the physical network over which the virtual network is
@@ -95,8 +95,8 @@ parameters:
         default: false
         description: Share the network between projects
         type: boolean
-    transparent_vlan:
-        default: false
-        description: Make the network VLAN transparent
-        type: boolean
+    tag:
+        description: Tag to be added to the network (repeat option to set multiple
+            tags)
+        type: array
 runner_type: python-script

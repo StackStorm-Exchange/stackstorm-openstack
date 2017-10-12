@@ -29,6 +29,11 @@ parameters:
     name:
         description: New volume name
         type: string
+    no_property:
+        default: false
+        description: Remove all properties from <volume> (specify both --no-property
+            and --property to remove the current properties before setting new properties.)
+        type: boolean
     non_bootable:
         default: false
         description: Mark volume as non-bootable
@@ -53,7 +58,7 @@ parameters:
         type: boolean
     retype_policy:
         description: 'Migration policy while re-typing volume ("never" or "on-demand",
-            default is "never" ) (available only when "--type" option is specified)
+            default is "never" ) (available only when --type option is specified)
             (choices: never, on-demand)'
         type: string
     size:

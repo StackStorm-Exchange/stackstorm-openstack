@@ -15,6 +15,10 @@ parameters:
         default: false
         description: List the default volume type
         type: boolean
+    encryption_type:
+        default: false
+        description: Display encryption information for each volume type (admin only)
+        type: boolean
     ep:
         default: EntryPoint.parse('volume_type_list = openstackclient.volume.v2.volume_type:ListVolumeType')
         immutable: true

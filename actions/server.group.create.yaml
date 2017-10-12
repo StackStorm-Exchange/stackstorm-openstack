@@ -29,9 +29,10 @@ parameters:
         description: whether to disable indenting the JSON
         type: boolean
     policy:
-        description: Add a policy to <name> (repeat option to add multiple policies)
-        required: true
-        type: array
+        default: affinity
+        description: 'Add a policy to <name> (''affinity'' or ''anti-affinity'', default
+            to ''affinity'') (choices: affinity, anti-affinity)'
+        type: string
     project_id:
         description: Run the action under a different project, identified by id
         type: string

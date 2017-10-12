@@ -1,5 +1,5 @@
 ---
-description: List Service Providers
+description: null
 enabled: true
 entry_point: src/wrapper.py
 name: network.service.provider.list

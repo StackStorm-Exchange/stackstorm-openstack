@@ -4,6 +4,10 @@ enabled: true
 entry_point: src/wrapper.py
 name: port.create
 parameters:
+    allowed_address:
+        description: 'Add allowed-address pair associated with this port: ip-address=<ip-address>[,mac-address=<mac-address>]
+            (repeat option to set multiple allowed-address pairs)'
+        type: string
     base:
         default: port create
         immutable: true
@@ -53,7 +57,7 @@ parameters:
         immutable: true
         type: string
     fixed_ip:
-        description: 'Desired IP and/or subnet (name or ID) for this port: subnet=<subnet>,ip-address=<ip-address>
+        description: 'Desired IP and/or subnet for this port (name or ID): subnet=<subnet>,ip-address=<ip-address>
             (repeat option to set multiple fixed IP addresses)'
         type: string
     format:
@@ -68,7 +72,7 @@ parameters:
         description: ==SUPPRESS==
         type: string
     mac_address:
-        description: MAC address of this port
+        description: MAC address of this port (admin only)
         type: string
     name:
         description: Name of this port
@@ -81,6 +85,10 @@ parameters:
     no_security_group:
         default: false
         description: Associate no security groups with this port
+        type: boolean
+    no_tag:
+        default: false
+        description: No tags associated with the port
         type: boolean
     noindent:
         default: false
@@ -99,13 +107,19 @@ parameters:
     project_name:
         description: Run the action under a different project, identified by name
         type: string
+    qos_policy:
+        description: Attach QoS policy to this port (name or ID)
+        type: string
     security_group:
         description: Security group to associate with this port (name or ID) (repeat
             option to set multiple security groups)
         type: array
+    tag:
+        description: Tag to be added to the port (repeat option to set multiple tags)
+        type: array
     vnic_type:
         description: 'VNIC type for this port (direct | direct-physical | macvtap
-            | normal | baremetal, default: normal) (choices: direct, direct-physical,
-            macvtap, normal, baremetal)'
+            | normal | baremetal | virtio-forwarder,  default: normal) (choices: direct,
+            direct-physical, macvtap, normal, baremetal, virtio-forwarder)'
         type: string
 runner_type: python-script

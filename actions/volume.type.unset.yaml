@@ -11,12 +11,16 @@ parameters:
     cloud:
         description: A specific cloud to query
         type: string
+    encryption_type:
+        default: false
+        description: Remove the encryption type for this volume type (admin only)
+        type: boolean
     ep:
         default: EntryPoint.parse('volume_type_unset = openstackclient.volume.v2.volume_type:UnsetVolumeType')
         immutable: true
         type: string
     project:
-        description: Removes volume type access to project (name or ID)  (admin only)
+        description: Removes volume type access to project (name or ID) (admin only)
         type: string
     project_domain:
         description: Domain the project belongs to (name or ID). This can be used

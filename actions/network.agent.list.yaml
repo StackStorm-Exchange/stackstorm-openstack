@@ -4,6 +4,12 @@ enabled: true
 entry_point: src/wrapper.py
 name: network.agent.list
 parameters:
+    agent_type:
+        description: 'List only agents with the specified agent type. The supported
+            agent types are: bgp, dhcp, open-vswitch, linux-bridge, ofa, l3, loadbalancer,
+            metering, metadata, macvtap, nic. (choices: bgp, dhcp, open-vswitch, linux-bridge,
+            ofa, l3, loadbalancer, metering, metadata, macvtap, nic)'
+        type: string
     base:
         default: network agent list
         immutable: true
@@ -20,6 +26,16 @@ parameters:
         description: 'the output format, defaults to table (choices: csv, json, table,
             value, yaml)'
         type: string
+    host:
+        description: List only agents running on the specified host
+        type: string
+    long:
+        default: false
+        description: List additional fields in output
+        type: boolean
+    network:
+        description: List agents hosting a network (name or ID)
+        type: string
     noindent:
         default: false
         description: whether to disable indenting the JSON
@@ -29,5 +45,8 @@ parameters:
         type: string
     project_name:
         description: Run the action under a different project, identified by name
+        type: string
+    router:
+        description: List agents hosting this router (name or ID)
         type: string
 runner_type: python-script

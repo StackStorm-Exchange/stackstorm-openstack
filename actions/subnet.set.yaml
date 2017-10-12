@@ -63,6 +63,11 @@ parameters:
         description: Clear associated host-routes from the subnet. Specify both --host-route
             and --no-host-route to overwrite the current host route information.
         type: boolean
+    no_tag:
+        default: false
+        description: Clear tags associated with the subnet. Specify both --tag and
+            --no-tag to overwrite current tags
+        type: boolean
     project_id:
         description: Run the action under a different project, identified by id
         type: string
@@ -78,4 +83,8 @@ parameters:
         description: Subnet to modify (name or ID)
         required: true
         type: string
+    tag:
+        description: Tag to be added to the subnet (repeat option to set multiple
+            tags)
+        type: array
 runner_type: python-script

@@ -28,6 +28,10 @@ parameters:
         default: false
         description: whether to disable indenting the JSON
         type: boolean
+    private_key:
+        description: Filename for private key to save. If not used, print private
+            key in console.
+        type: string
     project_id:
         description: Run the action under a different project, identified by id
         type: string

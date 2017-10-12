@@ -11,6 +11,10 @@ parameters:
     cloud:
         description: A specific cloud to query
         type: string
+    default:
+        default: false
+        description: Set this as a default network QoS policy
+        type: boolean
     description:
         description: Description of the QoS policy
         type: string
@@ -27,6 +31,10 @@ parameters:
         description: Name of QoS policy to create
         required: true
         type: string
+    no_default:
+        default: false
+        description: Set this as a non-default network QoS policy
+        type: boolean
     no_share:
         default: false
         description: Make the QoS policy not accessible by other projects (default)

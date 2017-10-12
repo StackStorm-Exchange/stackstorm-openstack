@@ -21,6 +21,11 @@ parameters:
     name:
         description: New snapshot name
         type: string
+    no_property:
+        default: false
+        description: Remove all properties from <snapshot> (specify both --no-property
+            and --property to remove the current properties before setting new properties.)
+        type: boolean
     project_id:
         description: Run the action under a different project, identified by id
         type: string

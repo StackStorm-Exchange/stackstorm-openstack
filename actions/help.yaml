@@ -16,7 +16,7 @@ parameters:
         required: true
         type: string
     ep:
-        default: <cliff.commandmanager.EntryPointWrapper object at 0x7f59cfc1fa50>
+        default: <cliff.commandmanager.EntryPointWrapper object at 0x7f284050d5d0>
         immutable: true
         type: string
     project_id:

@@ -12,6 +12,10 @@ parameters:
         default: router create
         immutable: true
         type: string
+    centralized:
+        default: false
+        description: Create a centralized router
+        type: boolean
     cloud:
         description: A specific cloud to query
         type: string
@@ -47,6 +51,14 @@ parameters:
         description: New router name
         required: true
         type: string
+    no_ha:
+        default: false
+        description: Create a legacy router
+        type: boolean
+    no_tag:
+        default: false
+        description: No tags associated with the router
+        type: boolean
     noindent:
         default: false
         description: whether to disable indenting the JSON
@@ -64,4 +76,8 @@ parameters:
     project_name:
         description: Run the action under a different project, identified by name
         type: string
+    tag:
+        description: Tag to be added to the router (repeat option to set multiple
+            tags)
+        type: array
 runner_type: python-script

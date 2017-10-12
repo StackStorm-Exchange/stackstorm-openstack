@@ -20,6 +20,10 @@ parameters:
         description: 'the output format, defaults to table (choices: json, shell,
             table, value, yaml)'
         type: string
+    human_readable:
+        default: false
+        description: Print image size in a human-friendly format.
+        type: boolean
     image:
         description: Image to display (name or ID)
         required: true

@@ -22,6 +22,10 @@ parameters:
     default_prefix_length:
         description: Set subnet pool default prefix length
         type: integer
+    default_quota:
+        description: Set default quota for subnet pool as the number ofIP addresses
+            allowed in a subnet
+        type: integer
     description:
         description: Set subnet pool description
         type: string
@@ -52,6 +56,10 @@ parameters:
         default: false
         description: Set this subnet pool as not shared
         type: boolean
+    no_tag:
+        default: false
+        description: No tags associated with the subnet pool
+        type: boolean
     noindent:
         default: false
         description: whether to disable indenting the JSON
@@ -78,4 +86,8 @@ parameters:
         default: false
         description: Set this subnet pool as shared
         type: boolean
+    tag:
+        description: Tag to be added to the subnet pool (repeat option to set multiple
+            tags)
+        type: array
 runner_type: python-script

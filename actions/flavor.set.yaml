@@ -19,6 +19,11 @@ parameters:
         description: Flavor to modify (name or ID)
         required: true
         type: string
+    no_property:
+        default: false
+        description: Remove all properties from this flavor (specify both --no-property
+            and --property to remove the current properties before setting new properties.)
+        type: boolean
     project:
         description: Set flavor access to project (name or ID) (admin only)
         type: string

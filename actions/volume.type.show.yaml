@@ -11,6 +11,10 @@ parameters:
     cloud:
         description: A specific cloud to query
         type: string
+    encryption_type:
+        default: false
+        description: Display encryption information of this volume type (admin only)
+        type: boolean
     ep:
         default: EntryPoint.parse('volume_type_show = openstackclient.volume.v2.volume_type:ShowVolumeType')
         immutable: true

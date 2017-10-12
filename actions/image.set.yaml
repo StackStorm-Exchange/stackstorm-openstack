@@ -4,6 +4,10 @@ enabled: true
 entry_point: src/wrapper.py
 name: image.set
 parameters:
+    accept:
+        default: false
+        description: Accept the image membership
+        type: boolean
     activate:
         default: false
         description: Activate the image
@@ -18,8 +22,14 @@ parameters:
     cloud:
         description: A specific cloud to query
         type: string
+    community:
+        default: false
+        description: Image is accessible to the community
+        type: boolean
     container_format:
-        description: 'Image container format (default: bare)'
+        description: 'Image container format. The supported options are: ami, ari,
+            aki, bare, docker, ova, ovf (choices: ami, ari, aki, bare, docker, ova,
+            ovf)'
         type: string
     deactivate:
         default: false
@@ -65,6 +75,10 @@ parameters:
     owner:
         description: ==SUPPRESS==
         type: string
+    pending:
+        default: false
+        description: Reset the image membership to 'pending'
+        type: boolean
     private:
         default: false
         description: Image is inaccessible to the public (default)
@@ -96,6 +110,14 @@ parameters:
     ramdisk_id:
         description: ID of ramdisk image used to boot this disk image
         type: string
+    reject:
+        default: false
+        description: Reject the image membership
+        type: boolean
+    shared:
+        default: false
+        description: Image can be shared
+        type: boolean
     tag:
         default: []
         description: Set a tag on this image (repeat option to set multiple tags)

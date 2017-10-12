@@ -20,7 +20,8 @@ parameters:
         immutable: true
         type: string
     file:
-        description: Destination filename (defaults to object name)
+        description: Destination filename (defaults to object name); using '-' as
+            the filename will print the file to stdout
         type: string
     object:
         description: Object to save

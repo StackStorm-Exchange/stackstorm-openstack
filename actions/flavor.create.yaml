@@ -76,7 +76,7 @@ parameters:
         type: number
     swap:
         default: 0
-        description: Swap space size in GB (default 0G)
+        description: Swap space size in MB (default 0M)
         type: integer
     vcpus:
         default: 1

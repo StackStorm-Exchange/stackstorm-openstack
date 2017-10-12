@@ -119,7 +119,7 @@ class CommandProcessor(object):
         # Make sure choices are included in the description. Often action.help
         # may not list choices. It is perhaps better if this type were an enum?
         description = str(action.help) if not action.choices else \
-            '%s (choices: %s)' % (action.help, ', '.join(action.choices))
+            '%s (choices: %s)' % (action.help, ', '.join(map(str, action.choices)))
 
         return name, self._get_parameter(default=default, description=description,
                                          type_=type_, required=required)
