@@ -1,6 +1,7 @@
 python-openstackclient
 funcsigs
 pyyaml
+aodhclient
 python-novaclient
 python-neutronclient
 python-keystoneclient
