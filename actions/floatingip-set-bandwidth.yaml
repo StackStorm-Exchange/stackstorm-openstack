@@ -1,0 +1,34 @@
+---
+description: Update bandwidth of floating ip
+enabled: true
+entry_point: src/wrapper.py
+name: floatingip-set-bandwidth
+parameters:
+    bandwidth:
+        description: New bandwidth of the floating IP
+        type: string
+    base:
+        default: floatingip-set-bandwidth
+        immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
+    ep:
+        default: <cliff.commandmanager.EntryPointWrapper object at 0x2ec66d0>
+        immutable: true
+        type: string
+    floatingip_id:
+        description: ID of the floating IP to update
+        required: true
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
+    request_format:
+        description: '==SUPPRESS== (choices: json)'
+        type: string
+runner_type: python-script
