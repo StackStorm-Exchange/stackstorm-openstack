@@ -9,3 +9,4 @@ python-swiftclient
 python-cinderclient
 python-heatclient
 python-ceilometerclient
+python-zaqarclient
