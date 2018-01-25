@@ -1,0 +1,40 @@
+---
+description: LBaaS v2 Update a given loadbalancer.
+enabled: true
+entry_point: src/wrapper.py
+name: lbaas-loadbalancer-update
+parameters:
+    base:
+        default: lbaas-loadbalancer-update
+        immutable: true
+        type: string
+    cloud:
+        description: A specific cloud to query
+        type: string
+    description:
+        description: Description of the load balancer.
+        type: string
+    ep:
+        default: <cliff.commandmanager.EntryPointWrapper object at 0x2ec10d0>
+        immutable: true
+        type: string
+    id:
+        description: ID or name of loadbalancer to update.
+        required: true
+        type: string
+    name:
+        description: Name of the load balancer.
+        type: string
+    project_id:
+        description: Run the action under a different project, identified by id
+        type: string
+    project_name:
+        description: Run the action under a different project, identified by name
+        type: string
+    request_format:
+        description: '==SUPPRESS== (choices: json)'
+        type: string
+    stats_port:
+        description: 'Stats port for the load balancer. Default: 10000'
+        type: integer
+runner_type: python-script
