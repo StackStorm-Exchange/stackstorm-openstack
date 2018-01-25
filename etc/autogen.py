@@ -11,10 +11,10 @@ import yaml
 
 # HACK until setup.py is worked out to add actions/src to PYTHONPATH
 sys.path.append(os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
+    os.path.abspath(os.path.dirname(__file__)),
     '../actions/src'))
 
-from lib.utils import ArgparseUtils
+from lib.utils import ArgparseUtils  # pylint: disable-all
 
 
 LOG = logging.getLogger(__name__)
@@ -297,5 +297,5 @@ if __name__ == "__main__":
         main()
     except SystemExit:
         pass
-    except:
+    except Exception:
         LOG.exception('autogen stalled.')
