@@ -1,12 +1,5 @@
 # Change Log
 
-## 0.7.0
-- Add missing zaqarclient
-- Add Aodh cli action files and aodhclient to requirements
-- Add Neutron cli action files and python-neutronclient to requirements,
-  and choose to use neutron cli because some neutron apis hasn't been implemented
-  in openstackclient plugin
-
 ## 0.6.0
 
 - Added additional project clients to requirements.txt

@@ -1,7 +1,6 @@
 python-openstackclient
 funcsigs
 pyyaml
-aodhclient
 python-novaclient
 python-neutronclient
 python-keystoneclient
@@ -10,4 +9,3 @@ python-swiftclient
 python-cinderclient
 python-heatclient
 python-ceilometerclient
-python-zaqarclient
