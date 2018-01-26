@@ -6,7 +6,6 @@ import subprocess
 import sys
 
 from st2common.runners.base_action import Action
-from utils import NEUTRON_PARAMETER
 from utils import process_kwargs
 
 
@@ -23,16 +22,6 @@ class OpenStackBaseAction(Action):
         self.parser = None
 
     def run(self, **kwargs):
-        # OpenStack doesn't include all neutron clis, so use neutron cli
-        # instead to execute actions belongs to neutron client.
-        try:
-            ep = kwargs['ep']
-        except KeyError:
-            raise
-        else:
-            entry = ep.split('(')[1].split('=')[0][1:-1]
-            if entry in NEUTRON_PARAMETER:
-                self.os_cli_cmd = 'neutron'
         self.parser = self._get_parser(kwargs.pop('ep'))
         kwargs = process_kwargs(kwargs)
         cmd = [self.os_cli_cmd]
