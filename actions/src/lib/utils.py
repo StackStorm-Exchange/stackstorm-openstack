@@ -51,6 +51,9 @@ DASH_PARAMETERS = [
     "end_marker",
     "protocol_port",
     "lb_algorithm",
+    "provider_network_type",
+    "provider_physical_network",
+    "provider_segmentation_id"
 ]
 
 NEUTRON_PARAMETER = [
@@ -311,7 +314,14 @@ NEUTRON_PARAMETER = [
 def process_kwargs(kwargs):
     for key in DASH_PARAMETERS:
         if key in kwargs:
-            kwargs[key.replace('_', '-')] = kwargs.pop(key)
+            if key == 'provider_network_type':
+                kwargs['provider:network_type'] = kwargs.pop(key)
+            elif key == 'provider_physical_network':
+                kwargs['provider:physical_network'] = kwargs.pop(key)
+            elif key == 'provider_segmentation_id':
+                kwargs['provider:segmentation_id'] = kwargs.pop(key)
+            else:
+                kwargs[key.replace('_', '-')] = kwargs.pop(key)
     return kwargs
 
 

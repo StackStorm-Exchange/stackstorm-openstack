@@ -87,3 +87,14 @@ messaging:
 ```
 
 This will dispatch a trigger when it sees messages in the configured queues.
+
+## Attention
+
+Some actions in the pack have almost identical name, such as:
+
+`address.scope.create` and `neutron.address.scope.create`
+
+These `neutron` prefix actions exist in the consequence of introducing neutronclient which has some APIs
+haven't been included in openstackclient, If there isn't a specific prefix of OpenStack service, that means
+this action uses openstackclient. In contrast, the latter action belongs to neturonclient. In such cases,
+use non-neutron prefix actions first.
