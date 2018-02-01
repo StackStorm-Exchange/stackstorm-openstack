@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.7.0
+- Rename neutron actions to neutron.<name> to avoid conflict in user end
+- Rename aodh actions to aodh.<name>
+- Add missing zaqarclient
+- Add Aodh action files and aodhclient to requirements
+- Add Neutron action files and python-neutronclient to requirements.
+  Integrate neutronclient because some neutron APIs hasn't been implemented
+  in openstackclient plugin
+- Fix some configuration files' format
+
 ## 0.6.0
 
 - Added additional project clients to requirements.txt
