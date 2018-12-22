@@ -1,6 +1,11 @@
 # Change Log
 
+## 0.7.1
+
+- Version bump to fix tagging issue. No code changes.
+
 ## 0.7.0
+
 - Rename neutron actions to neutron.<name> to avoid conflict in user end
 - Rename aodh actions to aodh.<name>
 - Add missing zaqarclient
