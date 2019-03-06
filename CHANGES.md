@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.7.2
+
+- Update OpenStack authenticate environment variables for Keystone v3
+  compatible.
+
 ## 0.7.1
 
 - Version bump to fix tagging issue. No code changes.
