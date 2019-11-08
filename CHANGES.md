@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.0
+
+- Add group actions
+
 ## 0.7.3
 
 - Python 3 fixups
