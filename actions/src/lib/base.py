@@ -6,8 +6,8 @@ import subprocess
 import sys
 
 from st2common.runners.base_action import Action
-from utils import NEUTRON_PARAMETER
-from utils import process_kwargs
+from .utils import NEUTRON_PARAMETER  # pylint: disable=no-name-in-module
+from .utils import process_kwargs  # pylint: disable=no-name-in-module
 
 
 class OpenStackBaseAction(Action):
