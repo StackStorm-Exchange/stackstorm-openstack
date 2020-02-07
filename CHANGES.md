@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.7.3
+
+- Python 3 fixups
+- Add explicit support for Python 2 and 3
+
 ## 0.7.2
 
 - Update OpenStack authenticate environment variables for Keystone v3
