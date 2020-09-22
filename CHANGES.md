@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.1
+
+- Correct problem with error reporting on Python 3
+
 ## 0.8.0
 
 - Add group actions
