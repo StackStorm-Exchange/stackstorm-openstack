@@ -93,6 +93,6 @@ class OpenStackBaseAction(Action):
                 return out
         else:
             # put out and err to output streams
-            sys.stdout.write(out)
-            sys.stderr.write(err)
+            sys.stdout.write(six.ensure_str(out))
+            sys.stderr.write(six.ensure_str(err))
             sys.exit(exit)
