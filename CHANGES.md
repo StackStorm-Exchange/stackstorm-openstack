@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.0
+
+- As latest pyrsistent only supports python3, update pack to be python3 only
+
 ## 0.8.1
 
 - Correct problem with error reporting on Python 3
