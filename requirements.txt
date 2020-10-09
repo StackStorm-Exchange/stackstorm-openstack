@@ -11,3 +11,4 @@ python-cinderclient
 python-heatclient
 python-ceilometerclient
 python-zaqarclient
+pyrsistent<0.17

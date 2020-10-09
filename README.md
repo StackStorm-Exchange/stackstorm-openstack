@@ -2,6 +2,12 @@
 
 StackStorm pack for OpenStack integration.
 
+## Pre-Requisites
+
+Versions of this pack earlier than 1.0.0 install specific versions of Python dependencies.
+Your system must have a compiler installed first: - e.g. `apt install gcc` or `yum install gcc`.
+
+
 ## Configuration
 
 Copy the example configuration in [openstack.yaml.example](./openstack.yaml.example)

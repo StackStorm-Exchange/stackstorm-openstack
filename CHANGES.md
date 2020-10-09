@@ -3,6 +3,7 @@
 ## 0.8.1
 
 - Correct problem with error reporting on Python 3
+- Updated dependencies so will install on Python 2 after pyrsistent updates
 
 ## 0.8.0
 
