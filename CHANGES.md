@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.2
+
+- Correct problem with running commands with newer versions of cliff
+
 ## 0.8.1
 
 - Correct problem with error reporting on Python 3
