@@ -1,8 +1,12 @@
 # Change Log
 
-## 0.8.2
+## 1.0.1
 
 - Correct problem with running commands with newer versions of cliff
+
+## 1.0.0
+
+* Drop Python 2.7 support
 
 ## 0.8.1
 
