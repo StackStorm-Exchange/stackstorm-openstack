@@ -11,3 +11,4 @@ python-cinderclient
 python-heatclient
 python-ceilometerclient
 python-zaqarclient
+cliff<3.5.0
